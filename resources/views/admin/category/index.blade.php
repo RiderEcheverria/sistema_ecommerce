@@ -16,8 +16,6 @@
                     <li class="breadcrumb-item">
                         <a href="">Panel administrador</a>
                     </li>
-                    {{-- {{route('home')}} --}}
-                    {{-- {{route('categories.create')}} --}}
                     <li class="breadcrumb-item active" aria-current="page">Categorias</li>
                 </ol>
             </nav>
@@ -68,11 +66,12 @@
                                                                             <div id="order-listing_filter"
                                                                                 class="dataTables_filter">
                                                                                 <label>
-                                                                                    <input type="search"
-                                                                                        class="form-control"
-                                                                                        placeholder="Search"
-                                                                                        aria-controls="order-listing">
-                                                                                </label>
+                                                                                    <div class="btn-group">
+                                                                                        <span class="btn btn-primary">Buscar</span>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                      <input type="search" class="form-control" placeholder="Search" aria-controls="order-listing">
+                                                                                  </label>
                                                                             </div>
                                                                         </div>
                                                                     </div>

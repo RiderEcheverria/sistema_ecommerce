@@ -79,12 +79,9 @@
                                                                                     class="dataTables_filter">
                                                                                     <label>
                                                                                         <div class="btn-group">
-                                                                                            {{-- <a class="nav-link" href="{{route('clients.create')}}"> --}}
-
                                                                                             <span
                                                                                                 class="btn btn-primary">Buscar</span>
-                                                                                            </a>
-
+                                                                                            </a>                                                                    
                                                                                         </div>
                                                                                         <input type="search"
                                                                                             class="form-control"
@@ -94,10 +91,9 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                         
                                                                         <div class="row">
                                                                             <div class="col-sm-12">
-
-
                                                                                 <table id="order-listing"
                                                                                     class="table dataTable no-footer"
                                                                                     role="grid"
@@ -141,9 +137,14 @@
                                                                                                     </td>
                                                                                                     <td>{{ $persona->created_at}}
                                                                                                     </td>
-                                                                                                    <td>{{ $persona->estatus}}
-                                                                                                    </td>
-
+                                                                                                    <td id="resp{{ $persona->id }}">
+                                                                                                        <br>
+                                                                                                          @if($persona->estatus == 1)
+                                                                                                          <button type="button"  class="btn btn-sm btn-success">Activo</button>
+                                                                                                              @else
+                                                                                                          <button type="button" class="btn btn-sm btn-danger">Inactivo</button>
+                                                                                                          @endif
+                                                                                                      </td>
                                                                                                     <td style="width: 20%;">
 
 
@@ -165,13 +166,8 @@
                                                                                                             <i
                                                                                                                 class="far fa-trash-alt"></i>
                                                                                                         </button>
-
-
                                                                                                         {!! Form::close() !!}
-
-
                                                                                                     </td>
-
                                                                                                 </tr>
                                                                                             @endforeach
 
@@ -236,7 +232,6 @@
     </div>
 @endsection
 @section('scripts')
-
     {!! Html::script('melody/../../js/data-table.js') !!}
 
 @endsection

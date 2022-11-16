@@ -65,11 +65,8 @@
                                                           <div id="order-listing_filter" class="dataTables_filter">
                                                               <label>
                                                                 <div class="btn-group">
-                                                                  {{-- <a class="nav-link" href="{{route('clients.create')}}"> --}}
-                                                                     
                                                                     <span class="btn btn-primary">Buscar</span>
                                                                     </a>
-                                                               
                                                                 </div>
                                                                   <input type="search" class="form-control" placeholder="Search" aria-controls="order-listing">
                                                               </label>

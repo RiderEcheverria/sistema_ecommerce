@@ -36,9 +36,6 @@
                                         <div class="d-flex justify-content-between">
                                             <h4 class="card-title">Registro de personas</h4>
                                         </div>
-
-
-
                                         <br />
                                         {!! Form::open(['route' => 'personas.store', 'method' => 'POST']) !!}
 
@@ -47,18 +44,13 @@
                                         <a href="{{ route('personas.index') }}" class="btn btn-primary mr-2"> Cancelar</a>
                                         {!! Form::close() !!}
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-
-
-
                     </div>
                 </div>
             </div>
         </div>
-
 @endsection
 
 @section('scripts')

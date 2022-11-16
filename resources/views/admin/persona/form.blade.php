@@ -18,14 +18,19 @@
    <div class="form-group">
     <label for="email">Correo electronoco</label>
     <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder="@.gmail.com" required>
-    </div>
-   
-   
+    </div>   
    <div class="form-group">
     <label for="celular" >Numero de contacto</label>
     <input type="text" name="celular" id="celular" class="form-control" placeholder="Celilar/Telefono" required>
   </div>
-
+  <div class="form-group">
+    <label for="exampleSelectGender">Estado</label>
+      <select  name="estatus" value="{{ old('estatus', $persona->estatus) }}" class="form-control" id="exampleSelectGender">
+        <option selected>Sleccione el estado</option>
+        <option value="1">Activo</option>
+        <option value="0">Inactivo</option>
+      </select>
+    </div>
 
 
 

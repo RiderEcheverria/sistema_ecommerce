@@ -40,71 +40,35 @@
                             <div class="col-lg-4">
                               <div class="border-bottom text-center pb-6">
                                 
-                                <img src="{{asset('image/'.$product->image)}}" alt="sample" class="rounded mw-100">
-
-                                {{-- <img  src="{{asset('image/'.$product->image)}}"  alt="profile" class="img-lg rounded mb-3"> --}}
-                                <h3> {{$product->name}}</h3>
-                               
-                             
+                                <img src="{{asset('image/'.$product->image)}}" alt="sample" class="rounded mw-100"> 
+                                <h3> {{$product->name}}</h3>                       
                               </div>
                              
                               {{-- 'code',
-                              'name',
-                              'stock',
+                              'name',          
                               'image',
-                              'sell_price',//precio
                               'status',//estado
-                              'category_id',//categoria
-                              'provider_id',//proveedor  --}}
+                              'category_id',//categoria  --}}
                               <br/>
           
                               <div class="py-4">
                                 <p class="clearfix">
                                   <span class="float-left">
-                                    Status
-                                  </span>
-                                  <span class="float-right text-muted">
-                                    @if ($product->status == 'ACTIVE')
-                                  
-                                  <label class="badge badge-success badge-pill">{{$product->status}}</label>
-                                
-                                    @else
-                                    <label class="badge badge-danger badge-pill">{{$product->status}}</label>
-                                  
-                                    @endif
                                  
-                                </p>
-                                {{-- <p class="clearfix">
-                                  <span class="float-left">
-                                   Proveedor
-                                  </span>
-                                  <span class="float-right text-muted">
-                                    <a href="{{route('providers.show',$product->provider->id)}}">
-                                      {{$product->provider->name}}</a>
-                                    
-                                  </span>
-                                </p> --}}
+                                </p>                              
                                 <p class="clearfix">
                                   <span class="float-left">
                                   Categoria
                                   </span>
                                   <span class="float-right text-muted">
-                                    <a href="">
+                                    <a >
                                       {{$product->category->name}}</a>
                                    
                                   </span>
                                 </p>
                                 
                                
-                              </div>
-                              {{-- <button class="btn btn-primary btn-block">{{$product->status}}</button> --}}
-                            
-
-                              @if ($product->status == 'ACTIVE')
-                              <button class="btn btn-success btn-block">{{$product->status}}</button>
-                              @else
-                              <button class="btn btn-danger btn-block">{{$product->status}}</button>
-                              @endif
+                              </div>                                    
                             </div>
           
           
@@ -165,24 +129,6 @@
                                
                                 </ul>
                               </div>
-                              {{-- <div class="mt-2 py-2 border-top border-bottom">
-                                <ul class="nav profile-navbar">
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                                      <b>Precio</b>
-                                      <p class="text-muted">
-                                       {{$product->sell_price}} Bs.
-                                       </p>
-                                    </a>
-                                  </li>
-                               
-                                </ul>
-
-                              </div> --}}
-                             
-                              
-                             
                               <br/>
                               <div lass="card-footer text-mited">
                                 <a href="{{route('products.index')}}"  class="btn btn-primary mr-2

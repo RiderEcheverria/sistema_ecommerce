@@ -75,11 +75,14 @@
                                                 value="{{ $persona->celular }}" class="form-control" placeholder=""
                                                 required>
                                         </div>
-
-
-
-
-
+                                        <div class="form-group">
+                                            <label for="exampleSelectGender">Estado</label>
+                                              <select  name="estatus" value="{{ old('estatus', $persona->estatus) }}" class="form-control" id="exampleSelectGender">
+                                                <option selected>Seleccione el estado</option>
+                                                <option value="1">Activo</option>
+                                                <option value="0">Inactivo</option>
+                                              </select>
+                                            </div>
 
                                         <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
                                         <a href="{{ route('personas.index') }}" class="btn btn-primary mr-2"> Cancelar</a>

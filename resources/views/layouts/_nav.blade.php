@@ -315,7 +315,7 @@
           </a>
         </li>
         <i class="fa-solid fa-badge-check"></i>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
        
           <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
             <i class="fa-solid fa-users menu-icon" ></i>
@@ -333,7 +333,7 @@
               
           </div>
       
-        </li>
+        </li> --}}
         <li class="nav-item">
           
           <a class="nav-link" href="{{route('personas.index')}}">
@@ -342,21 +342,21 @@
           </a>
         </li>
      
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link" href="{{route('purchases.index')}}">
             <i class="fa-solid fa-tags menu-icon"></i>
             
             <span class="menu-title">Compras</span>
           </a>
           
-        </li>
-        <li class="nav-item">
+        </li> --}}
+        {{-- <li class="nav-item">
           
           <a class="nav-link" href="pages/widgets.html">
             <i class="fa fa-shopping-cart  menu-icon"></i>
             <span class="menu-title">Ventas</span>
           </a>
-        </li>
+        </li> --}}
         <li class="nav-item">
           
           <a class="nav-link" href="pages/widgets.html">
@@ -367,12 +367,12 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
             <i class="fa-solid fa-layer-group menu-icon"></i>
-            <span class="menu-title">Invetarios</span>
+            <span class="menu-title">Inventario</span>
             <i class="menu-arrow"></i>
           </a>
           <div class="collapse" id="page-layouts">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="#">Inventario</a></li>
+              {{-- <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="#">Inventario</a></li> --}}
               <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{route('products.index')}}">Productos</a></li>
               <li class="nav-item"> <a class="nav-link" href="{{route('categories.index')}}">Categorias</a></li>
               <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{route('brands.index')}}">Marcas</a></li>
