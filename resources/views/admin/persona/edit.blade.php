@@ -1,13 +1,5 @@
 @extends('layouts.admin')
-
 @section('title', 'Gestion de personas')
-@section('styles')
-
-@endsection
-
-@section('preference')
-
-
 @section('contenido')
     <div class="content-wrapper">
         <div class="page-header">
@@ -15,11 +7,9 @@
                 Editar personas
             </h3>
             <nav aria-label="breadcrumb">
-
                 <ol class="breadcrumb breadcrumb-custom">
                     <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('personas.index') }}"> Personas</a></li>
-
                     <li class="breadcrumb-item active" aria-current="page">Editar categoria</li>
                 </ol>
             </nav>
@@ -35,12 +25,7 @@
                                         <div class="d-flex justify-content-between">
                                             <h4 class="card-title"> Editar categoria</h4>
                                         </div>
-
                                         {!! Form::model($persona, ['route' => ['personas.update', $persona], 'method' => 'PUT']) !!}
-
-                                        {{-- 'name', 'address','email','cedula','celular', --}}
-
-
                                         <div class="form-group">
                                             <label for="name">Nombre</label>
                                             <input type="text" name="name" id="name" value="{{ $persona->name }}"
@@ -83,65 +68,15 @@
                                                 <option value="0">Inactivo</option>
                                               </select>
                                             </div>
-
                                         <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
                                         <a href="{{ route('personas.index') }}" class="btn btn-primary mr-2"> Cancelar</a>
                                         {!! Form::close() !!}
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
-   
 @endsection
-
-@section('scripts')
-    {!! Html::script('melody/../../js/data-table.js') !!}
-
-
-@endsection
-
-
-
-
-
-
-
-{{-- 
-@extends('layouts.app')
-
-@section('template_title')
-    Update Persona
-@endsection
-
-@section('content')
-    <section class="content container-fluid">
-        <div class="">
-            <div class="col-md-12">
-
-                @includeif('partials.errors')
-
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Update Persona</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('personas.update', $persona->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
-                            @csrf
-
-                            @include('persona.form')
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-@endsection --}}

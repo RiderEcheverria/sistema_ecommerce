@@ -6,15 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-    protected $fillable = [
-        'name',
-        'ci',  
-        'address',
-        'phone',
-        'email',
+    protected $fillable = ['name','ci','address','phone','email'];
     
-
-    ];
-    
-
 }

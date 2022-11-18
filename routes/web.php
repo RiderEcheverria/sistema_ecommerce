@@ -2,10 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
 
-    
+Route::get('/', function () {
+    return view('welcome');   
 });
  //RUTAS DE REGISTRO DE USUARIOS 
 Route::group(['middleware' => 'auth'], function() {
@@ -16,7 +15,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/users/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
-
 });
 //RUTA DE REGISTRO DE PESONAS 
 Route::resource('personas','PersonaController')->names('personas');
@@ -41,9 +39,5 @@ Route::get('/prueba', function () {
     return view('prueba');
 });
 
-Route::get('/prueba-dos', function () {
-    return view('prueba-dos');
-});
 'Auth'::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

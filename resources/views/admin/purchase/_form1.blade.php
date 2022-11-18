@@ -1,4 +1,3 @@
-
 <div class="form-row">
     <div class="form-group col-md-8">
         <div class="form-group">
@@ -21,9 +20,6 @@
         </div>
     </div>
 </div>
-
-
-
 <div class="form-row">
     <div class="form-group col-md-6">
         <div class="form-group">

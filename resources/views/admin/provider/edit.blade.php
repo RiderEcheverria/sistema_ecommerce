@@ -1,13 +1,5 @@
 @extends('layouts.admin')
-
 @section('title', 'Gestion de categorias')
-@section('styles')
-
-@endsection
-
-@section('preference')
-
-
 @section('contenido')
     <div class="content-wrapper">
         <div class="page-header">
@@ -15,11 +7,9 @@
                 Editar categoria
             </h3>
             <nav aria-label="breadcrumb">
-
                 <ol class="breadcrumb breadcrumb-custom">
                     <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('providers.index') }}"> Categorias</a></li>
-
                     <li class="breadcrumb-item active" aria-current="page">Editar categoria</li>
                 </ol>
             </nav>
@@ -35,12 +25,7 @@
                                         <div class="d-flex justify-content-between">
                                             <h4 class="card-title"> Editar categoria</h4>
                                         </div>
-
                                         {!! Form::model($provider, ['route' => ['providers.update', $provider], 'method' => 'PUT']) !!}
-
-                                        {{-- 'name', 'address','email','nit','celular', --}}
-
-
                                         <div class="form-group">
                                             <label for="name">Nombre</label>
                                             <input type="text" name="name" id="name"
@@ -57,7 +42,6 @@
                                             <input type="text" name="email" id="email"
                                                 value="{{ $provider->email }}" class="form-control" placeholder="" required>
                                         </div>
-
                                         <div class="form-group">
                                             <label for="name">Numero de NIT</label>
                                             <input type="text" name="nit" id="nit" value="{{ $provider->nit }}"
@@ -73,7 +57,6 @@
                                         <a href="{{ route('providers.index') }}" class="btn btn-primary mr-2"> Cancelar</a>
                                         {!! Form::close() !!}
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -82,11 +65,4 @@
             </div>
         </div>
     </div>
-   
-@endsection
-
-@section('scripts')
-    {!! Html::script('melody/../../js/data-table.js') !!}
-
-
 @endsection

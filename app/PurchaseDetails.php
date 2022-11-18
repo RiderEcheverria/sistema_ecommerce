@@ -10,9 +10,7 @@ class PurchaseDetails extends Model
         'purchase_id',
          'product_id',
          'quantity',
-         'price',
-         
-
+         'price',        
     ];
     public function purchese(){
         return $this->belongsTo(Purchese::class);

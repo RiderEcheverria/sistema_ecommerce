@@ -1,13 +1,5 @@
 @extends('layouts.admin')
-
 @section('title', 'Gestion de repartidores')
-@section('styles')
-
-@endsection
-
-@section('preference')
-
-
 @section('contenido')
     <div class="content-wrapper">
         <div class="page-header">
@@ -15,11 +7,9 @@
                 Editar repartidor
             </h3>
             <nav aria-label="breadcrumb">
-
                 <ol class="breadcrumb breadcrumb-custom">
                     <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('dealers.index') }}"> Repartidor</a></li>
-
                     <li class="breadcrumb-item active" aria-current="page">Editar repartidor</li>
                 </ol>
             </nav>
@@ -35,12 +25,7 @@
                                         <div class="d-flex justify-content-between">
                                             <h4 class="card-title"> Editar repartidor</h4>
                                         </div>
-
                                         {!! Form::model($dealer, ['route' => ['dealers.update', $dealer], 'method' => 'PUT']) !!}
-
-                                        {{-- 'name', 'address','email','nit','celular', --}}
-
-
                                         <div class="form-group">
                                             <label for="name">Nombre</label>
                                             <input type="text" name="name" id="name" value="{{ $dealer->name }}"
@@ -56,7 +41,6 @@
                                             <input type="text" name="email" id="email" value="{{ $dealer->email }}"
                                                 class="form-control" placeholder="" required>
                                         </div>
-
                                         <div class="form-group">
                                             <label for="name">Numero de NIT</label>
                                             <input type="text" name="nit" id="nit" value="{{ $dealer->nit }}"
@@ -67,32 +51,17 @@
                                             <input type="text" name="celular" id="celular"
                                                 value="{{ $dealer->celular }}" class="form-control" placeholder="" required>
                                         </div>
-
-
-
-
-
-
                                         <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
                                         <a href="{{ route('dealers.index') }}" class="btn btn-primary mr-2"> Cancelar</a>
                                         {!! Form::close() !!}
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
-  
-@endsection
-
-@section('scripts')
-
-
-
+    </div>
 @endsection
 

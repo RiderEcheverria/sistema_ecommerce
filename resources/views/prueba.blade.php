@@ -1,20 +1,7 @@
 @extends('layouts.admin')
-
 @section('title','Gestion de productos')
-@section('styles')
-
-@endsection
-
-@section('preference')
-
 
 @section('contenido')
-
-
-
-
-
-
  <div class="content-wrapper">
   <div class="page-header">
       <h3 class="page-title">
@@ -102,15 +89,6 @@
 </div>
 @endsection
 
-@endsection
-
-
-
-@section('scripts')
-
-{!!Html::script('melody/../../js/data-table.js')!!}
-{{-- <script src="../../js/data-table.js"></script> --}}
-@endsection
 
 
 
