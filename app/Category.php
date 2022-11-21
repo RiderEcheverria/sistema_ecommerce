@@ -13,4 +13,10 @@ class Category extends Model
         return $this->hasMany(Product::class);
     }
 
+    public function scopeNombres($query, $nombres) {
+    	if ($nombres) {
+    		return $query->where('name','like',"%$nombres%");
+    	}
+    }
+
 }

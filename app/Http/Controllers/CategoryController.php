@@ -10,10 +10,12 @@ use App\Http\Requests\Category\UpdateRequest;
 class CategoryController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::get();
+        $nombre = $request->get('buscar-nombre');
+        $categories = Category::nombres($nombre)->paginate(5);
         return view('admin.category.index', compact('categories'));
+        
     }
 
    

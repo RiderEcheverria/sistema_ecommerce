@@ -1,7 +1,7 @@
 
-    <div class="container-fluid page-body-wrapper">
+   <div   class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_settings-panel.html -->
-      <div class="theme-setting-wrapper">
+      <div  class="theme-setting-wrapper">
         <div id="settings-trigger"><i class="fas fa-fill-drip"></i></div>
         <div id="theme-settings" class="settings-panel">
           <i class="settings-close fa fa-times"></i>
@@ -20,7 +20,7 @@
           </div>
         </div>
       </div>
-      <div id="right-sidebar" class="settings-panel">
+      <div  id="right-sidebar" class="settings-panel">
         <i class="settings-close fa fa-times"></i>
         <ul class="nav nav-tabs" id="setting-panel" role="tablist">
           <li class="nav-item">
@@ -111,60 +111,7 @@
             <div class="d-flex align-items-center justify-content-between border-bottom">
               <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
               <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">See All</small>
-            </div>
-            <ul class="chat-list">
-              <li class="list active">
-                <div class="profile"><img src="../../images/faces/face1.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>Thomas Douglas</p>
-                  <p>Available</p>
-                </div>
-                <small class="text-muted my-auto">19 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="../../images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
-                <div class="info">
-                  <div class="wrapper d-flex">
-                    <p>Catherine</p>
-                  </div>
-                  <p>Away</p>
-                </div>
-                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
-                <small class="text-muted my-auto">23 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="../../images/faces/face3.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>Daniel Russell</p>
-                  <p>Available</p>
-                </div>
-                <small class="text-muted my-auto">14 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="../../images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
-                <div class="info">
-                  <p>James Richardson</p>
-                  <p>Away</p>
-                </div>
-                <small class="text-muted my-auto">2 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="../../images/faces/face5.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>Madeline Kennedy</p>
-                  <p>Available</p>
-                </div>
-                <small class="text-muted my-auto">5 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="../../images/faces/face6.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>Sarah Graves</p>
-                  <p>Available</p>
-                </div>
-                <small class="text-muted my-auto">47 min</small>
-              </li>
-            </ul>
+            </div>           
           </div>
           <!-- chat tab ends -->
         </div>
@@ -176,7 +123,8 @@
           <li class="nav-item nav-profile">
             <div class="nav-link">
               <div class="profile-image">
-                <img src="melody/images/faces/face5.jpg" alt="image">
+                <img src="{{asset('melody/images/faces/face5.jpg')}}" alt="image">
+
               </div>
               <div class="profile-name" >
                 <p class="name" style="color: aliceblue">
@@ -206,14 +154,9 @@
           </a>
           <div class="collapse" id="tables">
             <ul class="nav flex-column sub-menu">
-             
-              <li class="nav-item " > <a class="nav-link" href="melody/pages/tables/data-table.html">Users</a></li>
-              <li class="nav-item"> <a class="nav-link" href="melody/pages/tables/data-table.html">Roles</a></li>
-              <li class="nav-item"> <a class="nav-link" href="melody/pages/tables/data-table.html">Privilegios</a></li>
-              <li class="nav-item"> <a class="nav-link" href="melody/pages/tables/data-table.html">Data table</a></li>
-              
+              <li class="nav-item " > <a class="nav-link" href="{{route('users.index')}}">Users</a></li>
+              <li class="nav-item"> <a class="nav-link" href="melody/pages/tables/data-table.html">Roles</a></li>           
           </div>
-      
         </li>
         <li class="nav-item">
           
@@ -222,7 +165,6 @@
             <span class="menu-title">Personas</span>
           </a>
         </li>
-     
         {{-- <li class="nav-item">
           <a class="nav-link" href="{{route('purchases.index')}}">
             <i class="fa-solid fa-tags menu-icon"></i>
@@ -239,24 +181,24 @@
           </a>
         </li> --}}
         <li class="nav-item">
-          
           <a class="nav-link" href="pages/widgets.html">
             <i class="fa fa-gift  menu-icon"></i>
             <span class="menu-title">Promociones</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
+          <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="true" aria-controls="page-layouts">
             <i class="fa-solid fa-layer-group menu-icon"></i>
             <span class="menu-title">Inventario</span>
             <i class="menu-arrow"></i>
           </a>
           <div class="collapse" id="page-layouts">
             <ul class="nav flex-column sub-menu">
-              {{-- <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="#">Inventario</a></li> --}}
-              <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{route('products.index')}}">Productos</a></li>
+              {{-- <li class="nav-item "> <a class="nav-link" href="#">Inventario</a></li> --}}
+              <li class="nav-item"> <a class="nav-link" href="{{route('products.index')}}">Productos</a></li>
               <li class="nav-item"> <a class="nav-link" href="{{route('categories.index')}}">Categorias</a></li>
-              <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{route('brands.index')}}">Marcas</a></li>
+              <li class="nav-item"> <a class="nav-link" href="{{route('brands.index')}}">Marcas</a></li>
+             
             </ul>
           </div>
         </li>

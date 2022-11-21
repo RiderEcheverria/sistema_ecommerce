@@ -16,4 +16,19 @@ class Provider extends Model
     {
         return $this->hasOne('App\People');
     }
+
+
+    public function scopeNombres($query, $nombres) {
+    	if ($nombres) {
+    		return $query->where('name','like',"%$nombres%");
+    	}
+    }
+
+
+
+    public function scopeNit($query, $nit) {
+    	if ($nit) {
+    		return $query->where('nit','like',"%$nit%");
+    	}
+    }
 }

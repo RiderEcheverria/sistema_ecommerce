@@ -8,4 +8,17 @@ class Client extends Model
 {
     protected $fillable = ['name','ci','address','phone','email'];
     
+    public function scopeNombres($query, $nombres) {
+    	if ($nombres) {
+    		return $query->where('name','like',"%$nombres%");
+    	}
+    }
+
+
+
+    public function scopeCedula($query, $cedula) {
+    	if ($cedula) {
+    		return $query->where('ci','like',"%$cedula%");
+    	}
+    }
 }

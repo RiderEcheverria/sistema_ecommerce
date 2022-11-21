@@ -27,9 +27,9 @@ class UpdateRequest extends FormRequest
            
             // 'name'=>'string|required|unique:products,name,'.$this->route('products')->id.'|max:255',
      
-            // 'sell_price'=>'required|', //precio
+           
             // 'category_id'=>'integer|required|exists:App\Category,id', //categoria
-            // 'provider_id'=>'integer|required|exists:App\Provider,id', //proveedor
+         
            
         ];
     }

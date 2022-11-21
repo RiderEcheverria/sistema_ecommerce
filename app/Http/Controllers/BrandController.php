@@ -1,35 +1,58 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\Brand\StoreRequest;
+use App\Http\Requests\Brand\UpdateRequest;
 use App\Brand;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
   
-    public function index()
+    public function index(Request $request)
     {
-        $brands = Brand::paginate();
-
-        return view('admin.brand.index', compact('brands'))
-            ->with('i', (request()->input('page', 1) - 1) * $brands->perPage());
+        $nombre = $request->get('buscar-nombre');
+       
+        $brands = Brand::nombres($nombre)->paginate(5);
+        
+        return view('admin.brand.index', compact('brands'));
+        
+       
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $brand = new Brand();
-        return view('admin.brand.create', compact('brand'));
+        return view('admin.brand.create');
     }
 
     public function store(Request $request)
+    
     {
-        request()->validate(Brand::$rules);
+        
+        if($request->hasFile('imagen')){
+            $file = $request->file('imagen');
+            $imagenNombre = time().'_'.$file->getClientOriginalName();
+            $file->move(public_path("/marcas"),$imagenNombre);
+            // dd($imagenNombre);
+        }
+      
+        $brand=Brand::create($request->all()+[
+            'imagen'
+            // =>$imagenNombre,
+        ]);
+        
+        return redirect()->route('brands.index');
+        
+        
+        
+        
+        // request()->validate(Brand::$rules);
 
-        $brand = Brand::create($request->all());
+        // $brand = Brand::create($request->all());
 
-        return redirect()->route('brands.index')
-            ->with('success', 'Brand created successfully.');
+        // return redirect()->route('brands.index')
+        //     ->with('success', 'Brand created successfully.');
     }
 
     public function show($id)
@@ -48,12 +71,28 @@ class BrandController extends Controller
 
     public function update(Request $request, Brand $brand)
     {
-        request()->validate(Brand::$rules);
+       
+        if($request->hasFile('imagen')){
+            $file = $request->file('imagen');
+            $imagenNombre = time().'_'.$file->getClientOriginalName();
+            $file->move(public_path("/marcas"),$imagenNombre);
+            // dd($imagenNombre);
+        }
+        $brand->update($request->all()+[
+            'imagen'=>$imagenNombre,
+            // =>$imagenNombre,
+        ]);
+        return redirect()->route('brands.index');
+       
+       
+       
+       
+        // request()->validate(Brand::$rules);
 
-        $brand->update($request->all());
+        // $brand->update($request->all());
 
-        return redirect()->route('brands.index')
-            ->with('success', 'Brand updated successfully');
+        // return redirect()->route('brands.index')
+        //     ->with('success', 'Brand updated successfully');
     }
 
     public function destroy($id)

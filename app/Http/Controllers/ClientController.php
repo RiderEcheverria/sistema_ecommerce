@@ -9,10 +9,16 @@ use App\Http\Requests\Client\UpdateRequest;
 
 class ClientController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $clients = Client::get();
-        return view('admin.client.index',compact('clients'));
+        $nombre = $request->get('buscar-nombre');
+        
+        $cedula = $request->get('buscar-cedula');
+       
+        $clients = Client::nombres($nombre)->cedula($cedula)->paginate(5);
+        
+        return view('admin.client.index', compact('clients'));
+      
     }
 
    

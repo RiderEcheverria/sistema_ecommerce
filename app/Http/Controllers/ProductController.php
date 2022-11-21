@@ -12,10 +12,14 @@ use App\Brand;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::get();
-        return view ('admin.product.index', compact('products'));
+        
+        $nombre = $request->get('buscar-nombre');
+        $products = Product::nombres($nombre)->paginate(5);
+        return view('admin.product.index', compact('products'));
+        
+
     }
 
    
@@ -86,6 +90,3 @@ class ProductController extends Controller
     }
     
 }
-
-
-

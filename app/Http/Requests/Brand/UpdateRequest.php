@@ -24,16 +24,16 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|string|max:50',
+            // 'name'=>'required|string|max:50',
      
         ];
     }
     public function messages()
     {
         return[
-            'name.required'=>'Este campo es requerido.',
-            'name.string'=>'El valor no es correcto.',
-            'name.max'=>'Solo se permite 50 caracteres.',
+            // 'name.required'=>'Este campo es requerido.',
+            // 'name.string'=>'El valor no es correcto.',
+            // 'name.max'=>'Solo se permite 50 caracteres.',
          
         ];
     }

@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Registrar personas')
+
 @section('contenido')
     <div class="content-wrapper">
         <div class="page-header">
@@ -40,6 +41,7 @@
             </div>
         </div>
 @endsection
+
 
 
 

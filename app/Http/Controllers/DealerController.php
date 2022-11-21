@@ -8,12 +8,16 @@ use Illuminate\Http\Request;
 class DealerController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $dealers = Dealer::paginate();
+        $nombre = $request->get('buscar-nombre');
+        
+        $nit = $request->get('buscar-nit');
+       
+        $dealers = Dealer::nombres($nombre)->nit($nit)->paginate(5);
+        
+        return view('admin.dealer.index', compact('dealers'));
 
-        return view('admin.dealer.index', compact('dealers'))
-            ->with('i', (request()->input('page', 1) - 1) * $dealers->perPage());
     }
 
  

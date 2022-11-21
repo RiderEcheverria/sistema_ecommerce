@@ -1,17 +1,17 @@
 {{-- @extends('layouts.admin')
-@section('title', 'Gestion de categorias')
+@section('title', 'Gestion de usuarios')
 @section('contenido')
 <div class="main-panel">          
     <div class="content-wrapper">
       <div class="page-header">
         <h3 class="page-title">
-          Categorias
+          Usuarios
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-custom">
                 <li class="breadcrumb-item">
                   <a href="">Panel administrador</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Categorias</li>
+                <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
             </ol>
         </nav>
       </div>
@@ -19,7 +19,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Categorias</h4>
+              <h4 class="card-title">Usuarios</h4>
               <div class="row">
                 <div class="col-12">
                   <div class="table-responsive">
@@ -43,7 +43,7 @@
                                     <input type="search" class="form-control" placeholder="Search" aria-controls="order-listing">
                                 </label>
                                 <div class="btn-group">
-                                    <a class="nav-link" href="{{ route('categories.create') }}">
+                                    <a class="nav-link" href="{{ route('users.create') }}">
                                         <span id="exampleModal-2" class="btn btn-primary">+ Agregar nuevo</span>
                                     </a>
                                 </div>
@@ -57,20 +57,21 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Nombre</th>
-                                        <th>Descripcion</th>
+                                        <th>Correo electronico</th>
+                                        <th>Creado en</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categories as $category)
+                                    @foreach ($users as $user)
                                         <tr>
-                                            <th scope="row">{{ $category->id }}</th>
-                                            <td>{{ $category->name }}</td>
-                                            <td>{{ $category->description }}</td>
-
+                                            <th scope="row">{{ $user->id }}</th>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->created_at}}</td>
                                             <td style="width: 20%;">
-                                                {!!Form::open(['route' => ['categories.destroy',$category], 'method' => 'DELETE'])!!}
-                                                 <a class="btn btn-outline-info" href="{{ route('categories.edit', $category) }}"
+                                                {!!Form::open(['route' => ['users.destroy',$user], 'method' => 'DELETE'])!!}
+                                                 <a class="btn btn-outline-info" href="{{ route('users.edit', $user) }}"
                                                     title="Editar">
                                                     <i class="far fa-edit"></i>
                                                 </a>
@@ -111,22 +112,24 @@
         </div>
     </div>
 @endsection
+
  --}}
 
+
 @extends('layouts.admin')
-@section('title', 'Informacion de categorias')
+@section('title', 'Informacion de usuarios')
 @section('contenido')
 <div class="main-panel">          
     <div class="content-wrapper">
       <div class="page-header">
         <h3 class="page-title">
-            Listado de categorias
+            Listado de usuarios
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-custom">
                 <li class="breadcrumb-item">
                   <a href="">Panel administrador</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Categorias</li>
+                <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
             </ol>
         </nav>
       </div>
@@ -148,10 +151,10 @@
                                               <button class="btn btn-primary" type="submit">
                                                 <i class="fas fa-search"></i>
                                               </button>                                           
-                                                <a href="{{ route('categories.index')}}" class="btn btn-primary">
+                                                <a href="{{ route('users.index')}}" class="btn btn-primary">
                                                     <i class="fas fa-undo-alt"></i>
                                                 </a>
-                                                <a href="{{ route('categories.create')}}"  class="btn btn-primary ">
+                                                <a href="{{ route('users.create')}}"  class="btn btn-primary ">
                                                     + Agregar nuevo
                                                 </a>
                                             </div>                           
@@ -168,39 +171,40 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Nombre</th>
-                                        <th>Descripcion</th>
+                                        <th>Correo electronico</th>
+                                        <th>Creado en</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody >
-                                    @foreach ($categories as $category)
-                                    <tr>
-                                        <th scope="row">{{ $category->id }}</th>
-                                        <td>{{ $category->name }}</td>
-                                        <td>{{ $category->description }}</td>
-
-                                        <td style="width: 20%;">
-                                            {!!Form::open(['route' => ['categories.destroy',$category], 'method' => 'DELETE'])!!}
-                                             <a class="btn btn-outline-info" href="{{ route('categories.edit', $category) }}"
-                                                title="Editar">
-                                                <i class="far fa-edit"></i>
-                                            </a>
-                                            <button
-                                                class="btn btn-outline-danger delete-confirm"
-                                                type="submit" title="Eliminar">
-                                                <i class="far fa-trash-alt"></i>
-                                            </button>
-                                            {!! Form::close()!!}
-                                        </td>
-                                    </tr>
-                                    @endforeach   
+                                    @foreach ($users as $user)
+                                        <tr>
+                                            <th scope="row">{{ $user->id }}</th>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->created_at}}</td>
+                                            <td style="width: 20%;">
+                                                {!!Form::open(['route' => ['users.destroy',$user], 'method' => 'DELETE'])!!}
+                                                 <a class="btn btn-outline-info" href="{{ route('users.edit', $user) }}"
+                                                    title="Editar">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                                <button
+                                                    class="btn btn-outline-danger delete-confirm"
+                                                    type="submit" title="Eliminar">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </button>
+                                                {!! Form::close()!!}
+                                            </td>
+                                        </tr>
+                                    @endforeach     
                                 </tbody>
                             <table>
                         </div>
                     </div>
                 <div class="row">  
             <div class="col-lg-12">
-         {!! $categories->links() !!}
+         {!! $users->links() !!}
         </div>
     </div>               
 @endsection

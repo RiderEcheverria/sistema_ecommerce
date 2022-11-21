@@ -2,17 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
+
 use App\Provider;
 use Illuminate\Http\Request;
 use App\Http\Requests\Provider\StoreRequest;
 use App\Http\Requests\Provider\UpdateRequest;
 class ProviderController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $providers = Provider::get();
+        $nombre = $request->get('buscar-nombre');
+        
+        $nit = $request->get('buscar-nit');
+       
+        $providers = Provider::nombres($nombre)->nit($nit)->paginate(5);
+        
         return view('admin.provider.index', compact('providers'));
+        
+
     }
 
    

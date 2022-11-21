@@ -5,24 +5,27 @@ namespace App\Http\Controllers;
 use App\Persona;
 use Illuminate\Http\Request;
 
-
 class PersonaController extends Controller
 {
-    
-    public function index()
+
+    public function index(Request $request)
     {
-        $personas = Persona::paginate();
-        return view('admin.persona.index', compact('personas'))
-            ->with('i', (request()->input('page', 1) - 1) * $personas->perPage());
+        $nombre = $request->get('buscar-nombre');
+        
+        $apellido = $request->get('buscar-apellido');
+       
+        $personas = Persona::nombres($nombre)->apellidos($apellido)->paginate(5);
+        
+        return view('admin.persona.index', compact('personas'));
     }
-   
+    
     public function create()
     {
         $persona = new Persona();
         return view('admin.persona.create', compact('persona'));
     }
 
-   
+
     public function store(Request $request)
     {
         request()->validate(Persona::$rules);
@@ -33,7 +36,7 @@ class PersonaController extends Controller
             ->with('success', 'Persona created successfully.');
     }
 
-   
+
     public function show($id)
     {
         $persona = Persona::find($id);
@@ -41,7 +44,7 @@ class PersonaController extends Controller
         return view('admin.persona.show', compact('persona'));
     }
 
-  
+
     public function edit($id)
     {
         $persona = Persona::find($id);
@@ -49,7 +52,7 @@ class PersonaController extends Controller
         return view('admin.persona.edit', compact('persona'));
     }
 
-   
+
     public function update(Request $request, Persona $persona)
     {
         request()->validate(Persona::$rules);
@@ -60,7 +63,7 @@ class PersonaController extends Controller
             ->with('success', 'Persona updated successfully');
     }
 
- 
+
     public function destroy($id)
     {
         $persona = Persona::find($id)->delete();

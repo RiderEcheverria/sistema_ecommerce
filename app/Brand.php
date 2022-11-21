@@ -20,12 +20,20 @@ class Brand extends Model
     
     static $rules = [
 		'name' => 'required',
+		'imagen' => 'required|imagen:jpeg,jpg,png',
     ];
 
-    protected $perPage = 20;
+    
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name','imagen'];
 
+    public function scopeNombres($query, $nombres) {
+    	if ($nombres) {
+    		return $query->where('name','like',"%$nombres%");
+    	}
+    }
+
+   
 
 
 }

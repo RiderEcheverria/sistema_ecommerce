@@ -12,9 +12,22 @@ class Persona extends Model
 		'surname' => 'required',
 		'cedula' => 'required',
     ];
-
-    protected $perPage = 20;
-
+    protected $table="personas";
+    protected $primaryKey="id";
     protected $fillable = ['name','surname','cedula','address','email','celular','estatus','created_at'];
+   
+   
+    public function scopeNombres($query, $nombres) {
+    	if ($nombres) {
+    		return $query->where('name','like',"%$nombres%");
+    	}
+    }
 
+
+
+    public function scopeApellidos($query, $apellidos) {
+    	if ($apellidos) {
+    		return $query->where('surname','like',"%$apellidos%");
+    	}
+    }
 }
