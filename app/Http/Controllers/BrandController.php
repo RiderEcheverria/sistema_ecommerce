@@ -34,25 +34,18 @@ class BrandController extends Controller
             $file = $request->file('imagen');
             $imagenNombre = time().'_'.$file->getClientOriginalName();
             $file->move(public_path("/marcas"),$imagenNombre);
-            // dd($imagenNombre);
+           
         }
       
         $brand=Brand::create($request->all()+[
-            'imagen'
-            // =>$imagenNombre,
+            'imagen'=>$imagenNombre,
+            
         ]);
         
         return redirect()->route('brands.index');
         
         
-        
-        
-        // request()->validate(Brand::$rules);
-
-        // $brand = Brand::create($request->all());
-
-        // return redirect()->route('brands.index')
-        //     ->with('success', 'Brand created successfully.');
+    
     }
 
     public function show($id)
@@ -76,23 +69,18 @@ class BrandController extends Controller
             $file = $request->file('imagen');
             $imagenNombre = time().'_'.$file->getClientOriginalName();
             $file->move(public_path("/marcas"),$imagenNombre);
-            // dd($imagenNombre);
+            
         }
         $brand->update($request->all()+[
             'imagen'=>$imagenNombre,
-            // =>$imagenNombre,
+            
         ]);
         return redirect()->route('brands.index');
        
        
        
        
-        // request()->validate(Brand::$rules);
-
-        // $brand->update($request->all());
-
-        // return redirect()->route('brands.index')
-        //     ->with('success', 'Brand updated successfully');
+       
     }
 
     public function destroy($id)
