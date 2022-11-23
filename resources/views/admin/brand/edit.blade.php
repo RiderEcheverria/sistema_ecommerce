@@ -33,30 +33,6 @@
                                         </div>
                                         <br />
                                         <br />
-                                        <div class="dropify-wrapper">
-                                            <div class="dropify-message">
-                                                <input type="file" name="imagen" id="imagen" class="dropify">
-                                                <button type="button" class="dropify-clear">Remove</button>
-                                                <div class="dropify-preview">
-                                                    <span class="dropify-render">
-                                                    </span>
-                                                    <div class="dropify-infos">
-                                                        <div class="dropify-infos-inner">
-                                                            <p class="dropify-filename">
-                                                                <span class="file-icon">
-                                                                </span>
-                                                                <span class="dropify-filename-inner">
-                                                                </span>
-                                                            </p>
-                                                            <p class="dropify-infos-message">Drag and drop or click to
-                                                                replace</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <br />
                                         <button type="submit" class="btn btn-primary mr-2">Registrar</button>
                                         <a href="{{ route('brands.index') }}" class="btn btn-primary mr-2"> Cancelar</a>
                                         {!! Form::close() !!}

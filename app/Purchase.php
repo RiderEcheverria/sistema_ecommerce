@@ -15,6 +15,15 @@ class Purchase extends Model
          'status',
          'picture',
     ];
+
+    public function scopeNombres($query, $nombres) {
+    	if ($nombres) {
+    		return $query->where('name','like',"%$nombres%");
+    	}
+    }
+
+
+    
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -25,10 +34,3 @@ class Purchase extends Model
         return $this->belongsTo(PurchaseDetails::class);
     }
 }
-
-
-
-
-
-
-

@@ -15,9 +15,10 @@ class PurchaseController extends Controller
         $this->middleware('auth');
     }
     
-    public function index()
+    public function index(Request $request)
     {
-        $purchases = Purchase::get();
+        $nombre = $request->get('buscar-nombre');
+        $purchases = Purchase::nombres($nombre)->paginate(5);
         return view('admin.purchase.index', compact('purchases'));
     }
 

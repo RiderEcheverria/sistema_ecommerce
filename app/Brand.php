@@ -4,28 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class Brand
- *
- * @property $id
- * @property $name
- * @property $created_at
- * @property $updated_at
- *
- * @package App
- * @mixin \Illuminate\Database\Eloquent\Builder
- */
+
 class Brand extends Model
 {
     
-    static $rules = [
-		'name' => 'required',
-		'imagen' => 'required|imagen:jpeg,jpg,png',
-    ];
+  
+    public function products(){
+      return $this->hasMany(Product::class);
+  }
 
-    
 
-    protected $fillable = ['name','imagen'];
+    protected $fillable = ['name'];
 
     public function scopeNombres($query, $nombres) {
     	if ($nombres) {

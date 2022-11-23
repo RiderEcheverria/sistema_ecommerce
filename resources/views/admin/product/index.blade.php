@@ -52,8 +52,11 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Nombre</th>
+                                        {{--  <th>Descripcion</th>  --}}
                                         <th>Imagen</th>
                                         <th>Categoria</th>
+                                        <th>Marca</th>
+                                        <th>Estado</th>
                                         <th>Acciones</th>
                                       </tr>
                                 </thead>
@@ -62,8 +65,18 @@
                                     <tr>
                                         <th scope="row">{{$product->id}}</th>
                                         <td>  {{$product->name}} </td>
+                                        {{--  <td>  {{$product->description}} </td>  --}}
                                         <td>  <img src="{{asset('image/'.$product->image)}}" alt="sample" class="rounded mw-200"></td>
                                         <td>{{$product->category->name}}</td>
+                                        <td>{{$product->brand->name}}</td>
+                                        <td id="resp{{ $product->id }}">
+                                            <br>
+                                              @if($product->status == 1)
+                                              <label class="badge badge-success badge-pill">Disponible</label>
+                                              @else
+                                              <label class="badge badge-danger badge-pill">Agotado</label>
+                                              @endif
+                                        </td>
                                         <td style="width: 20%;">
                                       {!! Form::open(['route'=>['products.destroy',$product],'method'=>'DELETE']) !!}
                                       <a class="btn btn-outline-primary" href="{{route('products.show',$product)}}">

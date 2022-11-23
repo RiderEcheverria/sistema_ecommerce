@@ -12,9 +12,9 @@ class PersonaController extends Controller
     {
         $nombre = $request->get('buscar-nombre');
         
-        $apellido = $request->get('buscar-apellido');
+        $cedula = $request->get('buscar-cedula');
        
-        $personas = Persona::nombres($nombre)->apellidos($apellido)->paginate(5);
+        $personas = Persona::nombres($nombre)->cedula($cedula)->paginate(5);
         
         return view('admin.persona.index', compact('personas'));
     }

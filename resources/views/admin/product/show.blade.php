@@ -43,6 +43,18 @@
                           {{$product->category->name}}</a>
                       </span>
                     </p>
+                    <p class="clearfix">
+                      <span class="float-left">
+                     Estado
+                      </span>
+                      <span class="float-right text-muted">
+                              @if($product->status == 1)
+                              <label class="badge badge-success badge-pill">Disponible</label>
+                              @else
+                              <label class="badge badge-danger badge-pill">Agotado</label>
+                              @endif
+                      </span>
+                    </p>
                   </div>                                    
                 </div>
                 <div class="col-lg-7 pl-lg-6">
@@ -95,6 +107,11 @@
                       </li>
                    
                     </ul>
+                    <div class="mb-3">
+                      <label for="name">Descripcion</label>
+                      <textarea class="form-control" id="description" name="description"
+                      rows="15">{{ $product->description }}</textarea>
+                  </div>
                   </div>
                   <br/>
                   <div lass="card-footer text-mited">
@@ -109,4 +126,3 @@
       </div>
     </div>               
 @endsection
-

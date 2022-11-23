@@ -10,7 +10,9 @@ class Product extends Model
         'code',
         'name',
         'image',
-        'status',//estado
+        'description',
+        'status',
+        'brand_id',//estado
         'category_id',//categoria
 
     ];
@@ -19,7 +21,11 @@ class Product extends Model
     }
     
    
-
+    public function brand(){
+        return $this->belongsTo(Brand::class);
+    }
+    
+   
 
     
     public function scopeNombres($query, $nombres) {

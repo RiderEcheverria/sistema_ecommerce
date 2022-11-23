@@ -165,14 +165,14 @@
             <span class="menu-title">Personas</span>
           </a>
         </li>
-        {{-- <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="{{route('purchases.index')}}">
             <i class="fa-solid fa-tags menu-icon"></i>
             
             <span class="menu-title">Compras</span>
           </a>
           
-        </li> --}}
+        </li>
         {{-- <li class="nav-item">
           
           <a class="nav-link" href="pages/widgets.html">

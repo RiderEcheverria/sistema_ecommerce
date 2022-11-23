@@ -31,8 +31,8 @@
                                               <input name="buscar-nombre"  class="form-control mr-sm-2" type="search" placeholder="Busqueda por nombre" aria-label="Search">
                                             </div> 
                                             <div>
-                                               <h6>Busqueda por apellido</h6>
-                                              <input name="buscar-apellido" class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
+                                               <h6>Busqueda por cedula</h6>
+                                              <input name="buscar-cedula" class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
                                               <button class="btn btn-primary" type="submit">
                                                 <i class="fas fa-search"></i>
                                               </button>                                           
@@ -80,9 +80,9 @@
                                             <td id="resp{{ $persona->id }}">
                                                 <br>
                                                   @if($persona->estatus == 1)
-                                                  <button type="button"  class="btn btn-sm btn-success">Activo</button>
+                                                  <label class="badge badge-success badge-pill">Activo</label>
                                                       @else
-                                                  <button type="button" class="btn btn-sm btn-danger">Inactivo</button>
+                                                  <label class="badge badge-danger badge-pill">Inactivo</label>
                                                   @endif
                                             </td>
                                             <td style="width: 20%;">

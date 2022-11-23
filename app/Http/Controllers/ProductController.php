@@ -7,7 +7,6 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
-use App\Provider;
 use App\Brand;
 
 class ProductController extends Controller
@@ -27,10 +26,10 @@ class ProductController extends Controller
 
     {
         $categories = Category::get();
-        $providers = Provider::get();
-        $providers = Brand::get();
 
-        return view('admin.product.create', compact('categories','providers'));
+        $brands = Brand::get();
+
+        return view('admin.product.create', compact('categories','brands'));
     }
 
     
@@ -64,8 +63,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::get();
-        $providers = Provider::get();
-        return view('admin.product.edit', compact('product','categories','providers'));
+        $brands = Brand::get();
+        return view('admin.product.edit', compact('product','brands','categories'));
     }
     public function update(UpdateRequest $request, Product $product)
     {
@@ -79,7 +78,7 @@ class ProductController extends Controller
         }
         $product->update($request->all()+[
             'image'=>$image_name,
-            // =>$image_name,
+           
         ]);
         return redirect()->route('products.index');
     }

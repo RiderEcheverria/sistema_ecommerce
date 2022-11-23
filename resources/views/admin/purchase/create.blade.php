@@ -88,11 +88,11 @@
         $("#price").val("");
     }    
     function totales() {
-        $("#total").html("PEN " + total.toFixed(2));
+        $("#total").html("Bs " + total.toFixed(2));
         total_impuesto = total * impuesto / 100;
         total_pagar = total + total_impuesto;
-        $("#total_impuesto").html("PEN " + total_impuesto.toFixed(2));
-        $("#total_pagar_html").html("PEN " + total_pagar.toFixed(2));
+        $("#total_impuesto").html("Bs " + total_impuesto.toFixed(2));
+        $("#total_pagar_html").html("Bs " + total_pagar.toFixed(2));
         $("#total_pagar").val(total_pagar.toFixed(2));
     }    
     function evaluar() {
@@ -106,9 +106,9 @@
         total = total - subtotal[index];
         total_impuesto = total * impuesto / 100;
         total_pagar_html = total + total_impuesto;
-        $("#total").html("PEN" + total);
-        $("#total_impuesto").html("PEN" + total_impuesto);
-        $("#total_pagar_html").html("PEN" + total_pagar_html);
+        $("#total").html("Bs" + total);
+        $("#total_impuesto").html("Bs" + total_impuesto);
+        $("#total_pagar_html").html("Bs" + total_pagar_html);
         $("#total_pagar").val(total_pagar_html.toFixed(2));
         $("#fila" + index).remove();
         evaluar();

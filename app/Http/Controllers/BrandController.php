@@ -20,74 +20,43 @@ class BrandController extends Controller
        
     }
 
-    public function create(Request $request)
+    public function create()
     {
-        $brand = new Brand();
         return view('admin.brand.create');
     }
 
-    public function store(Request $request)
     
+    public function store(StoreRequest $request)
     {
-        
-        if($request->hasFile('imagen')){
-            $file = $request->file('imagen');
-            $imagenNombre = time().'_'.$file->getClientOriginalName();
-            $file->move(public_path("/marcas"),$imagenNombre);
-           
-        }
-      
-        $brand=Brand::create($request->all()+[
-            'imagen'=>$imagenNombre,
-            
-        ]);
-        
+        Brand::create($request->all());
         return redirect()->route('brands.index');
-        
-        
+
+    }
+
     
+    public function show(Brand $brand)
+    {
+        
     }
 
-    public function show($id)
+   
+    public function edit(Brand $brand)
     {
-        $brand = Brand::find($id);
-
-        return view('brand.show', compact('brand'));
-    }
-    public function edit($id)
-    {
-        $brand = Brand::find($id);
-
+        $brands = Brand::get();
         return view('admin.brand.edit', compact('brand'));
     }
 
-
-    public function update(Request $request, Brand $brand)
+    
+    public function update(UpdateRequest $request, Brand $brand)
     {
-       
-        if($request->hasFile('imagen')){
-            $file = $request->file('imagen');
-            $imagenNombre = time().'_'.$file->getClientOriginalName();
-            $file->move(public_path("/marcas"),$imagenNombre);
-            
-        }
-        $brand->update($request->all()+[
-            'imagen'=>$imagenNombre,
-            
-        ]);
+        $brand->update($request->all());
         return redirect()->route('brands.index');
-       
-       
-       
-       
-       
     }
 
-    public function destroy($id)
+    
+    public function destroy(Brand $brand)
     {
-        $brand = Brand::find($id)->delete();
-
-        return redirect()->route('brands.index')
-            ->with('success', 'Brand deleted successfully');
+        $brand->delete();
+        return redirect()->route('brands.index');
     }
 }

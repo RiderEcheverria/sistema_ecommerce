@@ -24,10 +24,6 @@ class CreatePurchaseDetailsTable extends Migration
             $table->integer('quantity');
             $table->decimal('price');
 
-
-
-
-
             $table->timestamps();
 
             // shopping_id  compra

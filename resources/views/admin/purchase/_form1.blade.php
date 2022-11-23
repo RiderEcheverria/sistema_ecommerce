@@ -57,9 +57,9 @@
                 <tr>
                     <th>Eliminar</th>
                     <th>Producto</th>
-                    <th>Precio(PEN)</th>
+                    <th>Precio(Bs)</th>
                     <th>Cantidad</th>
-                    <th>SubTotal(PEN)</th>
+                    <th>SubTotal(Bs)</th>
                 </tr>
             </thead>
             <tfoot>
@@ -68,7 +68,7 @@
                         <p align="right">TOTAL:</p>
                     </th>
                     <th>
-                        <p align="right"><span id="total">PEN 0.00</span> </p>
+                        <p align="right"><span id="total">Bs 0.00</span> </p>
                     </th>
                 </tr>
                 <tr>
@@ -76,7 +76,7 @@
                         <p align="right">TOTAL IMPUESTO (18%):</p>
                     </th>
                     <th>
-                        <p align="right"><span id="total_impuesto">PEN 0.00</span></p>
+                        <p align="right"><span id="total_impuesto">Bs 0.00</span></p>
                     </th>
                 </tr>
                 <tr>
@@ -84,7 +84,7 @@
                         <p align="right">TOTAL PAGAR:</p>
                     </th>
                     <th>
-                        <p align="right"><span align="right" id="total_pagar_html">PEN 0.00</span> <input type="hidden"
+                        <p align="right"><span align="right" id="total_pagar_html">Bs 0.00</span> <input type="hidden"
                                 name="total" id="total_pagar"></p>
                     </th>
                 </tr>

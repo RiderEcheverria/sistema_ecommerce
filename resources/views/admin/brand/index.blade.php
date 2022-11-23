@@ -52,7 +52,6 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Nombre</th>
-                                        <th>imagen</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -61,7 +60,6 @@
                                     <tr>
                                         <th scope="row">{{$brand->id}}</th>
                                         <td>  {{$brand->name}} </td>
-                                        <td>  <img src="{{asset('marcas/'.$brand->imagen)}}" alt="sample" class="rounded mw-200"></td> 
                                         <td style="width: 20%;">
                                       {!! Form::open(['route'=>['brands.destroy',$brand],'method'=>'DELETE']) !!}             
                                           <a class="btn btn-outline-info" href="{{route('brands.edit',$brand)}}" title="Editar">
