@@ -1,23 +1,52 @@
-  <div class="form-group">
-    <label for="name" >Nombre</label>
-    <input type="text" name="name" id="name" class="form-control" placeholder="Nombre" required>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Nombre</label>
+      <div class="col-sm-9">
+        <input type="text" name="name" id="name" class="form-control"
+         placeholder="Nombre" required>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="address">Ubicacion</label>
-    <input type="text" class="form-control" 
-    name="address" id="address" aria-describedby="helpId" placeholder="" required>
+  <div class="col-md-6">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Ubicacion </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" name="address" id="address"
+        aria-describedby="helpId" placeholder="" required>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="email">Correo electronoco</label>
-    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder="@.gmail.com" required>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Numero NIT</label>
+      <div class="col-sm-9">
+        <input type="number" name="nit" id="nit" class="form-control" 
+        placeholder="NIT" required>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="nit" >Numro de NIT</label>
-    <input type="text" name="nit" id="nit" class="form-control" placeholder="NIT" required>
+  <div class="col-md-6">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Correo electronoco </label>
+      <div class="col-sm-9">
+        <input type="email" class="form-control" name="email" id="email" 
+        aria-describedby="emailHelpId" placeholder="@.gmail.com" required>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="celular" >Numero de contacto</label>
-    <input type="text" name="celular" id="celular" class="form-control" placeholder="Celilar/Telefono" required>
-  </div>
-
-
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Numero de contacto</label>
+      <div class="col-sm-9">
+        <input type="number" name="celular" id="celular" class="form-control" 
+        placeholder="Celilar/Telefono" required>
+      </div>
+    </div>
+  </div>    
+</div> 
+  

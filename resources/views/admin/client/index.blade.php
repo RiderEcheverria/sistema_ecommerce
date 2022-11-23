@@ -57,9 +57,9 @@
                                         <th>Id</th>
                                         <th>Nombre</th>
                                         <th>Cedula</th>
+                                        <th>Direccion</th>
                                         <th>Celular</th>
-                                        <th>Email</th>
-                                        <th>Creado en</th>
+                                        <th>Email</th>                                 
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -69,7 +69,7 @@
                                             <th scope="row">{{ $client->id }}</th>
                                             <td > {{ $client->name }} </td>
                                             <td>{{ $client->ci }} </td>
-                                            <td>{{ $client->ci }}</td>
+                                            <td>{{ $client->address }} </td>
                                             <td>{{ $client->phone }}</td>
                                             <td>{{ $client->email }}</td>
                                             <td style="width: 20%;">

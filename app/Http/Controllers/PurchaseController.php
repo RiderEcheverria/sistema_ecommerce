@@ -8,6 +8,9 @@ use App\Http\Requests\Purchase\UpdateRequest;
 use App\Provider;
 use App\Product;
 use App\Purchase;
+use Carbon\Carbon;
+use App\PurchaseDetails;
+use Illuminate\Support\Facades\Auth;
 
 class PurchaseController extends Controller
 {   public function __construct()
@@ -16,7 +19,8 @@ class PurchaseController extends Controller
     }
     
     public function index(Request $request)
-    {
+    {    
+        
         $nombre = $request->get('buscar-nombre');
         $purchases = Purchase::nombres($nombre)->paginate(5);
         return view('admin.purchase.index', compact('purchases'));
@@ -33,40 +37,60 @@ class PurchaseController extends Controller
     
     public function store(StoreRequest $request)
     {
-        $purchase = Purchase::create($request->all());
+        // dd($request);
+        // Auth::user()->id;
+        $purchase = Purchase::create($request->all()+[
+            'user_id'=>Auth::user()->id,
+            'purchase_date'=>Carbon::now('America/La_Paz'),
+           
+           
+        ]);
+
         foreach ($request->product_id as $key => $product) {
             $results[] = array("product_id"=>$request->product_id[$key],
             "quantity"=>$request->quantity[$key], "price"=>$request->price[$key]);
         }
-        $purchase->purchaseDatails()->createMany($results);
+      
+        // dd($request);
+        $purchase->purchaseDetails()->createMany($results);      
         return redirect()->route('purchases.index');
+       
+     
 
     }
 
     
     public function show(Purchase $purchase)
     {
-        return view('admin.purchase.show', compact('purchase'));
+
+        $subtotal= 0;
+        $purchaseDetails = $purchase->purchaseDetails;
+        foreach($purchaseDetails as $purchaseDetail) {
+       
+            $subtotal += $purchaseDetail->quantity * $purchaseDetail->price;
+        }
+       
+        return view('admin.purchase.show', compact('purchase','purchaseDetails','subtotal'));
     }
 
    
     public function edit(Purchase $purchase)
     {
-        $providers = Provider::get();
-        return view('admin.purchase.show', compact('purchase'));
+        // $providers = Provider::get();
+        // return view('admin.purchase.show', compact('purchase'));
     }
 
     
     public function update(UpdateRequest $request, Purchase $purchase)
     {
-        // $purchase->update($request->all());
-        // return redirect()->route('purchases.index');
+        $purchase->update($request->all());
+        return redirect()->route('purchases.index');
     }
 
     
     public function destroy(Purchase $Purchase)
     {
-        // $Purchase->delete();
-        // return redirect()->route('purchases.index');
+        $Purchase->delete();
+        return redirect()->route('purchases.index');
     }
 }

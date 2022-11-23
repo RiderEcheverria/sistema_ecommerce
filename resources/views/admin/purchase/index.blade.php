@@ -51,9 +51,11 @@
                                 <thead>
                                     <tr>
                                         <th>Id</th>
+                                        <th>Camprador</th>
+                                        <th>Proveedor</th>
                                         <th>Fecha</th>
                                         <th>Total</th>
-                                        <th>Estado</th>                             
+                                        {{--  <th>Estado</th>                               --}}
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -61,15 +63,15 @@
                                     @foreach ($purchases as $purchase)
                                         <tr>
                                             <th scope="row">{{ $purchase->id }}</th>
+                                            <td>{{$purchase->user->name}}</td>        
+                                            <td>{{$purchase->provider->name}}</td>        
                                             <td>{{$purchase->purchase_date}}</td>
                                             <td>{{$purchase->total}}</td>
-                                            <td>{{$purchase->status}}</td>
+                                            {{--  <td>{{$purchase->status}}</td>  --}}
                                             <td style="width: 20%;">
                                               {!! Form::open(['route'=>['purchases.destroy',$purchase],'method'=>'DELETE']) !!}
                                                   <a class="btn btn-outline-primary" href="{{route('purchases.show',$purchase)}}">
                                                   <i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                  <a class="btn btn-outline-info" href="{{route('purchases.edit',$purchase)}}" title="Editar">
-                                                  <i class="far fa-edit"></i></a>
                                                   <button class="btn btn-outline-danger delete-confirm"
                                                     type="submit"  title="Eliminar">
                                                     <i class="far fa-trash-alt"></i>
@@ -78,7 +80,7 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                </tbody>
+                                </tbody>      
                             <table>
                         </div>
                     </div>

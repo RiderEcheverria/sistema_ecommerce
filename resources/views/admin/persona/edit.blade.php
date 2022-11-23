@@ -26,48 +26,83 @@
                                             <h4 class="card-title"> Editar categoria</h4>
                                         </div>
                                         {!! Form::model($persona, ['route' => ['personas.update', $persona], 'method' => 'PUT']) !!}
-                                        <div class="form-group">
-                                            <label for="name">Nombre</label>
-                                            <input type="text" name="name" id="name" value="{{ $persona->name }}"
-                                                class="form-control" placeholder="" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="surname">Apellido</label>
-                                            <input type="text" name="surname" id="surname"
-                                                value="{{ $persona->surname }}" class="form-control" placeholder=""
-                                                required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="name">Direcion</label>
-                                            <input type="text" name="address" id="address"
-                                                value="{{ $persona->address }}" class="form-control" placeholder=""
-                                                required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="name">Correo electronico</label>
-                                            <input type="text" name="email" id="email"
-                                                value="{{ $persona->email }}" class="form-control" placeholder="" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="name">Numero de CI</label>
-                                            <input type="text" name="cedula" id="cedula"
-                                                value="{{ $persona->cedula }}" class="form-control" placeholder="" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="name">Numro de contacto</label>
-                                            <input type="text" name="celular" id="celular"
-                                                value="{{ $persona->celular }}" class="form-control" placeholder=""
-                                                required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleSelectGender">Estado</label>
-                                              <select  name="estatus" value="{{ old('estatus', $persona->estatus) }}" class="form-control" id="exampleSelectGender">
-                                                <option selected>Seleccione el estado</option>
-                                                <option value="1">Activo</option>
-                                                <option value="0">Inactivo</option>
-                                              </select>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Nombre</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="name" id="name" value="{{ $persona->name }}"
+                                                    class="form-control" placeholder="" required>
+                                                </div>
+                                              </div>
                                             </div>
+                                            <div class="col-md-6">
+                                              <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Ubicacion </label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="address" id="address"
+                                                    value="{{ $persona->address }}" class="form-control" placeholder=""
+                                                    required>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Apellido</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="surname" id="surname"
+                                                    value="{{ $persona->surname }}" class="form-control" placeholder=""
+                                                    required>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                              <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Correo electronoco </label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="email" id="email"
+                                                    value="{{ $persona->email }}" class="form-control" placeholder="" required>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Numero de CI</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="cedula" id="cedula"
+                                                    value="{{ $persona->cedula }}" class="form-control" placeholder="" required>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label">Estado</label>
+                                                    <div class="col-sm-9">
+                                                        <select  name="estatus" value="{{ old('estatus', $persona->estatus) }}" class="form-control" id="exampleSelectGender">
+                                                            <option selected>Seleccione el estado</option>
+                                                            <option value="1">Activo</option>
+                                                            <option value="0">Inactivo</option>
+                                                          </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Numero de contacto</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="celular" id="celular"
+                                                    value="{{ $persona->celular }}" class="form-control" placeholder=""
+                                                    required>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>             
                                         <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
                                         <a href="{{ route('personas.index') }}" class="btn btn-primary mr-2"> Cancelar</a>
                                         {!! Form::close() !!}

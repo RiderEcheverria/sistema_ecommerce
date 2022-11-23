@@ -14,7 +14,7 @@ class PersonaController extends Controller
         
         $cedula = $request->get('buscar-cedula');
        
-        $personas = Persona::nombres($nombre)->cedula($cedula)->paginate(5);
+        $personas = Persona::nombres($nombre)->cedulas($cedula)->paginate(5);
         
         return view('admin.persona.index', compact('personas'));
     }

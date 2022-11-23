@@ -25,9 +25,9 @@ class Persona extends Model
 
 
 
-    public function scopeCedula($query, $cedula) {
-    	if ($cedula) {
-    		return $query->where('cedula','like',"%$cedula%");
+    public function scopeCedulas($query, $cedulas) {
+    	if ($cedulas) {
+    		return $query->where('cedula','like',"%$cedulas%");
     	}
     }
 }

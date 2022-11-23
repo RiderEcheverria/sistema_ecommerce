@@ -27,31 +27,57 @@
                                         </div>
                                         <br />
                                         {!! Form::open(['route' => 'clients.store', 'method' => 'POST']) !!}
-                                        <div class="form-group">
-                                            <label for="name">Nombre</label>
-                                            <input type="text" name="name" id="name" class="form-control"
-                                                placeholder="Nombre" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="ci">Nummero CI</label>
-                                            <input type="text" name="ci" id="ci" class="form-control"
-                                                placeholder="ci" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="address">Ubicacion</label>
-                                            <input type="text" class="form-control" name="address" id="address"
-                                                aria-describedby="helpId" placeholder="" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="phone">Numero de contacto</label>
-                                            <input type="text" name="phone" id="phone" class="form-control"
-                                                placeholder="Celilar/Telefono" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Correo electronoco</label>
-                                            <input type="email" class="form-control" name="email" id="email"
-                                                aria-describedby="emailHelpId" placeholder="@.gmail.com" required>
-                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Nombre</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="name" id="name" class="form-control" 
+                                                    placeholder="Nombre" required>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                              <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Ubicacion </label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" name="address" id="address"
+                                                    aria-describedby="helpId" placeholder="" required>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Numero CI</label>
+                                                <div class="col-sm-9">
+                                                    <input type="number" name="ci" id="ci" class="form-control"
+                                                     placeholder="ci" required>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                              <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Correo electronoco </label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" class="form-control" name="email" id="email"
+                                                    aria-describedby="emailHelpId" placeholder="@.gmail.com" required>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Numero de contacto</label>
+                                                <div class="col-sm-9">
+                                                    <input type="number" name="phone" id="phone" class="form-control"
+                                                    placeholder="Celilar/Telefono" required>
+                                                </div>
+                                              </div>
+                                            </div>    
+                                          </div>         
                                         <br />
                                         <br />
                                         <button type="submit" class="btn btn-primary mr-2">Registrar</button>

@@ -25,12 +25,11 @@
       <div class="row">
       <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
+            {!! Form::open(['route'=>'purchases.store','method'=>'POST'])!!}
               <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <h4 class="card-title">Registro de compras</h4>  
                 </div>
-
-               {!! Form::open(['route'=>'purchases.store','method'=>'POST'])!!}
                <div class="card-body">
                 @include('admin.purchase._form1')
             </div>
@@ -38,9 +37,9 @@
               <br/>
                <button type="submit" class="btn btn-primary mr-2">Registrar</button>
                <a href="{{route('purchases.index')}}"  class="btn btn-primary mr-2"> Cancelar</a>
-               {!! Form::close()!!}
           </div>
       </div>
+      {!! Form::close()!!}
   </div>
 @endsection
 @section('scripts')
