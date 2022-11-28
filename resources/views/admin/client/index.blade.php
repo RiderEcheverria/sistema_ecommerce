@@ -28,11 +28,13 @@
                                         <form class="form-inline">            
                                             <div>
                                               <h6>Busqueda por nombre</h6>
-                                              <input name="buscar-nombre"  class="form-control mr-sm-2" type="search" placeholder="Busqueda por nombre" aria-label="Search">
-                                            </div> 
+                                              <input name="buscar-nombre"  class="form-control mr-sm-2" type="search" 
+                                              placeholder="Busqueda por nombre" aria-label="Search">
+                                            {{--  </div> 
                                             <div>
                                                <h6>Busqueda por cedula</h6>
-                                              <input name="buscar-cedula" class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
+                                              <input name="buscar-cedula" class="form-control mr-sm-2" type="search"
+                                               placeholder="" aria-label="Search">  --}}
                                               <button class="btn btn-primary" type="submit">
                                                 <i class="fas fa-search"></i>
                                               </button>                                           

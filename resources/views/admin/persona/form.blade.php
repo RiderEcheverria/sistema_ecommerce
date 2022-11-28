@@ -4,7 +4,7 @@
         <label class="col-sm-3 col-form-label">Nombre</label>
         <div class="col-sm-9">
             <input type="text" name="name" id="name" class="form-control" 
-            placeholder="Nombre" required>
+            placeholder="Nombre" required onkeypress="return soloLetras(event)" />
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
         <label class="col-sm-3 col-form-label">Apellido</label>
         <div class="col-sm-9">
             <input type="text" name="surname" id="surname" class="form-control"
-             placeholder="Apellido" required>
+             placeholder="Apellido" required onkeypress="return soloLetras(event)" />
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
         <label class="col-sm-3 col-form-label">Correo electronoco </label>
         <div class="col-sm-9">
             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId"
-             placeholder="@.gmail.com" required>
+             placeholder="@.gmail.com" required >
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@
         <label class="col-sm-3 col-form-label">Numero de CI</label>
         <div class="col-sm-9">
             <input type="number" name="cedula" id="cedula" class="form-control" 
-            placeholder="cedula" required>
+            placeholder="cedula" required onkeypress="return valideKey(event);" />
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@
         <label class="col-sm-3 col-form-label">Numero de contacto</label>
         <div class="col-sm-9">
             <input type="number" name="celular" id="celular" class="form-control" 
-            placeholder="Celular/Telefono" required>
+            placeholder="Celular/Telefono" required onkeypress="return valideKey(event);" />
         </div>
       </div>
     </div>
