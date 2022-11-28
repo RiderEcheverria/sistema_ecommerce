@@ -4,7 +4,7 @@
       <label class="col-sm-3 col-form-label">Nombre</label>
       <div class="col-sm-9">
         <input type="text" name="name" id="name" class="form-control"
-         placeholder="Nombre" required>
+         placeholder="Nombre" required onkeypress="return soloLetras(event)" />
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
       <label class="col-sm-3 col-form-label">Numero NIT</label>
       <div class="col-sm-9">
         <input type="number" name="nit" id="nit" class="form-control" 
-        placeholder="NIT" required>
+        placeholder="NIT" required onkeypress="return valideKey(event);" />
       </div>
     </div>
   </div>
@@ -44,7 +44,7 @@
       <label class="col-sm-3 col-form-label">Numero de contacto</label>
       <div class="col-sm-9">
         <input type="number" name="celular" id="celular" class="form-control" 
-        placeholder="Celilar/Telefono" required>
+        placeholder="Celilar/Telefono" required onkeypress="return valideKey(event);" />
       </div>
     </div>
   </div>    
