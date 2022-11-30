@@ -29,18 +29,14 @@
                                             <div>
                                               <h6>Busqueda por nombre</h6>
                                               <input name="buscar-nombre"  class="form-control mr-sm-2" type="search" 
-                                              placeholder="Busqueda por nombre" aria-label="Search">
-                                            </div> 
-                                            <div>
-                                               <h6>Busqueda por NIT</h6>
-                                              <input name="buscar-nit" class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
-                                              <button class="btn btn-primary" type="submit">
+                                              placeholder="Busqueda por nombre" aria-label="Search" onkeypress="return soloLetras(event)" />
+                                              <button class="btn btn-dark" type="submit">
                                                 <i class="fas fa-search"></i>
                                               </button>                                           
-                                                <a href="{{ route('dealers.index')}}" class="btn btn-primary">
+                                                <a href="{{ route('dealers.index')}}" class="btn btn-dark">
                                                     <i class="fas fa-undo-alt"></i>
                                                 </a>
-                                                <a href="{{ route('dealers.create')}}"  class="btn btn-primary ">
+                                                <a href="{{ route('dealers.create')}}"  class="btn btn-dark ">
                                                     + Agregar nuevo
                                                 </a>
                                             </div>                           
@@ -75,7 +71,7 @@
                                             <td>{{$dealer->celular}}</td>
                                             <td style="width: 20%;">
                                               {!! Form::open(['route'=>['dealers.destroy',$dealer],'method'=>'DELETE']) !!}
-                                              <a class="btn btn-outline-primary" href="{{route('dealers.show',$dealer)}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                              <a class="btn btn-outline-warning" href="{{route('dealers.show',$dealer)}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                                   <a class="btn btn-outline-info" href="{{route('dealers.edit',$dealer)}}" title="Editar">
                                                       <i class="far fa-edit"></i>
                                                   </a>
@@ -97,7 +93,27 @@
         </div>
     </div>               
 @endsection
-
+{{--  validacion de letras  --}}
+ <script>
+    function soloLetras(e) {
+      var key = e.keyCode || e.which,
+        tecla = String.fromCharCode(key).toLowerCase(),
+        letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+        especiales = [46],
+        tecla_especial = false;
+  
+      for (var i in especiales) {
+        if (key == especiales[i]) {
+          tecla_especial = true;
+          break;
+        }
+      }
+  
+      if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+      }
+    }
+   </script>
 
 
 

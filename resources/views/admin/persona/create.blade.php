@@ -9,7 +9,7 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-custom">
-                    <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
+                    <li class="breadcrumb-item"> <a href="{{ route('home') }}">Panel administrador</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('personas.index') }}"> Personas</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> Registro de personas</li>
                 </ol>
@@ -22,15 +22,11 @@
                         <div class="row">
                             <div class="col-lg-12 grid-margin stretch-card">
                                 <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between">
-                                            <h4 class="card-title">Registro de personas</h4>
-                                        </div>
-                                        <br />
+                                    <div class="card-body"> 
                                         {!! Form::open(['route' => 'personas.store','method' => 'POST']) !!}
                                         @include('admin.persona.form')
-                                        <button type="submit" class="btn btn-primary mr-2">Registrar</button>
-                                        <a href="{{ route('personas.index') }}" class="btn btn-primary mr-2"> Cancelar</a>
+                                        <button type="submit" class="btn btn-dark mr-2">Registrar</button>
+                                        <a href="{{ route('personas.index') }}" class="btn btn-dark mr-2"> Cancelar</a>
                                         {!! Form::close() !!}
                                     </div>
                                 </div>
@@ -62,22 +58,5 @@
     }
   }
  </script>
- {{--  validacion de numeros  --}}
- <script type="text/javascript">
-  function valideKey(evt) {
-    // code is the decimal ASCII representation of the pressed key.
-    var code = evt.which ? evt.which : evt.keyCode;
 
-    if (code == 8) {
-      // backspace.
-      return true;
-    } else if (code >= 48 && code <= 57) {
-      // is a number.
-      return true;
-    } else {
-      // other keys.
-      return false;
-    }
-  }
- </script>
 

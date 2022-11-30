@@ -4,7 +4,7 @@
             <label for="provider_id">Proveedor</label>
             <select class="form-control" name="provider_id" id="provider_id">
                 @foreach ($providers as $provider)
-                <option value="{{$provider->id}}">{{$provider->name}}</option>
+                    <option value="{{ $provider->id }}">{{ $provider->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -16,8 +16,9 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon3">%</span>
             </div>
-            <input type="number" class="form-control" name="tax" id="tax" value="10" 
-            aria-describedby="basic-addon3" onkeypress="return valideKey(event);" />
+            <input type="number" class="form-control" name="tax" id="tax" value="10"
+                aria-describedby="basic-addon3"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
+                onKeyPress="if(this.value.length==2) return false;" min="0" />
         </div>
     </div>
 </div>
@@ -29,7 +30,7 @@
             <select class="form-control" name="product_id" id="product_id">
                 <option value="" disabled selected>Selecccione un producto</option>
                 @foreach ($products as $product)
-                <option value="{{$product->id}}">{{$product->name}}</option>
+                    <option value="{{ $product->id }}">{{ $product->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -37,20 +38,22 @@
     <div class="form-group col-md-4">
         <div class="form-group">
             <label for="quantity">Cantidad</label>
-            <input type="number" class="form-control" name="quantity" id="quantity" 
-            aria-describedby="helpId" onkeypress="return valideKey(event);" />
+            <input type="number" class="form-control" name="quantity" id="quantity" aria-describedby="helpId"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
+            onKeyPress="if(this.value.length==8) return false;" min="0" />
         </div>
     </div>
     <div class="form-group col-md-2">
         <div class="form-group">
             <label for="price">Precio de compra</label>
-            <input type="number" class="form-control" name="price" id="price" 
-            aria-describedby="helpId" onkeypress="return valideKey(event);" />
+            <input type="number" class="form-control" name="price" id="price" aria-describedby="helpId"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
+            onKeyPress="if(this.value.length==8) return false;" min="0" />
         </div>
     </div>
 </div>
 <div class="form-group">
-    <button type="button" id="agregar" class="btn btn-primary float-right">Agregar producto</button>
+    <button type="button" id="agregar" class="btn btn-dark float-right">Agregar producto</button>
 </div>
 <div class="form-group">
     <h4 class="card-title">Detalles de compra</h4>
@@ -87,13 +90,13 @@
                         <p align="right">TOTAL PAGAR:</p>
                     </th>
                     <th>
-                        <p align="right"><span align="right" id="total_pagar_html">Bs 0.00</span> <input type="hidden"
-                                name="total" id="total_pagar"></p>
+                        <p align="right"><span align="right" id="total_pagar_html">Bs 0.00</span> <input
+                                type="hidden" name="total" id="total_pagar"></p>
                     </th>
                 </tr>
             </tfoot>
             <tbody>
-        </tbody>
+            </tbody>
         </table>
     </div>
 </div>

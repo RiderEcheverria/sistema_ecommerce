@@ -4,13 +4,13 @@
 <div class="main-panel">          
     <div class="content-wrapper">
       <div class="page-header">
-        <h3 class="page-title">
+        <h6 class="page-title">
             Listado de personas
-        </h3>
+        </h6>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-custom">
                 <li class="breadcrumb-item">
-                  <a href="">Panel administrador</a></li>
+                  <a href="{{ route('home') }}">Panel administrador</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Personas</li>
             </ol>
         </nav>
@@ -28,18 +28,20 @@
                                         <form class="form-inline">            
                                             <div>
                                               <h6>Busqueda por nombre</h6>
-                                              <input name="buscar-nombre"  class="form-control mr-sm-2" type="search" placeholder="Busqueda por nombre" aria-label="Search">
+                                              
+                                              <input name="buscar-nombre"  class="form-control mr-sm-2" type="search" 
+                                               placeholder="Busqueda por nombre" aria-label="Search"  onkeypress="return soloLetras(event)" />
                                             {{--  </div> 
                                             <div>
                                                <h6>Busqueda por cedula</h6>
                                               <input name="buscar-cedula" class="form-control mr-sm-2" type="search" placeholder="Busqueda por cedula" aria-label="Search">  --}}
-                                              <button class="btn btn-primary" type="submit">
+                                              <button class="btn btn-dark" type="submit">
                                                 <i class="fas fa-search"></i>
                                               </button>                                           
-                                                <a href="{{ route('personas.index')}}" class="btn btn-primary">
+                                                <a href="{{ route('personas.index')}}" class="btn btn-dark">
                                                     <i class="fas fa-undo-alt"></i>
                                                 </a>
-                                                <a href="{{ route('personas.create')}}"  class="btn btn-primary ">
+                                                <a href="{{ route('personas.create')}}"  class="btn btn-dark ">
                                                     + Agregar nuevo
                                                 </a>
                                             </div>                           
@@ -61,7 +63,7 @@
                                         <th>Direccion</th>
                                         <th>Email</th>
                                         <th>Celular</th>
-                                        <th>Creado en</th>
+                                        {{--  <th>Creado en</th>  --}}
                                         <th>Estado</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -76,9 +78,8 @@
                                             <td>{{ $persona->address }}</td>
                                             <td>{{ $persona->email }}</td>
                                             <td>{{ $persona->celular }}</td>
-                                            <td>{{ $persona->created_at}}</td>
-                                            <td id="resp{{ $persona->id }}">
-                                                <br>
+                                            {{--  <td>{{ $persona->created_at}}</td>  --}}
+                                            <td id="resp{{ $persona->id }}">                                              
                                                   @if($persona->estatus == 1)
                                                   <label class="badge badge-success badge-pill">Activo</label>
                                                       @else
@@ -87,7 +88,7 @@
                                             </td>
                                             <td style="width: 20%;">
                                                 {!! Form::open(['route' => ['personas.destroy', $persona], 'method' => 'DELETE']) !!}
-                                                <a class="btn btn-outline-primary"
+                                                <a class="btn btn-outline-warning"
                                                     href="{{ route('personas.show', $persona) }}">
                                                     <i class="fa fa-eye"
                                                         aria-hidden="true"></i></a>
@@ -116,7 +117,27 @@
         </div>
     </div>               
 @endsection
-
+{{--  validacion de letras  --}}
+ <script>
+    function soloLetras(e) {
+      var key = e.keyCode || e.which,
+        tecla = String.fromCharCode(key).toLowerCase(),
+        letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+        especiales = [46],
+        tecla_especial = false;
+  
+      for (var i in especiales) {
+        if (key == especiales[i]) {
+          tecla_especial = true;
+          break;
+        }
+      }
+  
+      if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+      }
+    }
+   </script>
 
 
 

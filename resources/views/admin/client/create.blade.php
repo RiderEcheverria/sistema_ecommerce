@@ -21,28 +21,24 @@
                         <div class="row">
                             <div class="col-lg-12 grid-margin stretch-card">
                                 <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between">
-                                            <h4 class="card-title">Registro de clientes</h4>
-                                        </div>
-                                        <br />
+                                    <div class="card-body">                                    
                                         {!! Form::open(['route' => 'clients.store', 'method' => 'POST']) !!}
                                         <div class="row">
                                             <div class="col-md-6">
-                                              <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Nombre</label>
+                                              <div class="form-group row">                            
                                                 <div class="col-sm-9">
+                                                  <h6>Nombre</h6>
                                                     <input type="text" name="name" id="name" class="form-control" 
-                                                    placeholder="Nombre" required onkeypress="return soloLetras(event)" />
+                                                    placeholder="Escriba un nombre" required onkeypress="return soloLetras(event)" />
                                                 </div>
                                               </div>
                                             </div>
                                             <div class="col-md-6">
                                               <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Ubicacion </label>
                                                 <div class="col-sm-9">
+                                                  <h6>Ubicacion</h6>
                                                     <input type="text" class="form-control" name="address" id="address"
-                                                    aria-describedby="helpId" placeholder="" required>
+                                                    aria-describedby="helpId" placeholder="Escriba una direccion" required>
                                                 </div>
                                               </div>
                                             </div>
@@ -50,19 +46,20 @@
                                           <div class="row">
                                             <div class="col-md-6">
                                               <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Numero CI</label>
                                                 <div class="col-sm-9">
+                                                  <h6>Numero de CI</h6>
                                                     <input type="number" name="ci" id="ci" class="form-control"
-                                                     placeholder="ci" required onkeypress="return valideKey(event);" />
+                                                    placeholder="Escriba numero de cedula"  required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
+                                                    onKeyPress="if(this.value.length==8) return false;" min="0" />
                                                 </div>
                                               </div>
                                             </div>
                                             <div class="col-md-6">
                                               <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Correo electronoco </label>
                                                 <div class="col-sm-9">
+                                                  <h6>Correo electronico</h6>
                                                     <input type="email" class="form-control" name="email" id="email"
-                                                    aria-describedby="emailHelpId" placeholder="@.gmail.com" required>
+                                                    aria-describedby="emailHelpId"  placeholder="Escriba un gmail valido" required>
                                                 </div>
                                               </div>
                                             </div>
@@ -70,18 +67,20 @@
                                           <div class="row">
                                             <div class="col-md-6">
                                               <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Numero de contacto</label>
                                                 <div class="col-sm-9">
+                                                  <h6>Numero de contacto</h6>
                                                     <input type="number" name="phone" id="phone" class="form-control"
-                                                    placeholder="Celilar/Telefono" required onkeypress="return valideKey(event);" />
+                                                    placeholder="Escriba un numero de contacto" required 
+                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
+                                                    onKeyPress="if(this.value.length==8) return false;" min="0" />
                                                 </div>
                                               </div>
                                             </div>    
                                           </div>         
                                         <br />
                                         <br />
-                                        <button type="submit" class="btn btn-primary mr-2">Registrar</button>
-                                        <a href="{{ route('clients.index') }}" class="btn btn-primary mr-2"> Cancelar</a>
+                                        <button type="submit" class="btn btn-dark mr-2">Registrar</button>
+                                        <a href="{{ route('clients.index') }}" class="btn btn-dark mr-2"> Cancelar</a>
                                         {!! Form::close() !!}
                                     </div>
                                 </div>
@@ -109,23 +108,6 @@
     }
 
     if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-      return false;
-    }
-  }
- </script>
- <script type="text/javascript">
-  function valideKey(evt) {
-    // code is the decimal ASCII representation of the pressed key.
-    var code = evt.which ? evt.which : evt.keyCode;
-
-    if (code == 8) {
-      // backspace.
-      return true;
-    } else if (code >= 48 && code <= 57) {
-      // is a number.
-      return true;
-    } else {
-      // other keys.
       return false;
     }
   }

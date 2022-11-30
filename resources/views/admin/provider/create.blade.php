@@ -8,7 +8,7 @@
       </h3>
       <nav aria-label="breadcrumb">
           <ol class="breadcrumb breadcrumb-custom">
-              <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
+              <li class="breadcrumb-item"> <a href="{{ route('home') }}">Panel administrador</a></li>
               <li class="breadcrumb-item"><a href="{{route('providers.index')}}">  Proveedores</a></li>
               <li class="breadcrumb-item active" aria-current="page">  Registro de proveedores</li>
           </ol>
@@ -28,8 +28,8 @@
                     <br/>
                     {!! Form::open(['route'=>'providers.store','method'=>'POST'])!!}
                     @include('admin.provider._form')
-                    <button type="submit" class="btn btn-primary mr-2">Registrar</button>
-                    <a href="{{route('providers.index')}}"  class="btn btn-primary mr-2"> Cancelar</a>
+                    <button type="submit" class="btn btn-dark mr-2">Registrar</button>
+                    <a href="{{route('providers.index')}}"  class="btn btn-dark mr-2"> Cancelar</a>
                     {!! Form::close()!!}
                 </div>
               </div>
@@ -58,23 +58,7 @@
     }
   }
  </script>
- <script type="text/javascript">
-  function valideKey(evt) {
-    // code is the decimal ASCII representation of the pressed key.
-    var code = evt.which ? evt.which : evt.keyCode;
 
-    if (code == 8) {
-      // backspace.
-      return true;
-    } else if (code >= 48 && code <= 57) {
-      // is a number.
-      return true;
-    } else {
-      // other keys.
-      return false;
-    }
-  }
- </script>
 
 
 

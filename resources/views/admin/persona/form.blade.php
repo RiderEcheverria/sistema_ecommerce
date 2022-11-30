@@ -1,19 +1,20 @@
 <div class="row">
     <div class="col-md-6">
       <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Nombre</label>
+  
         <div class="col-sm-9">
+          <h6>Nombre</h6>
             <input type="text" name="name" id="name" class="form-control" 
-            placeholder="Nombre" required onkeypress="return soloLetras(event)" />
+            placeholder="Escriba un nombre" required onkeypress="return soloLetras(event)" />
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Ubicacion </label>
         <div class="col-sm-9">
+          <h6>Ubicacion</h6>
             <input type="text" class="form-control" name="address" id="address" aria-describedby="helpId"
-             placeholder="" required>
+             placeholder="Escriba una direccion" required>
         </div>
       </div>
     </div>
@@ -21,19 +22,19 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Apellido</label>
         <div class="col-sm-9">
+          <h6>Apellido</h6>
             <input type="text" name="surname" id="surname" class="form-control"
-             placeholder="Apellido" required onkeypress="return soloLetras(event)" />
+             placeholder="Escriba el apellido paterno" required onkeypress="return soloLetras(event)" />
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Correo electronico </label>
         <div class="col-sm-9">
-            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId"
-             placeholder="@.gmail.com" required >
+          <h6>Correo electronico</h6>
+            <input type="email" class="form-control" name="email" id="email"  aria-describedby="emailHelpId"
+             placeholder="Escriba un gmail valido" required >
         </div>
       </div>
     </div>
@@ -41,20 +42,20 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Numero de CI</label>
         <div class="col-sm-9">
+          <h6>Numero de CI</h6>
             <input type="number" name="cedula" id="cedula" class="form-control" 
-            placeholder="cedula" required onkeypress="return valideKey(event);" />
+            placeholder="Escriba numero de cedula"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
+            onKeyPress="if(this.value.length==8) return false;" min="0" />  
         </div>
       </div>
     </div>
     <div class="col-md-6">
         <div class="form-group row">
-            <label class="col-sm-3 col-form-label">Estado</label>
             <div class="col-sm-9">
+              <h6>Estado</h6>
                 <select  name="estatus" value="{{ old('estatus', $persona->estatus) }}" 
-                    class="form-control" id="exampleSelectGender">
-                <option selected>Seleccione el estado</option>
+                    class="form-control" id="exampleSelectGender">          
                 <option value="1">Activo</option>
                 <option value="0">Inactivo</option>
                 </select>
@@ -65,14 +66,17 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Numero de contacto</label>
         <div class="col-sm-9">
+          <h6>Numero de contacto</h6>
             <input type="number" name="celular" id="celular" class="form-control" 
-            placeholder="Celular/Telefono" required onkeypress="return valideKey(event);" />
+            placeholder="Escriba un numero de contacto" required 
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
+            onKeyPress="if(this.value.length==8) return false;" min="0" />
         </div>
       </div>
     </div>
   </div>
+  <br/>
          
        
     

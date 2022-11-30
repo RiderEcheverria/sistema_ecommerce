@@ -29,19 +29,14 @@
                                             <div>
                                               <h6>Busqueda por nombre</h6>
                                               <input name="buscar-nombre"  class="form-control mr-sm-2" type="search" 
-                                              placeholder="Busqueda por nombre" aria-label="Search">
-                                            {{--  </div> 
-                                            <div>
-                                               <h6>Busqueda por cedula</h6>
-                                              <input name="buscar-cedula" class="form-control mr-sm-2" type="search"
-                                               placeholder="" aria-label="Search">  --}}
-                                              <button class="btn btn-primary" type="submit">
+                                              placeholder="Busqueda por nombre" aria-label="Search" onkeypress="return soloLetras(event)" />
+                                              <button class="btn btn-dark" type="submit">
                                                 <i class="fas fa-search"></i>
                                               </button>                                           
-                                                <a href="{{ route('clients.index')}}" class="btn btn-primary">
+                                                <a href="{{ route('clients.index')}}" class="btn btn-dark">
                                                     <i class="fas fa-undo-alt"></i>
                                                 </a>
-                                                <a href="{{ route('clients.create')}}"  class="btn btn-primary ">
+                                                <a href="{{ route('clients.create')}}"  class="btn btn-dark ">
                                                     + Agregar nuevo
                                                 </a>
                                             </div>                           
@@ -76,7 +71,7 @@
                                             <td>{{ $client->email }}</td>
                                             <td style="width: 20%;">
                                                 {!! Form::open(['route' => ['clients.destroy', $client], 'method' => 'DELETE']) !!}
-                                                <a class="btn btn-outline-primary"
+                                                <a class="btn btn-outline-warning"
                                                     href="{{ route('clients.show', $client) }}">
                                                     <i class="fa fa-eye"
                                                         aria-hidden="true"></i></a>
@@ -105,3 +100,24 @@
         </div>
     </div>               
 @endsection
+{{--  validacion de letras  --}}
+ <script>
+    function soloLetras(e) {
+      var key = e.keyCode || e.which,
+        tecla = String.fromCharCode(key).toLowerCase(),
+        letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+        especiales = [46],
+        tecla_especial = false;
+  
+      for (var i in especiales) {
+        if (key == especiales[i]) {
+          tecla_especial = true;
+          break;
+        }
+      }
+  
+      if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+      }
+    }
+   </script>

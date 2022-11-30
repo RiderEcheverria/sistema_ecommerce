@@ -10,7 +10,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-custom">
                 <li class="breadcrumb-item">
-                  <a href="">Panel administrador</a></li>
+                  <a href="{{ route('home') }}">Panel administrador</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Proveedores</li>
             </ol>
         </nav>
@@ -29,18 +29,14 @@
                                             <div>
                                               <h6>Busqueda por nombre</h6>
                                               <input name="buscar-nombre"  class="form-control mr-sm-2" type="search" 
-                                              placeholder="Busqueda por nombre" aria-label="Search">
-                                            </div> 
-                                            <div>
-                                               <h6>Busqueda por NIT</h6>
-                                              <input name="buscar-nit" class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
-                                              <button class="btn btn-primary" type="submit">
+                                              placeholder="Busqueda por nombre" aria-label="Search"  onkeypress="return soloLetras(event)" />
+                                              <button class="btn btn-dark" type="submit">
                                                 <i class="fas fa-search"></i>
                                               </button>                                           
-                                                <a href="{{ route('providers.index')}}" class="btn btn-primary">
+                                                <a href="{{ route('providers.index')}}" class="btn btn-dark">
                                                     <i class="fas fa-undo-alt"></i>
                                                 </a>
-                                                <a href="{{ route('providers.create')}}"  class="btn btn-primary ">
+                                                <a href="{{ route('providers.create')}}"  class="btn btn-dark ">
                                                     + Agregar nuevo
                                                 </a>
                                             </div>                           
@@ -75,7 +71,7 @@
                                             <td>{{$provider->celular}}</td>
                                             <td style="width: 20%;">
                                               {!! Form::open(['route'=>['providers.destroy',$provider],'method'=>'DELETE']) !!}
-                                                  <a class="btn btn-outline-primary" href="{{route('providers.show',$provider)}}">
+                                                  <a class="btn btn-outline-warning" href="{{route('providers.show',$provider)}}">
                                                   <i class="fa fa-eye" aria-hidden="true"></i></a>
                                                   <a class="btn btn-outline-info" href="{{route('providers.edit',$provider)}}"
                                                    title="Editar">
@@ -98,3 +94,24 @@
         </div>
     </div>               
 @endsection
+{{--  validacion de letras  --}}
+<script>
+    function soloLetras(e) {
+      var key = e.keyCode || e.which,
+        tecla = String.fromCharCode(key).toLowerCase(),
+        letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+        especiales = [46],
+        tecla_especial = false;
+  
+      for (var i in especiales) {
+        if (key == especiales[i]) {
+          tecla_especial = true;
+          break;
+        }
+      }
+  
+      if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+      }
+    }
+   </script>
