@@ -180,12 +180,12 @@
             <span class="menu-title">Ventas</span>
           </a>
         </li> --}}
-        <li class="nav-item">
+        {{--  <li class="nav-item">
           <a class="nav-link" href="pages/widgets.html">
             <i class="fa fa-gift  menu-icon"></i>
             <span class="menu-title">Promociones</span>
           </a>
-        </li>
+        </li>  --}}
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="true" aria-controls="page-layouts">
             <i class="fa-solid fa-layer-group menu-icon"></i>
