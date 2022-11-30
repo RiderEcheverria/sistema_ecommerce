@@ -16,7 +16,8 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon3">%</span>
             </div>
-            <input type="number" class="form-control" name="tax" id="tax" value="18" aria-describedby="basic-addon3">
+            <input type="number" class="form-control" name="tax" id="tax" value="10" 
+            aria-describedby="basic-addon3" onkeypress="return valideKey(event);" />
         </div>
     </div>
 </div>
@@ -36,13 +37,15 @@
     <div class="form-group col-md-4">
         <div class="form-group">
             <label for="quantity">Cantidad</label>
-            <input type="number" class="form-control" name="quantity" id="quantity" aria-describedby="helpId">
+            <input type="number" class="form-control" name="quantity" id="quantity" 
+            aria-describedby="helpId" onkeypress="return valideKey(event);" />
         </div>
     </div>
     <div class="form-group col-md-2">
         <div class="form-group">
             <label for="price">Precio de compra</label>
-            <input type="number" class="form-control" name="price" id="price" aria-describedby="helpId">
+            <input type="number" class="form-control" name="price" id="price" 
+            aria-describedby="helpId" onkeypress="return valideKey(event);" />
         </div>
     </div>
 </div>

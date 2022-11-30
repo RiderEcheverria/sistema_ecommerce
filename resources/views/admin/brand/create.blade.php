@@ -30,7 +30,7 @@
                                         <div class="form-group">
                                             <label for="name">Nombre</label>
                                             <input type="text" name="name" id="name" class="form-control"
-                                                placeholder="" aria-describedby="helpId" required>
+                                                placeholder="" aria-describedby="helpId" required onkeypress="return soloLetras(event)" />
                                         </div>             
                                         <br />
                                         <br />
@@ -46,3 +46,24 @@
             </div>
         </div>
 @endsection
+ {{--  validacion de letras  --}}
+ <script>
+    function soloLetras(e) {
+      var key = e.keyCode || e.which,
+        tecla = String.fromCharCode(key).toLowerCase(),
+        letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+        especiales = [46],
+        tecla_especial = false;
+  
+      for (var i in especiales) {
+        if (key == especiales[i]) {
+          tecla_especial = true;
+          break;
+        }
+      }
+  
+      if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+      }
+    }
+   </script>

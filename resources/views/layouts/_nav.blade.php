@@ -139,8 +139,8 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index-2.html">
-            <i class="fa-solid fa-house menu-icon"></i>
-            <span class="menu-title">Dashboard</span>
+            {{--  <i class="fa-solid fa-house menu-icon"></i>
+            <span class="menu-title">Dashboard</span>  --}}
           </a>
         </li>
         <i class="fa-solid fa-badge-check"></i>
@@ -155,7 +155,7 @@
           <div class="collapse" id="tables">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item " > <a class="nav-link" href="{{route('users.index')}}">Users</a></li>
-              <li class="nav-item"> <a class="nav-link" href="melody/pages/tables/data-table.html">Roles</a></li>           
+              {{--  <li class="nav-item"> <a class="nav-link" href="melody/pages/tables/data-table.html">Roles</a></li>             --}}
           </div>
         </li>
         <li class="nav-item">
