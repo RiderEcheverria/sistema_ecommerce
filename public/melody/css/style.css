@@ -29189,7 +29189,7 @@ div.tagsinput span.tag a {
 }
 
 .auth .brand-logo img {
-  width: 250px;
+  width: 150px;
 }
 
 .auth form .form-group {
@@ -29205,9 +29205,13 @@ div.tagsinput span.tag a {
 .jsgrid .jsgrid-table .jsgrid-filter-row .auth form .form-group select, .auth form .form-group .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .jsgrid .jsgrid-table .jsgrid-filter-row .auth form .form-group input[type=number], .auth form .form-group .select2-container--default .select2-selection--single, .select2-container--default .auth form .form-group .select2-selection--single, .auth form .form-group .select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-selection--single .auth form .form-group .select2-search__field, .auth form .form-group .typeahead, .auth form .form-group
 .tt-query, .auth form .form-group
 .tt-hint {
-  background: transparent;
+  /* background: transparent;
   border-radius: 0;
-  font-size: .9375rem;
+  font-size: .9375rem; */
+  /* background: transparent; */
+  border: 1px solid #e0e0ef;
+  font-weight: 450;
+  font-size: 0.7299rem;
 }
 
 .auth form .auth-form-btn {

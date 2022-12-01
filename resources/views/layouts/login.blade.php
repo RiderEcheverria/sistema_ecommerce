@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -32,15 +30,14 @@
               <center><img style="position: center"  src="{{asset('melody/images/1.png')}}" width="900" alt="logo"></center>  
               </div>
              <center><h4>Sistema E-commerce</h4></center> 
-              <h6 class="font-weight-light">Descripción de la empresa.</h6>
-
-
+              {{--  <h6 class="font-weight-light">Descripción de la empresa.</h6>  --}}
               @yield('contenido')
 
 
-
-
-
+              <div class="my-3">
+                <a href="{{ route('register') }}" class="btn btn-block btn-dark btn-lg 
+                font-weight-medium auth-form-btn" >REGISTRARSE</a>
+              </div>
             </div>
           </div>
           <div class="col-lg-6 login-half-bg d-flex flex-row">
