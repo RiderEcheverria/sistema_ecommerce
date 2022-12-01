@@ -29185,11 +29185,11 @@ div.tagsinput span.tag a {
 }
 
 .auth .brand-logo {
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
 }
 
 .auth .brand-logo img {
-  width: 150px;
+  width: 250px;
 }
 
 .auth form .form-group {
