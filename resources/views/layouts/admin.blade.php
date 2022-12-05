@@ -89,6 +89,7 @@
       <!-- partial -->
       <!-- main-panel ends -->
      @yield('contenido') 
+     @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     <!-- partial -->
   <!-- container-scroller -->
   <!-- plugins:js -->
@@ -109,9 +110,9 @@
   <!-- Custom js for this page-->
   {!!Html::script('melody/js/dashboard.js')!!}
   {!!Html::script('melody/js/dropify.js')!!}
-  <script src={{asset('//cdn.jsdelivr.net/npm/sweetalert2@11')}}></script>
+  {{--  <script src={{asset('//cdn.jsdelivr.net/npm/sweetalert2@11')}}></script>  --}}
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9">
   @yield('scripts')
   <!-- End custom js for this page-->
 </body>
-<!-- Mirrored from www.urbanui.com/melody/template/pages/tables/data-table.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:41 GMT -->
 </html>

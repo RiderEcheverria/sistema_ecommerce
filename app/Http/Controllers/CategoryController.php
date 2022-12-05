@@ -17,8 +17,7 @@ class CategoryController extends Controller
         return view('admin.category.index', compact('categories'));
         
     }
-
-   
+  
     public function create()
     {
         return view('admin.category.create');
@@ -27,6 +26,7 @@ class CategoryController extends Controller
     
     public function store(StoreRequest $request)
     {
+        'Alert'::toast('Exito Se ha registrado una nueva categoria', 'success');
         Category::create($request->all());
         return redirect()->route('categories.index');
 
@@ -48,6 +48,7 @@ class CategoryController extends Controller
     
     public function update(UpdateRequest $request, Category $category)
     {
+        'Alert'::toast('Exito Se ha actualizado el registro', 'success');
         $category->update($request->all());
         return redirect()->route('categories.index');
     }
@@ -55,6 +56,7 @@ class CategoryController extends Controller
     
     public function destroy(Category $category)
     {
+        'alert'()->success('Exito','Se ha eliminado el registro.');
         $category->delete();
         return redirect()->route('categories.index');
     }

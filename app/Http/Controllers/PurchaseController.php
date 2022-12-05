@@ -39,6 +39,7 @@ class PurchaseController extends Controller
     {
         // dd($request);
         // Auth::user()->id;
+        'Alert'::toast('Exito Se ha registrado una nueva compra', 'success');
         $purchase = Purchase::create($request->all()+[
             'user_id'=>Auth::user()->id,
             'purchase_date'=>Carbon::now('America/La_Paz'),
@@ -82,7 +83,8 @@ class PurchaseController extends Controller
 
     
     public function update(UpdateRequest $request, Purchase $purchase)
-    {
+    {  
+        'Alert'::toast('Exito Se ha actualizado el registro', 'success');
         $purchase->update($request->all());
         return redirect()->route('purchases.index');
     }
@@ -90,6 +92,7 @@ class PurchaseController extends Controller
     
     public function destroy(Purchase $Purchase)
     {
+        'alert'()->success('Exito','Se ha eliminado el registro.');
         $Purchase->delete();
         return redirect()->route('purchases.index');
     }

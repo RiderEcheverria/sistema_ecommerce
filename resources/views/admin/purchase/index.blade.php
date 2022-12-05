@@ -4,9 +4,9 @@
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">
-                <h3 class="page-title">
+                <h6 >
                     Listado de compras
-                </h3>
+                </h6>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-custom">
                         <li class="breadcrumb-item">

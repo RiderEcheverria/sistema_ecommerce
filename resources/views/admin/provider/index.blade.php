@@ -4,9 +4,9 @@
 <div class="main-panel">          
     <div class="content-wrapper">
       <div class="page-header">
-        <h3 class="page-title">
+        <h6 >
             Listado de proveedores
-        </h3>
+        </h6>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-custom">
                 <li class="breadcrumb-item">
@@ -76,12 +76,10 @@
                                                   <a class="btn btn-outline-info" href="{{route('providers.edit',$provider)}}"
                                                    title="Editar">
                                                   <i class="far fa-edit"></i></a>
-                                                  <button class="btn btn-outline-danger delete-confirm"
-                                                    type="submit"  title="Eliminar">
-                                                    <i class="far fa-trash-alt"></i>
-                                                  </button> 
-                                              {!! Form::close() !!} 
+                                                  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$provider->id}}"><i class="far fa-trash-alt"></i></a>  
                                             </td>
+                                            @include('admin.provider.modal.delete')
+                                            {!! Form::close() !!}
                                         </tr>
                                     @endforeach      
                                 </tbody>

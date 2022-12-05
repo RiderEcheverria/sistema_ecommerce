@@ -31,9 +31,9 @@ class ProviderController extends Controller
     
     public function store(StoreRequest $request)
     {
+        'Alert'::toast('Exito Se ha registrado un nuevo proveedor', 'success');
         Provider::create($request->all());
         return redirect()->route('providers.index');
-
 
     }
 
@@ -52,6 +52,7 @@ class ProviderController extends Controller
     
     public function update(UpdateRequest $request, Provider $provider)
     {
+        'Alert'::toast('Exito Se ha actualizado el registro', 'success');
         $provider->update($request->all());
         return redirect()->route('providers.index');
     }
@@ -59,6 +60,7 @@ class ProviderController extends Controller
     
     public function destroy(Provider $provider)
     {
+        'alert'()->success('Exito','Se ha eliminado el registro.');
         $provider->delete();
         return redirect()->route('providers.index');
     }

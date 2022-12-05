@@ -35,7 +35,7 @@ class ProductController extends Controller
     
     public function store(StoreRequest $request)
     {
-
+        'Alert'::toast('Exito Se ha registrado un nuevo producto', 'success');
         if($request->hasFile('picture')){
             $file = $request->file('picture');
             $image_name = time().'_'.$file->getClientOriginalName();
@@ -69,7 +69,7 @@ class ProductController extends Controller
     public function update(UpdateRequest $request, Product $product)
     {
 
-
+        'Alert'::toast('Exito Se ha actualizado el registro', 'success');
         if($request->hasFile('picture')){
             $file = $request->file('picture');
             $image_name = time().'_'.$file->getClientOriginalName();
@@ -84,6 +84,7 @@ class ProductController extends Controller
     }
     public function destroy(Product $product)
     {
+        'alert'()->success('Exito','Se ha eliminado el registro.');
         $product->delete();
         return redirect()->route('products.index');
     }

@@ -29,15 +29,12 @@ class DealerController extends Controller
 
     public function store(Request $request)
     {
+        'Alert'::toast('Exito Se ha registrado un nuevo repartidor', 'success');
         request()->validate(Dealer::$rules);
-
         $dealer = Dealer::create($request->all());
-
-        return redirect()->route('dealers.index')
-            ->with('success', 'Dealer created successfully.');
+        return redirect()->route('dealers.index');
+            
     }
-
-
     public function show($id)
     {
         $dealer = Dealer::find($id);
@@ -55,20 +52,20 @@ class DealerController extends Controller
 
     public function update(Request $request, Dealer $dealer)
     {
+        'Alert'::toast('Exito Se ha actualizado el registro', 'success');
         request()->validate(Dealer::$rules);
-
         $dealer->update($request->all());
 
-        return redirect()->route('dealers.index')
-            ->with('success', 'Dealer updated successfully');
+        return redirect()->route('dealers.index');
+        
     }
 
 
     public function destroy($id)
     {
+        'alert'()->success('Exito','Se ha eliminado el registro.');
         $dealer = Dealer::find($id)->delete();
-
-        return redirect()->route('dealers.index')
-            ->with('success', 'Dealer deleted successfully');
+        return redirect()->route('dealers.index');
+           
     }
 }

@@ -4,9 +4,9 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title">
+            <h6>
                 Listado de marcas
-            </h3>
+            </h6>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-custom">
                     <li class="breadcrumb-item">
@@ -70,12 +70,10 @@
                                                             href="{{ route('brands.edit', $brand) }}" title="Editar">
                                                             <i class="far fa-edit"></i>
                                                         </a>
-                                                        <button class="btn btn-outline-danger delete-confirm"
-                                                            type="submit" title="Eliminar">
-                                                            <i class="far fa-trash-alt"></i>
-                                                        </button>
-                                                        {!! Form::close() !!}
+                                                         <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$brand->id}}"><i class="far fa-trash-alt"></i></a>  
                                                     </td>
+                                                    @include('admin.brand.modal.delete')
+                                                    {!! Form::close() !!}
                                                 </tr>
                                             @endforeach
                                         </tbody>

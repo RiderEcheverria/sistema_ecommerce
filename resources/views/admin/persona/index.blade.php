@@ -97,14 +97,10 @@
                                                     title="Editar">
                                                     <i class="far fa-edit"></i>
                                                 </a>
-                                                <button
-                                                    class="btn btn-outline-danger delete-confirm"
-                                                    type="submit"
-                                                    title="Eliminar">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </button>
-                                                {!! Form::close() !!} 
+                                                <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$persona->id}}"><i class="far fa-trash-alt"></i></a>  
                                             </td>
+                                            @include('admin.persona.modal.delete')
+                                            {!! Form::close() !!}
                                         </tr>  
                                     @endforeach      
                                 </tbody>

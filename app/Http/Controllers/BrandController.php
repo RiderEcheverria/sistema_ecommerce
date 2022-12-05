@@ -28,6 +28,7 @@ class BrandController extends Controller
     
     public function store(StoreRequest $request)
     {
+        'Alert'::toast('Exito Se ha registrado una nueva marca', 'success');
         Brand::create($request->all());
         return redirect()->route('brands.index');
 
@@ -49,6 +50,7 @@ class BrandController extends Controller
     
     public function update(UpdateRequest $request, Brand $brand)
     {
+        'Alert'::toast('Exito Se ha actualizado el registro', 'success');
         $brand->update($request->all());
         return redirect()->route('brands.index');
     }
@@ -56,7 +58,10 @@ class BrandController extends Controller
     
     public function destroy(Brand $brand)
     {
+        'alert'()->success('Exito','Se ha eliminado el registro.');
         $brand->delete();
         return redirect()->route('brands.index');
     }
+
+    
 }

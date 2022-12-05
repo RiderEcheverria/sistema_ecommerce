@@ -28,10 +28,9 @@ class PersonaController extends Controller
 
     public function store(Request $request)
     {
+        'Alert'::toast('Exito Se ha registrado una nueva persona', 'success');
         request()->validate(Persona::$rules);
-
         $persona = Persona::create($request->all());
-
         return redirect()->route('personas.index')
             ->with('success', 'Persona created successfully.');
     }
@@ -55,10 +54,9 @@ class PersonaController extends Controller
 
     public function update(Request $request, Persona $persona)
     {
+        'Alert'::toast('Exito Se ha actualizado el registro', 'success');
         request()->validate(Persona::$rules);
-
         $persona->update($request->all());
-
         return redirect()->route('personas.index')
             ->with('success', 'Persona updated successfully');
     }
@@ -66,8 +64,8 @@ class PersonaController extends Controller
 
     public function destroy($id)
     {
+        'alert'()->success('Exito','Se ha eliminado el registro.');
         $persona = Persona::find($id)->delete();
-
         return redirect()->route('personas.index')
             ->with('success', 'Persona deleted successfully');
     }

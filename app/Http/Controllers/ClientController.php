@@ -30,6 +30,7 @@ class ClientController extends Controller
     
     public function store(StoreRequest $request)
     {
+        'Alert'::toast('Exito Se ha registrado un nuevo cliente', 'success');
         Client::create($request->all());
         return redirect()->route('clients.index');
 
@@ -50,6 +51,7 @@ class ClientController extends Controller
     
     public function update(UpdateRequest $request, Client $client)
     {
+        'Alert'::toast('Exito Se ha actualizado el registro', 'success');
         $client->update($request->all());
         return redirect()->route('clients.index');
     }
@@ -57,6 +59,7 @@ class ClientController extends Controller
     
     public function destroy(Client $client)
     {
+        'alert'()->success('Exito','Se ha eliminado el registro.');
         $client->delete();
         return redirect()->route('clients.index');
     }

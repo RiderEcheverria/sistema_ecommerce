@@ -15,6 +15,7 @@ class HomeController extends Controller
 
     public function index()
     {
+        // 'alert'()->success('BIENVENODO AL SISTEMA ECOMMERCE','Vercion 1.0');
         return view('home');
     }
 }
