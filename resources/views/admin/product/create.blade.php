@@ -64,7 +64,7 @@
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Imágen del producto</h4>
+                        <h6>Imágen del producto</h6>
                         <div class="dropify-wrapper">
                             <div class="dropify-message">
                                 <input type="file" name="picture" id="picture" class="dropify">
