@@ -5,18 +5,12 @@
 @section('contenido')
 <div class="content-wrapper">
     <div class="page-header">
-        <h3 class="page-title">
-            Registro de compras
-        </h3>
-        <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-custom">
+            <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('purchases.index') }}"> Compras</a></li>
 
-            <ol class="breadcrumb breadcrumb-custom">
-                <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('purchases.index') }}"> Compras</a></li>
-
-                <li class="breadcrumb-item active" aria-current="page"> Registro de compras</li>
-            </ol>
-        </nav>
+            <li class="breadcrumb-item active" aria-current="page"> Registro de compras</li>
+        </ol>
     </div>
     <div class="row">
         <div class="col-12">

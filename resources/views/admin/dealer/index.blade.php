@@ -4,16 +4,11 @@
 <div class="main-panel">          
     <div class="content-wrapper">
       <div class="page-header">
-        <h6 >
-            Listado de repartidores
-        </h6 >
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-custom">
-                <li class="breadcrumb-item">
-                  <a href="">Panel administrador</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Repartidores</li>
-            </ol>
-        </nav>
+        <ol class="breadcrumb breadcrumb-custom">
+          <li class="breadcrumb-item">
+            <a href="">Panel administrador</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Repartidores</li>
+      </ol>
       </div>
       <div class="row">
         <div class="col-12">
@@ -27,7 +22,7 @@
                                     <nav class="navbar navbar-light float-right">
                                         <form class="form-inline">            
                                             <div>
-                                              <h6>Busqueda por nombre</h6>
+                                              {{--  <h6>Busqueda por nombre</h6>  --}}
                                               <input name="buscar-nombre"  class="form-control mr-sm-2" type="search" 
                                               placeholder="Busqueda por nombre" aria-label="Search" onkeypress="return soloLetras(event)" />
                                               <button class="btn btn-dark" type="submit">
@@ -56,7 +51,8 @@
                                         <th>Ubicacion</th>
                                         <th>Correo electronico</th>
                                         <th>Numero de NIT</th>
-                                        <th>Telefono/Celular</th>
+                                        <th>Celular</th>
+                                        <th>Estado</th>
                                         <th>Acciones</th>
                                       </tr>
                                 </thead>
@@ -69,16 +65,21 @@
                                             <td>{{$dealer->email}}</td>
                                             <td>{{$dealer->nit}}</td>
                                             <td>{{$dealer->celular}}</td>
+                                            <td id="resp{{ $dealer->id }}">                                              
+                                              @if($dealer->estatus == 1)
+                                              <label class="badge badge-success badge-pill">Activo</label>
+                                                  @else
+                                              <label class="badge badge-danger badge-pill">Inactivo</label>
+                                              @endif
+                                        </td>
                                             <td style="width: 20%;">
-                                              {!! Form::open(['route'=>['dealers.destroy',$dealer],'method'=>'DELETE']) !!}
                                               <a class="btn btn-outline-warning" href="{{route('dealers.show',$dealer)}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                                   <a class="btn btn-outline-info" href="{{route('dealers.edit',$dealer)}}" title="Editar">
                                                       <i class="far fa-edit"></i>
                                                   </a>
-                                                  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$dealer->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$dealer->id}}"><i class="far fa-trash-alt"></i></a>  
                                                 </td>
-                                                @include('admin.dealer.modal.delete')
-                                              {!! Form::close() !!}
+                                            @include('admin.dealer.modalDelete.delete')
                                         </tr>
                                     @endforeach     
                                 </tbody>
@@ -97,7 +98,7 @@
       var key = e.keyCode || e.which,
         tecla = String.fromCharCode(key).toLowerCase(),
         letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-        especiales = [46],
+        especiales = [0],
         tecla_especial = false;
   
       for (var i in especiales) {

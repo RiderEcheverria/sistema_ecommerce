@@ -4,17 +4,12 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
-            <h6>
-                Listado de marcas
-            </h6>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-custom">
-                    <li class="breadcrumb-item">
-                        <a href="">Panel administrador</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Marcas</li>
-                </ol>
-            </nav>
+            <ol class="breadcrumb breadcrumb-custom">
+                <li class="breadcrumb-item">
+                    <a href="">Panel administrador</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Marcas</li>
+            </ol>
         </div>
         <div class="row">
             <div class="col-12">
@@ -29,7 +24,7 @@
                                             <nav class="navbar navbar-light float-right">
                                                 <form class="form-inline">
                                                     <div>
-                                                        <h6>Busqueda por nombre</h6>
+                                                        {{--  <h6>Busqueda por nombre</h6>  --}}
                                                         <input name="buscar-nombre" class="form-control mr-sm-2"
                                                             type="search" placeholder="Busqueda por nombre"
                                                             aria-label="Search" onkeypress="return soloLetras(event)" />
@@ -56,6 +51,7 @@
                                             <tr>
                                                 <th>Id</th>
                                                 <th>Nombre</th>
+                                                <th>Eatado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -64,16 +60,23 @@
                                                 <tr>
                                                     <th scope="row">{{ $brand->id }}</th>
                                                     <td> {{ $brand->name }} </td>
+                                                    <td id="resp{{ $brand->id }}">                                              
+                                                        @if($brand->estatus == 1)
+                                                        <label class="badge badge-success badge-pill">Activo</label>
+                                                            @else
+                                                        <label class="badge badge-danger badge-pill">Inactivo</label>
+                                                        @endif
+                                                  </td>
                                                     <td style="width: 20%;">
-                                                        {!! Form::open(['route' => ['brands.destroy', $brand], 'method' => 'DELETE']) !!}
+                                                        {{--  {!! Form::open(['route' => ['brands.destroy', $brand], 'method' => 'DELETE']) !!}  --}}
                                                         <a class="btn btn-outline-info"
                                                             href="{{ route('brands.edit', $brand) }}" title="Editar">
                                                             <i class="far fa-edit"></i>
                                                         </a>
-                                                         <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$brand->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                        <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$brand->id}}"><i class="far fa-trash-alt"></i></a>  
                                                     </td>
-                                                    @include('admin.brand.modal.delete')
-                                                    {!! Form::close() !!}
+                                                    @include('admin.brand.modalDelete.delete')
+                                                    {{--  {!! Form::close() !!}  --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -92,7 +95,7 @@
             var key = e.keyCode || e.which,
                 tecla = String.fromCharCode(key).toLowerCase(),
                 letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-                especiales = [46],
+                especiales = [0],
                 tecla_especial = false;
 
             for (var i in especiales) {

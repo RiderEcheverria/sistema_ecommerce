@@ -3,10 +3,7 @@
 @section('contenido')
 <div class="main-panel">
     <div class="content-wrapper">
-        <div class="page-header">
-            <h6 >
-                Listado de productos
-            </h6 >
+        <div class="page-header"> 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-custom">
                     <li class="breadcrumb-item">
@@ -60,7 +57,7 @@
                                                 <th>Imagen</th>
                                                 <th>Categoria</th>
                                                 <th>Marca</th>
-                                                <th>Estado</th>
+                                                {{--  <th>Estado</th>  --}}
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -74,16 +71,16 @@
                                                             class="rounded mw-200"></td>
                                                     <td>{{ $product->category->name }}</td>
                                                     <td>{{ $product->brand->name }}</td>
-                                                    <td id="resp{{ $product->id }}"> 
+                                                    {{--  <td id="resp{{ $product->id }}"> 
                                                         @if ($product->status == 1)
                                                             <label
                                                                 class="badge badge-success badge-pill">Disponible</label>
                                                         @else
                                                             <label class="badge badge-danger badge-pill">Agotado</label>
                                                         @endif
-                                                    </td>
+                                                    </td>  --}}
                                                     <td style="width: 20%;">
-                                                        {!! Form::open(['route' => ['products.destroy', $product], 'method' => 'DELETE']) !!}
+                                                        {{--  {!! Form::open(['route' => ['products.destroy', $product], 'method' => 'DELETE']) !!}  --}}
                                                         <a class="btn btn-outline-warning"
                                                             href="{{ route('products.show', $product) }}">
                                                             <i class="fa fa-eye" aria-hidden="true"></i></a>
@@ -94,7 +91,7 @@
                                                         <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$product->id}}"><i class="far fa-trash-alt"></i></a>  
                                                     </td>
                                                     @include('admin.product.modal.delete')
-                                                    {!! Form::close() !!}
+                                                    {{--  {!! Form::close() !!}  --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -113,7 +110,7 @@
         var key = e.keyCode || e.which,
             tecla = String.fromCharCode(key).toLowerCase(),
             letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-            especiales = [46],
+            especiales = [0],
             tecla_especial = false;
 
         for (var i in especiales) {

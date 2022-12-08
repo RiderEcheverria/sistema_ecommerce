@@ -58,7 +58,7 @@
                                                             {{ $product->brand->name }}</a>
                                                     </span>
                                                 </p>
-                                                <p class="clearfix">
+                                                {{--  <p class="clearfix">
                                                     <span class="float-left">
                                                         <b>Estado</b>
                                                     </span>
@@ -70,7 +70,7 @@
                                                             <label class="badge badge-danger badge-pill">Agotado</label>
                                                         @endif
                                                     </span>
-                                                </p>
+                                                </p>  --}}
                                             </div>
                                         </div>
                                         <div class="col-lg-7 pl-lg-6">

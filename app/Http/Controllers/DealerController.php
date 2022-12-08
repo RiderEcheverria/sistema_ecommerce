@@ -38,8 +38,8 @@ class DealerController extends Controller
     public function show($id)
     {
         $dealer = Dealer::find($id);
-
         return view('admin.dealer.show', compact('dealer'));
+        
     }
 
     public function edit($id)

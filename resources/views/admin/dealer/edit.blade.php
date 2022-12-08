@@ -3,16 +3,11 @@
 @section('contenido')
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title">
-                Editar repartidor
-            </h3>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-custom">
-                    <li class="breadcrumb-item"> <a href="{{ route('home') }}">Panel administrador</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('dealers.index') }}"> Repartidor</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Editar repartidor</li>
-                </ol>
-            </nav>
+            <ol class="breadcrumb breadcrumb-custom">
+                <li class="breadcrumb-item"> <a href="{{ route('home') }}">Panel administrador</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dealers.index') }}"> Repartidor</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Editar repartidor</li>
+            </ol>
         </div>
         <div class="row">
             <div class="col-12">
@@ -82,6 +77,18 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                  <div class="col-sm-9">
+                                                    <h6>Estado</h6>
+                                                      <select  name="estatus" value="{{ old('estatus', $dealer->estatus) }}" 
+                                                        class="form-control" id="exampleSelectGender">          
+                                                        <option value="1">Activo</option>
+                                                        <option value="0">Inactivo</option>
+                                                        </select>
+                                                  </div>
+                                                </div>
+                                              </div>  
                                         </div>
                                         <br>
                                         <button type="submit" class="btn btn-dark mr-2">Actualizar</button>
@@ -103,7 +110,7 @@
       var key = e.keyCode || e.which,
         tecla = String.fromCharCode(key).toLowerCase(),
         letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-        especiales = [46],
+        especiales = [0],
         tecla_especial = false;
   
       for (var i in especiales) {

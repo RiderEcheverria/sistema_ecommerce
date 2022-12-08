@@ -3,16 +3,11 @@
 @section('contenido')
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title">
-                Registro de productos
-            </h3>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-custom">
-                    <li class="breadcrumb-item"> <a href="{{ route('home') }}">Panel administrador</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('products.index') }}"> Productos</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Registro de productos</li>
-                </ol>
-            </nav>
+            <ol class="breadcrumb breadcrumb-custom">
+                <li class="breadcrumb-item"> <a href="{{ route('home') }}">Panel administrador</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('products.index') }}"> Productos</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Registro de productos</li>
+            </ol>
         </div>
         {!! Form::open(['route' => 'products.store', 'method' => 'POST', 'files' => true]) !!}
         <div class="row">
@@ -51,12 +46,12 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="status">Estado</label>
-                            <select name="status" value="{{ old('status', $brand->status) }}" class="form-control"
+                            {{--  <label for="status">Estado</label>
+                            <select name="status" value="{{ old('status', $product->status) }}" class="form-control"
                                 id="status">
                                 <option value="1">Disponible</option>
                                 <option value="0">Agotado</option>
-                            </select>
+                            </select>  --}}
                             <br>
                             <button type="submit" class="btn btn-dark mr-2">Registrar</button>
                             <a href="{{ route('products.index') }}" class="btn btn-dark mr-2"> Cancelar</a>
@@ -95,8 +90,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
+        </div> 
         {!! Form::close() !!}
     </div>
 @endsection

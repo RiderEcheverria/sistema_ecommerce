@@ -4,16 +4,11 @@
 <div class="main-panel">          
     <div class="content-wrapper">
       <div class="page-header">
-        <h6 class="page-title">
-            Listado de personas
-        </h6>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-custom">
-                <li class="breadcrumb-item">
-                  <a href="{{ route('home') }}">Panel administrador</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Personas</li>
-            </ol>
-        </nav>
+        <ol class="breadcrumb breadcrumb-custom">
+            <li class="breadcrumb-item">
+              <a href="{{ route('home') }}">Panel administrador</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Personas</li>
+        </ol>
       </div>
       <div class="row">
         <div class="col-12">
@@ -27,7 +22,7 @@
                                     <nav class="navbar navbar-light float-right">
                                         <form class="form-inline">            
                                             <div>
-                                              <h6>Busqueda por nombre</h6>
+                                              {{--  <h6>Busqueda por nombre</h6>  --}}
                                               
                                               <input name="buscar-nombre"  class="form-control mr-sm-2" type="search" 
                                                placeholder="Busqueda por nombre" aria-label="Search"  onkeypress="return soloLetras(event)" />
@@ -87,7 +82,6 @@
                                                   @endif
                                             </td>
                                             <td style="width: 20%;">
-                                                {!! Form::open(['route' => ['personas.destroy', $persona], 'method' => 'DELETE']) !!}
                                                 <a class="btn btn-outline-warning"
                                                     href="{{ route('personas.show', $persona) }}">
                                                     <i class="fa fa-eye"
@@ -97,10 +91,11 @@
                                                     title="Editar">
                                                     <i class="far fa-edit"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$persona->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$persona->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$persona->id}}"><i class="far fa-trash-alt"></i></a>    --}}
                                             </td>
-                                            @include('admin.persona.modal.delete')
-                                            {!! Form::close() !!}
+                                            {{--  @include('admin.persona.modalEdit.edit')  --}}
+                                            @include('admin.persona.modalDelete.delete')
                                         </tr>  
                                     @endforeach      
                                 </tbody>
@@ -119,7 +114,7 @@
       var key = e.keyCode || e.which,
         tecla = String.fromCharCode(key).toLowerCase(),
         letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-        especiales = [46],
+        especiales = [0],
         tecla_especial = false;
   
       for (var i in especiales) {

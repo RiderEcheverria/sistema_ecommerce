@@ -4,16 +4,11 @@
 <div class="main-panel">          
     <div class="content-wrapper">
       <div class="page-header">
-        <h6>
-            Listado de cliente
-        </h6 >
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-custom">
-                <li class="breadcrumb-item">
-                  <a href="">Panel administrador</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Clientes</li>
-            </ol>
-        </nav>
+        <ol class="breadcrumb breadcrumb-custom">
+            <li class="breadcrumb-item">
+              <a href="">Panel administrador</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Clientes</li>
+        </ol>
       </div>
       <div class="row">
         <div class="col-12">
@@ -27,7 +22,7 @@
                                     <nav class="navbar navbar-light float-right">
                                         <form class="form-inline">            
                                             <div>
-                                              <h6>Busqueda por nombre</h6>
+                                              {{--  <h6>Busqueda por nombre</h6>  --}}
                                               <input name="buscar-nombre"  class="form-control mr-sm-2" type="search" 
                                               placeholder="Busqueda por nombre" aria-label="Search" onkeypress="return soloLetras(event)" />
                                               <button class="btn btn-dark" type="submit">
@@ -57,6 +52,7 @@
                                         <th>Direccion</th>
                                         <th>Celular</th>
                                         <th>Email</th>                                 
+                                        <th>Estado</th>                                 
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -69,8 +65,14 @@
                                             <td>{{ $client->address }} </td>
                                             <td>{{ $client->phone }}</td>
                                             <td>{{ $client->email }}</td>
+                                            <td id="resp{{ $client->id }}">                                              
+                                                @if($client->estatus == 1)
+                                                <label class="badge badge-success badge-pill">Activo</label>
+                                                    @else
+                                                <label class="badge badge-danger badge-pill">Inactivo</label>
+                                                @endif
+                                          </td>
                                             <td style="width: 20%;">
-                                                {!! Form::open(['route' => ['clients.destroy', $client], 'method' => 'DELETE']) !!}
                                                 <a class="btn btn-outline-warning"
                                                     href="{{ route('clients.show', $client) }}">
                                                     <i class="fa fa-eye"
@@ -80,10 +82,9 @@
                                                     title="Editar">
                                                     <i class="far fa-edit"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$client->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$client->id}}"><i class="far fa-trash-alt"></i></a>                                  
                                             </td>
-                                            @include('admin.client.modal.delete')
-                                            {!! Form::close() !!}
+                                            @include('admin.client.modalDelete.delete')
                                         </tr>  
                                     @endforeach      
                                 </tbody>
@@ -102,7 +103,7 @@
       var key = e.keyCode || e.which,
         tecla = String.fromCharCode(key).toLowerCase(),
         letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-        especiales = [46],
+        especiales = [0],
         tecla_especial = false;
   
       for (var i in especiales) {

@@ -3,16 +3,11 @@
 @section('contenido')
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title">
-                Registro de marcas
-            </h3>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-custom">
-                    <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('brands.index') }}"> Productos</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Registro de marcas</li>
-                </ol>
-            </nav>
+            <ol class="breadcrumb breadcrumb-custom">
+                <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('brands.index') }}"> Productos</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Registro de marcas</li>
+            </ol>
         </div>
         <div class="row">
             <div class="col-12">
@@ -22,16 +17,29 @@
                             <div class="col-lg-12 grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="d-flex justify-content-between">
-                                            <h4 class="card-title">Registro de marcas</h4>
-                                        </div>
-                                        <br />
                                         {!! Form::open(['route' => 'brands.store', 'method' => 'POST', 'files' => true]) !!}
-                                        <div class="form-group">
-                                            <label for="name">Nombre</label>
-                                            <input type="text" name="name" id="name" class="form-control"
-                                                placeholder="" aria-describedby="helpId" required
-                                                onkeypress="return soloLetras(event)" />
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="form-group row">
+                                                <div class="col-sm-9">
+                                                    <h6>Nombre de marca</h6>
+                                                    <input type="text" name="name" id="name" class="form-control" 
+                                                    placeholder="Escriba una marca" required onkeypress="return soloLetras(event)" />
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <div class="col-sm-9">
+                                                      <h6>Estado</h6>
+                                                        <select  name="estatus" value="{{ old('estatus', $brand->estatus) }}" 
+                                                            class="form-control" id="exampleSelectGender">          
+                                                        <option value="1">Activo</option>
+                                                        <option value="0">Inactivo</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <br />
                                         <br />
@@ -53,7 +61,7 @@
             var key = e.keyCode || e.which,
                 tecla = String.fromCharCode(key).toLowerCase(),
                 letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-                especiales = [46],
+                especiales = [0],
                 tecla_especial = false;
 
             for (var i in especiales) {

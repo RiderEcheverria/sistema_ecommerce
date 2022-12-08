@@ -3,16 +3,11 @@
 @section('contenido')
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title">
-                Editar cliente
-            </h3>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-custom">
-                    <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('clients.index') }}"> Categorias</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Editar cliente</li>
-                </ol>
-            </nav>
+          <ol class="breadcrumb breadcrumb-custom">
+            <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('clients.index') }}"> Categorias</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Editar cliente</li>
+        </ol>
         </div>
         <div class="row">
             <div class="col-12">
@@ -77,6 +72,18 @@
                                                     onKeyPress="if(this.value.length==8) return false;" min="0" />
                                                 </div>
                                               </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                              <div class="form-group row">
+                                                <div class="col-sm-9">
+                                                  <h6>Estado</h6>
+                                                    <select  name="estatus" value="{{ old('estatus', $client->estatus) }}" class="form-control" id="exampleSelectGender">
+                                                    <option selected>Seleccione el estado</option>
+                                                    <option value="1">Activo</option>
+                                                    <option value="0">Inactivo</option>
+                                                    </select>
+                                                </div>
+                                              </div>
                                             </div>    
                                           </div> 
                                           <br>  
@@ -98,7 +105,7 @@
     var key = e.keyCode || e.which,
       tecla = String.fromCharCode(key).toLowerCase(),
       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-      especiales = [46],
+      especiales = [0],
       tecla_especial = false;
 
     for (var i in especiales) {

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
@@ -74,7 +73,7 @@ class ProductController extends Controller
             $file = $request->file('picture');
             $image_name = time().'_'.$file->getClientOriginalName();
             $file->move(public_path("/image"),$image_name);
-            // dd($image_name);
+          
         }
         $product->update($request->all()+[
             'image'=>$image_name,
@@ -82,6 +81,7 @@ class ProductController extends Controller
         ]);
         return redirect()->route('products.index');
     }
+    
     public function destroy(Product $product)
     {
         'alert'()->success('Exito','Se ha eliminado el registro.');

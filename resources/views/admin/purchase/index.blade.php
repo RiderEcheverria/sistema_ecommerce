@@ -4,17 +4,12 @@
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">
-                <h6 >
-                    Listado de compras
-                </h6>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb breadcrumb-custom">
-                        <li class="breadcrumb-item">
-                            <a href="{{ route('home') }}">Panel administrador</a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">Compras</li>
-                    </ol>
-                </nav>
+                <ol class="breadcrumb breadcrumb-custom">
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('home') }}">Panel administrador</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Compras</li>
+                </ol>
             </div>
             <div class="row">
                 <div class="col-12">
@@ -29,7 +24,7 @@
                                                 <nav class="navbar navbar-light float-right">
                                                     <form class="form-inline">
                                                         <div>
-                                                            <h6>Busqueda por nombre</h6>
+                                                            {{--  <h6>Busqueda por nombre</h6>  --}}
                                                             <input name="buscar-nombre" class="form-control mr-sm-2"
                                                                 type="search" placeholder="Busqueda por nombre"
                                                                 aria-label="Search" onkeypress="return soloLetras(event)" />
@@ -86,33 +81,33 @@
                                                     </tr>
                                                 @endforeach
                                             </tbody>
-                                            <table>
+                                         <table>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        {!! $purchases->links() !!}
-                                    </div>
-                                </div>
-                            @endsection
-                            {{--  validacion de letras  --}}
-                            <script>
-                                function soloLetras(e) {
-                                    var key = e.keyCode || e.which,
-                                        tecla = String.fromCharCode(key).toLowerCase(),
-                                        letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-                                        especiales = [46],
-                                        tecla_especial = false;
+                            <div class="row">
+                        <div class="col-lg-12">
+                        {!! $purchases->links() !!}
+                    </div>
+                </div>
+     @endsection
+   {{--  validacion de letras  --}}
+   <script>
+    function soloLetras(e) {
+        var key = e.keyCode || e.which,
+            tecla = String.fromCharCode(key).toLowerCase(),
+            letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+            especiales = [0],
+            tecla_especial = false;
 
-                                    for (var i in especiales) {
-                                        if (key == especiales[i]) {
-                                            tecla_especial = true;
-                                            break;
-                                        }
-                                    }
+        for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
+            }
+        }
 
-                                    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-                                        return false;
-                                    }
-                                }
-                            </script>
+        if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+            return false;
+        }
+    }
+</script>                         

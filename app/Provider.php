@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\App;
 class Provider extends Model
 {
     protected $fillable = [
-        'name', 'address','email','nit','celular'];
+        'name', 'address','email','nit','celular','estatus'];
     public function products(){
         return $this->hasMany(Product::class);
     }

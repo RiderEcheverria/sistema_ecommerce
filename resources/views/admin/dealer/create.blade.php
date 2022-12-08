@@ -3,16 +3,11 @@
 @section('contenido')
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title">
-                Registro de repartidores
-            </h3>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-custom">
-                    <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('dealers.index') }}"> Repartidores</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Registro de repartidores</li>
-                </ol>
-            </nav>
+            <ol class="breadcrumb breadcrumb-custom">
+                <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dealers.index') }}"> Repartidores</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Registro de repartidores</li>
+            </ol>
         </div>
         <div class="row">
             <div class="col-12">
@@ -42,7 +37,7 @@
         var key = e.keyCode || e.which,
             tecla = String.fromCharCode(key).toLowerCase(),
             letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-            especiales = [46],
+            especiales = [0],
             tecla_especial = false;
 
         for (var i in especiales) {

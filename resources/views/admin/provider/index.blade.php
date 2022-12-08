@@ -4,16 +4,11 @@
 <div class="main-panel">          
     <div class="content-wrapper">
       <div class="page-header">
-        <h6 >
-            Listado de proveedores
-        </h6>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-custom">
-                <li class="breadcrumb-item">
-                  <a href="{{ route('home') }}">Panel administrador</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Proveedores</li>
-            </ol>
-        </nav>
+        <ol class="breadcrumb breadcrumb-custom">
+          <li class="breadcrumb-item">
+            <a href="{{ route('home') }}">Panel administrador</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Proveedores</li>
+      </ol>
       </div>
       <div class="row">
         <div class="col-12">
@@ -27,7 +22,7 @@
                                     <nav class="navbar navbar-light float-right">
                                         <form class="form-inline">            
                                             <div>
-                                              <h6>Busqueda por nombre</h6>
+                                              {{--  <h6>Busqueda por nombre</h6>  --}}
                                               <input name="buscar-nombre"  class="form-control mr-sm-2" type="search" 
                                               placeholder="Busqueda por nombre" aria-label="Search"  onkeypress="return soloLetras(event)" />
                                               <button class="btn btn-dark" type="submit">
@@ -56,7 +51,8 @@
                                         <th>Ubicacion</th>
                                         <th>Correo electronico</th>
                                         <th>Numero de NIT</th>
-                                        <th>Telefono/Celular</th>
+                                        <th>Celular</th>
+                                        <th>Estado</th>
                                         <th>Acciones</th>
                                       </tr>
                                 </thead>
@@ -69,17 +65,22 @@
                                             <td>{{$provider->email}}</td>
                                             <td>{{$provider->nit}}</td>
                                             <td>{{$provider->celular}}</td>
-                                            <td style="width: 20%;">
-                                              {!! Form::open(['route'=>['providers.destroy',$provider],'method'=>'DELETE']) !!}
+                                            <td id="resp{{ $provider->id }}">                                              
+                                              @if($provider->estatus == 1)
+                                              <label class="badge badge-success badge-pill">Activo</label>
+                                                  @else
+                                              <label class="badge badge-danger badge-pill">Inactivo</label>
+                                              @endif
+                                        </td>
+                                            <td style="width: 20%;">           
                                                   <a class="btn btn-outline-warning" href="{{route('providers.show',$provider)}}">
                                                   <i class="fa fa-eye" aria-hidden="true"></i></a>
                                                   <a class="btn btn-outline-info" href="{{route('providers.edit',$provider)}}"
                                                    title="Editar">
                                                   <i class="far fa-edit"></i></a>
-                                                  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$provider->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$provider->id}}"><i class="far fa-trash-alt"></i></a>  
                                             </td>
-                                            @include('admin.provider.modal.delete')
-                                            {!! Form::close() !!}
+                                            @include('admin.provider.modalDelete.delete')
                                         </tr>
                                     @endforeach      
                                 </tbody>
@@ -98,7 +99,7 @@
       var key = e.keyCode || e.which,
         tecla = String.fromCharCode(key).toLowerCase(),
         letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-        especiales = [46],
+        especiales = [0],
         tecla_especial = false;
   
       for (var i in especiales) {

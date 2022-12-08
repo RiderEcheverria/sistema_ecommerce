@@ -51,7 +51,19 @@
         onKeyPress="if(this.value.length==8) return false;" min="0" />
       </div>
     </div>
-  </div>    
+  </div> 
+  <div class="col-md-6">
+    <div class="form-group row">
+      <div class="col-sm-9">
+        <h6>Estado</h6>
+          <select  name="estatus" value="{{ old('estatus', $dealer->estatus) }}" 
+            class="form-control" id="exampleSelectGender">          
+            <option value="1">Activo</option>
+            <option value="0">Inactivo</option>
+            </select>
+      </div>
+    </div>
+  </div>   
 </div>
 <br>
   

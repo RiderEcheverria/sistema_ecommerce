@@ -3,16 +3,11 @@
 @section('contenido')
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title">
-                Editar personas
-            </h3>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-custom">
-                    <li class="breadcrumb-item"> <a href="{{ route('home') }}">Panel administrador</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('personas.index') }}"> Personas</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Editar categoria</li>
-                </ol>
-            </nav>
+          <ol class="breadcrumb breadcrumb-custom">
+            <li class="breadcrumb-item"> <a href="{{ route('home') }}">Panel administrador</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('personas.index') }}"> Personas</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edicion de  personas</li>
+        </ol>
         </div>
         <div class="row">
             <div class="col-12">
@@ -123,7 +118,7 @@
     var key = e.keyCode || e.which,
       tecla = String.fromCharCode(key).toLowerCase(),
       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-      especiales = [46],
+      especiales = [0],
       tecla_especial = false;
 
     for (var i in especiales) {

@@ -4,16 +4,11 @@
 <div class="main-panel">          
     <div class="content-wrapper">
         <div class="page-header">
-            <h6 >
-                Presentacion de home
-            </h6>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-custom">
-                    <li class="breadcrumb-item">
-                      <a href="">Panel administrador</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Home</li>
-                </ol>
-            </nav>
+            <ol class="breadcrumb breadcrumb-custom">
+                <li class="breadcrumb-item">
+                  <a href="">Panel administrador</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Home</li>
+            </ol>
         </div>
         <div class="row">
         <div class="col-12">

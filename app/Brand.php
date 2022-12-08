@@ -14,7 +14,7 @@ class Brand extends Model
   }
 
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name','estatus'];
 
     public function scopeNombres($query, $nombres) {
     	if ($nombres) {

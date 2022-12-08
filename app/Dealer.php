@@ -12,7 +12,7 @@ class Dealer extends Model
 
     // protected $perPage = 20;
 
-    protected $fillable = ['name','address','email','nit','celular'];
+    protected $fillable = ['name','address','email','nit','celular','estatus'];
 
     
     public function scopeNombres($query, $nombres) {

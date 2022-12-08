@@ -4,17 +4,12 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
-            <h6 >
-                Listado de categorias
-            </h6 >
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-custom">
-                    <li class="breadcrumb-item">
-                        <a href="">Panel administrador</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Categorias</li>
-                </ol>
-            </nav>
+            <ol class="breadcrumb breadcrumb-custom">
+                <li class="breadcrumb-item">
+                    <a href="">Panel administrador</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Categorias</li>
+            </ol>
         </div>
         <div class="row">
             <div class="col-12">
@@ -29,7 +24,7 @@
                                             <nav class="navbar navbar-light float-right">
                                                 <form class="form-inline">
                                                     <div>
-                                                        <h6>Busqueda por nombre</h6>
+                                                        {{--  <h6>Busqueda por nombre</h6>  --}}
                                                         <input name="buscar-nombre" class="form-control mr-sm-2"
                                                             type="search" placeholder="Busqueda por nombre"
                                                             aria-label="Search" onkeypress="return soloLetras(event)" />
@@ -57,7 +52,7 @@
                                             <tr>
                                                 <th>Id</th>
                                                 <th>Nombre</th>
-                                                <th>Descripcion</th>
+                                                <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -66,19 +61,25 @@
                                                 <tr>
                                                     <th scope="row">{{ $category->id }}</th>
                                                     <td>{{ $category->name }}</td>
-                                                    <td>{{ $category->description }}</td>
+                                                    <td id="resp{{ $category->id }}">                                              
+                                                        @if($category->estatus == 1)
+                                                        <label class="badge badge-success badge-pill">Activo</label>
+                                                            @else
+                                                        <label class="badge badge-danger badge-pill">Inactivo</label>
+                                                        @endif
+                                                  </td>
 
                                                     <td style="width: 20%;">
-                                                        {!! Form::open(['route' => ['categories.destroy', $category], 'method' => 'DELETE']) !!}
+                                                        {{--  {!! Form::open(['route' => ['categories.destroy', $category], 'method' => 'DELETE']) !!}  --}}
                                                         <a class="btn btn-outline-info"
                                                             href="{{ route('categories.edit', $category) }}"
                                                             title="Editar">
                                                             <i class="far fa-edit"></i>
                                                         </a>
-                                                        <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$category->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                        <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$category->id}}"><i class="far fa-trash-alt"></i></a>  
                                                        </td>
-                                                        @include('admin.category.modal.delete')
-                                                        {!! Form::close() !!}
+                                                       @include('admin.category.modalDelete.delete')
+                                                        {{--  {!! Form::close() !!}  --}}
                                                     </tr>
                                             @endforeach
                                         </tbody>
@@ -97,7 +98,7 @@
         var key = e.keyCode || e.which,
             tecla = String.fromCharCode(key).toLowerCase(),
             letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-            especiales = [46],
+            especiales = [0],
             tecla_especial = false;
 
         for (var i in especiales) {

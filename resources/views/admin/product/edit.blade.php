@@ -3,16 +3,11 @@
 @section('contenido')
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title">
-                Edicion de productos
-            </h3>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-custom">
-                    <li class="breadcrumb-item"> <a href="{{ route('home') }}">Panel administrador</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('products.index') }}"> Productos</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Edicion de productos</li>
-                </ol>
-            </nav>
+            <ol class="breadcrumb breadcrumb-custom">
+                <li class="breadcrumb-item"> <a href="{{ route('home') }}">Panel administrador</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('products.index') }}"> Productos</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Edicion de productos</li>
+            </ol>
         </div>
         {!! Form::model($product, ['route' => ['products.update', $product], 'method' => 'PUT', 'files' => true]) !!}
         <div class="row">
@@ -51,20 +46,20 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="status">Estado</label>
+                            {{--  <label for="status">Estado</label>
                             <select name="status" value="{{ old('status', $brand->status) }}" class="form-control"
                                 id="status">
                                 <option selected>Seleccione el estado</option>
                                 <option value="1">Disponible</option>
                                 <option value="0">Agotado</option>
-                            </select>
+                            </select>  --}}
                         </div>
                         <img src="{{ asset('image/' . $product->image) }}" width="150">
-                        @if ($product->status == 1)
+                        {{--  @if ($product->status == 1)
                             <label class="badge badge-success badge-pill">Disponible</label>
                         @else
                             <label class="badge badge-danger badge-pill">Agotado</label>
-                        @endif
+                        @endif  --}}
                         <br>
                         <br>
                         <button type="submit" class="btn btn-dark mr-2">Actualizar</button>

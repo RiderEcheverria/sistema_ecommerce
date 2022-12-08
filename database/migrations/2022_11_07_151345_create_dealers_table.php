@@ -20,7 +20,7 @@ class CreateDealersTable extends Migration
             $table->string('email')->nullable();
             $table->string('nit')->nullable();
             $table->string('celular')->nullable();
-        
+            $table->string('estatus');
             $table->timestamps();
         });
     }

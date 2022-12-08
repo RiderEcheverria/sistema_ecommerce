@@ -20,11 +20,12 @@ class CreateProductsTable extends Migration
             $table->string('name')->unique();
             $table->string('image')->nullable(); 
             $table->longText('description')->nullable();                    
-            $table->string('status');
+            // $table->string('status');
             $table->unsignedBigInteger('brand_id'); 
             
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
+           
             $table->timestamps();
         });
     }

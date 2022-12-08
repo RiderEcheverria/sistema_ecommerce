@@ -20,8 +20,7 @@ class CreateProvidersTable extends Migration
             $table->string('email')->nullable();
             $table->string('nit')->nullable();
             $table->string('celular')->nullable();
-            // $table->text('ruc_number')->unique();
-            // $table->text('phone')->unique();
+            $table->string('estatus');
         
             
             $table->timestamps();

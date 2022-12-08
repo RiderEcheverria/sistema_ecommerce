@@ -11,9 +11,10 @@ class Product extends Model
         'name',
         'image',
         'description',
-        'status',
+        // 'status',
         'brand_id',//estado
         'category_id',//categoria
+        
 
     ];
     public function category(){
