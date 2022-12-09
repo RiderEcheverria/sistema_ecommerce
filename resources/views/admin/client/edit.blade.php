@@ -47,7 +47,7 @@
                                                     <input type="number" name="ci" id="ci" value="{{ $client->ci }}"
                                                     class="form-control" placeholder="" required 
                                                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
-                                                    onKeyPress="if(this.value.length==8) return false;" min="0" />
+                                                    onKeyPress="if(this.value.length==8) return false;" min="10000000" max="99999999" />
                                                 </div>
                                               </div>
                                             </div>
@@ -69,7 +69,7 @@
                                                     <input type="number" name="phone" id="phone" value="{{ $client->phone }}"
                                                     class="form-control" placeholder="" required
                                                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
-                                                    onKeyPress="if(this.value.length==8) return false;" min="0" />
+                                                    onKeyPress="if(this.value.length==8) return false;" min="60000000" max="79999999" />
                                                 </div>
                                               </div>
                                             </div>

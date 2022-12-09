@@ -46,7 +46,7 @@
           <h6>Numero de CI</h6>
             <input type="number" name="cedula" id="cedula" class="form-control" 
             placeholder="Escriba numero de cedula"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
-            onKeyPress="if(this.value.length==8) return false;" min="0" />  
+            onKeyPress="if(this.value.length==8) return false;"  min="10000000" max="99999999" />  
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
             <input type="number" name="celular" id="celular" class="form-control" 
             placeholder="Escriba un numero de contacto" required 
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
-            onKeyPress="if(this.value.length==8) return false;" min="0" />
+            onKeyPress="if(this.value.length==8) return false;" min="60000000" max="79999999" />
         </div>
       </div>
     </div>

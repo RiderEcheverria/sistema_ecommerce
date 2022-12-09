@@ -69,7 +69,7 @@
                                                     <input type="text" name="cedula" id="cedula"
                                                     value="{{ $persona->cedula }}" class="form-control" placeholder="" required
                                                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
-                                                    onKeyPress="if(this.value.length==8) return false;" min="0" />
+                                                    onKeyPress="if(this.value.length==8) return false;"  min="10000000" max="99999999" />
                                                 </div>
                                               </div>
                                             </div>
@@ -94,7 +94,7 @@
                                                     <input type="text" name="celular" id="celular"
                                                     value="{{ $persona->celular }}" class="form-control" placeholder=""
                                                     required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
-                                                    onKeyPress="if(this.value.length==8) return false;" min="0" />
+                                                    onKeyPress="if(this.value.length==8) return false;" min="60000000" max="79999999" />
                                                 </div>
                                               </div>
                                             </div>

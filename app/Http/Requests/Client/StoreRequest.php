@@ -37,8 +37,8 @@ class StoreRequest extends FormRequest
             // 'ci'=>'string|required|unique:clients|max:8',
           
             // 'adddress'=>'string|required|max:255', 
-            // 'phone'=>'string|required|unique:clients|max:9',
-            // 'phone'=>'string|required|unique:clients|max:255|email:rfc,dns', 
+            // 'phone'=>'string|required|unique:clients|min:8|max:8',
+            // 'phone'=>'string|required|unique:clients|max:255, 
            
         ];
     }
@@ -63,8 +63,8 @@ class StoreRequest extends FormRequest
 
             'phone.string'=>'El valor no es correcto.',
             'phone.unique'=>'El numero de celular ya se encuentra registrado.',
-            'phone.min'=>'Se requiere de 9 caracteres.',
-            'phone.max'=>'Solo se permite 9 caracters.',
+            'phone.min'=>'Se requiere de 8 caracteres.',
+            'phone.max'=>'Solo se permite 8 caracters.',
 
 
 

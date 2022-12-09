@@ -48,7 +48,7 @@
                                                     <input type="number" name="nit" id="nit" value="{{ $provider->nit }}"
                                                     class="form-control" placeholder="" required
                                                     ng-model="number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
-                                                    onKeyPress="if(this.value.length==12) return false;" min="0" />
+                                                    onKeyPress="if(this.value.length==12) return false;" min="100000000000" max="999999999999" />
                                                 </div>
                                               </div>
                                             </div>
@@ -71,7 +71,7 @@
                                                     value="{{ $provider->celular }}" class="form-control" placeholder=""
                                                     required ng-model="number" 
                                                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
-                                                    onKeyPress="if(this.value.length==8) return false;" min="0" />
+                                                    onKeyPress="if(this.value.length==8) return false;" min="60000000" max="79999999" />
                                                 </div>
                                               </div>
                                             </div> 
