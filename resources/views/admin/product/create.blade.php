@@ -30,7 +30,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="category_id">Categoria</label>
+                            <label for="category_id">Categoría</label>
                             <select class="form-control" name="category_id" id="category_id">
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>

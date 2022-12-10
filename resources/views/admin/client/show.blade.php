@@ -3,19 +3,14 @@
 @section('contenido')
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title">
-                <i class="fa fa-user"></i> {{ $client->name }}
-            </h3>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-custom">
-                    <li class="breadcrumb-item">
-                        <a href="">Panel administrador</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('clients.index') }}">
-                            clientees</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ $client->name }} </li>
-                </ol>
-            </nav>
+            <ol class="breadcrumb breadcrumb-custom">
+                <li class="breadcrumb-item">
+                    <a href="">Panel administrador</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('clients.index') }}">
+                        Clientes</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $client->name }} </li>
+            </ol>
         </div>
         <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
@@ -45,7 +40,7 @@
                                             </div>
                                             <div class="col-lg-7 pl-lg-6">
                                                 <div class="d-flex justify-content-between">
-                                                    <h4>Informacion de cliente</h4>
+                                                    <h4>Información del cliente</h4>
                                                     <div>
                                                         <div class="d-flex align-items-center">
                                                         </div>
@@ -69,7 +64,7 @@
                                                         <li class="nav-item">
                                                             <a class="nav-link" href="#">
                                                                 <i class="fa fa-id-card" aria-hidden="true"></i>
-                                                                <b> Numero de CI</b>
+                                                                <b> Número de CI</b>
                                                                 <p class="text-muted">
                                                                     {{ $client->ci }}
                                                                 </p>
@@ -82,7 +77,7 @@
                                                         <li class="nav-item">
                                                             <a class="nav-link" href="#">
                                                                 <i class="fa fa-phone-square" aria-hidden="true"></i>
-                                                                <b> Numero de contacto</b>
+                                                                <b> Número de contacto</b>
                                                                 <p class="text-muted">
                                                                     {{ $client->phone }}
                                                                 </p>
@@ -108,7 +103,7 @@
                                                         <li class="nav-item">
                                                             <a class="nav-link" href="#">
                                                                 <i class="fa fa-map" aria-hidden="true"></i>
-                                                                <b> Direcion</b>
+                                                                <b> Ubicación</b>
                                                                 <p class="text-muted">
                                                                     {{ $client->address }}
                                                                 </p>
@@ -120,7 +115,7 @@
                                                 <div lass="card-footer text-mited">
                                                     <a href="{{ route('clients.index') }}"
                                                         class="btn btn-dark mr-2
-                 float-right">
+                                                       float-right">
                                                         Regresar
                                                     </a>
                                                 </div>

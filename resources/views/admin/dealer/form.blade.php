@@ -11,7 +11,7 @@
   <div class="col-md-6">
     <div class="form-group row">
       <div class="col-sm-9">
-        <h6>Ubicacion</h6>
+        <h6>Ubicación</h6>
         <input type="text" class="form-control" name="address" id="address"
         aria-describedby="helpId" placeholder="Escriba una direccion"  required>
       </div>
@@ -22,7 +22,7 @@
   <div class="col-md-6">
     <div class="form-group row">
       <div class="col-sm-9">
-        <h6>Numero de NIT</h6>
+        <h6>Número de NIT</h6>
         <input type="number" name="nit" id="nit" class="form-control" 
        placeholder="Escriba numero de NIT"
         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
@@ -44,7 +44,7 @@
   <div class="col-md-6">
     <div class="form-group row">
       <div class="col-sm-9">
-        <h6>Numero de contacto</h6>
+        <h6>Número de contacto</h6>
         <input type="number" name="celular" id="celular" class="form-control" 
         placeholder="Escriba un numero de contacto" required 
         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 

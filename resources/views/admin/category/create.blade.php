@@ -5,8 +5,8 @@
         <div class="page-header">
             <ol class="breadcrumb breadcrumb-custom">
                 <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('categories.index') }}"> Categorias</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Registro de categoria</li>
+                <li class="breadcrumb-item"><a href="{{ route('categories.index') }}"> Categorías</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Registro de categoría</li>
             </ol>
         </div>
         <div class="row">
@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="col-lg-12 ">
                                 <div class="card">
                                     <div class="card-body">
                                         {!! Form::open(['route' => 'categories.store', 'method' => 'POST']) !!}

@@ -5,8 +5,8 @@
         <div class="page-header">
           <ol class="breadcrumb breadcrumb-custom">
             <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('providers.index') }}"> Categorias</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Editar categoria</li>
+            <li class="breadcrumb-item"><a href="{{ route('providers.index') }}"> Proveedores</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Editar proveedores</li>
         </ol>
         </div>
         <div class="row">
@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="col-lg-12 ">
                                 <div class="card">
                                     <div class="card-body">
                                         {!! Form::model($provider, ['route' => ['providers.update', $provider], 'method' => 'PUT']) !!}
@@ -32,7 +32,7 @@
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                  <h6>Ubicacion</h6>
+                                                  <h6>Ubicación</h6>
                                                     <input type="text" name="address" id="address"
                                                     value="{{ $provider->address }}" class="form-control" placeholder=""
                                                     required>
@@ -44,7 +44,7 @@
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                  <h6>Numero de NIT</h6>
+                                                  <h6>Número de NIT</h6>
                                                     <input type="number" name="nit" id="nit" value="{{ $provider->nit }}"
                                                     class="form-control" placeholder="" required
                                                     ng-model="number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
@@ -66,7 +66,7 @@
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                  <h6>Numero de contacto</h6>
+                                                  <h6>Número de contacto</h6>
                                                     <input type="number" name="celular" id="celular"
                                                     value="{{ $provider->celular }}" class="form-control" placeholder=""
                                                     required ng-model="number" 

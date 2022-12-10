@@ -5,8 +5,8 @@
         <div class="page-header">
             <ol class="breadcrumb breadcrumb-custom">
                 <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('categories.index') }}"> Categorias</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Editar categoria</li>
+                <li class="breadcrumb-item"><a href="{{ route('categories.index') }}"> Categorías</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Editar categoría</li>
             </ol>
         </div>
         <div class="row">
@@ -14,18 +14,15 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="col-lg-12 ">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="d-flex justify-content-between">
-                                            <h4 class="card-title"> Editar categoria</h4>
-                                        </div>
                                         {!! Form::model($category, ['route' => ['categories.update', $category], 'method' => 'PUT']) !!}
                                         <div class="row">
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                    <h6>Nombre de categoria</h6>
+                                                    <h6>Nombre de categoría</h6>
                                                     <input type="text" value="{{ $category->name }}" name="name" id="name" class="form-control" 
                                                     placeholder="Escriba una categoria" required onkeypress="return soloLetras(event)" />
                                                 </div>

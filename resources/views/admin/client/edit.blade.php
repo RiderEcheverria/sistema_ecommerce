@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="col-lg-12 ">
                                 <div class="card">
                                     <div class="card-body">
                                         {!! Form::model($client, ['route' => ['clients.update', $client], 'method' => 'PUT']) !!}
@@ -32,7 +32,7 @@
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                  <h6>Ubicacion</h6>
+                                                  <h6>Ubicación</h6>
                                                     <input type="text" name="address" id="address"
                                                     value="{{ $client->address }}" class="form-control" placeholder="" required>
                                                 </div>
@@ -43,7 +43,7 @@
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                  <h6>Numero de CI</h6>
+                                                  <h6>Número de CI</h6>
                                                     <input type="number" name="ci" id="ci" value="{{ $client->ci }}"
                                                     class="form-control" placeholder="" required 
                                                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
@@ -65,7 +65,7 @@
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                  <h6>Numero de contacto</h6>
+                                                  <h6>Número de contacto</h6>
                                                     <input type="number" name="phone" id="phone" value="{{ $client->phone }}"
                                                     class="form-control" placeholder="" required
                                                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 

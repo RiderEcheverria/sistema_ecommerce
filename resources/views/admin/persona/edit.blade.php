@@ -6,7 +6,7 @@
           <ol class="breadcrumb breadcrumb-custom">
             <li class="breadcrumb-item"> <a href="{{ route('home') }}">Panel administrador</a></li>
             <li class="breadcrumb-item"><a href="{{ route('personas.index') }}"> Personas</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edicion de  personas</li>
+            <li class="breadcrumb-item active" aria-current="page">Edicion de  persona</li>
         </ol>
         </div>
         <div class="row">
@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="col-lg-12 ">
                                 <div class="card">
                                     <div class="card-body">                                      
                                         {!! Form::model($persona, ['route' => ['personas.update', $persona], 'method' => 'PUT']) !!}
@@ -32,7 +32,7 @@
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                  <h6>Ubicacion</h6>
+                                                  <h6>Ubicación</h6>
                                                     <input type="text" name="address" id="address"
                                                     value="{{ $persona->address }}" class="form-control" placeholder=""
                                                     required>
@@ -65,7 +65,7 @@
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                  <h6>Numero de CI</h6>
+                                                  <h6>Número de CI</h6>
                                                     <input type="text" name="cedula" id="cedula"
                                                     value="{{ $persona->cedula }}" class="form-control" placeholder="" required
                                                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
@@ -90,7 +90,7 @@
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                  <h6>Numero de contacto</h6>
+                                                  <h6>Número de contacto</h6>
                                                     <input type="text" name="celular" id="celular"
                                                     value="{{ $persona->celular }}" class="form-control" placeholder=""
                                                     required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 

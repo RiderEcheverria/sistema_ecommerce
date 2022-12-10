@@ -18,7 +18,7 @@
             </div>
             <input type="number" class="form-control" name="tax" id="tax" value="10"
                 aria-describedby="basic-addon3"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
-                onKeyPress="if(this.value.length==2) return false;" min="0" />
+                onKeyPress="if(this.value.length==2) return false;" min="1" max="99" />
         </div>
     </div>
 </div>
@@ -40,7 +40,7 @@
             <label for="quantity">Cantidad</label>
             <input type="number" class="form-control" name="quantity" id="quantity" aria-describedby="helpId"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
-            onKeyPress="if(this.value.length==8) return false;" min="0" />
+            onKeyPress="if(this.value.length==8) return false;"  min="1" max="99999999" />
         </div>
     </div>
     <div class="form-group col-md-2">
@@ -48,7 +48,7 @@
             <label for="price">Precio de compra</label>
             <input type="number" class="form-control" name="price" id="price" aria-describedby="helpId"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
-            onKeyPress="if(this.value.length==8) return false;" min="0" />
+            onKeyPress="if(this.value.length==8) return false;" min="1" max="99999999" />
         </div>
     </div>
 </div>
@@ -79,7 +79,7 @@
                 </tr>
                 <tr>
                     <th colspan="4">
-                        <p align="right">TOTAL IMPUESTO (18%):</p>
+                        <p align="right">TOTAL IMPUESTO (%):</p>
                     </th>
                     <th>
                         <p align="right"><span id="total_impuesto">Bs 0.00</span></p>

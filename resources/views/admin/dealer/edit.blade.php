@@ -32,7 +32,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <div class="col-sm-9">
-                                                        <h6>Ubicacion</h6>
+                                                        <h6>Ubicación</h6>
                                                         <input type="text" name="address" id="address"
                                                             value="{{ $dealer->address }}" class="form-control"
                                                             placeholder="" required>
@@ -44,7 +44,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <div class="col-sm-9">
-                                                        <h6>Numero de NIT</h6>
+                                                        <h6>Número de NIT</h6>
                                                         <input type="number" name="nit" id="nit"
                                                             value="{{ $dealer->nit }}" class="form-control" placeholder=""
                                                             required
@@ -68,7 +68,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <div class="col-sm-9">
-                                                        <h6>Numero de contacto</h6>
+                                                        <h6>Número de contacto</h6>
                                                         <input type="number" name="celular" id="celular"
                                                             value="{{ $dealer->celular }}" class="form-control"
                                                             placeholder="" required

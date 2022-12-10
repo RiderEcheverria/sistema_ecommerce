@@ -3,19 +3,14 @@
 @section('contenido')
 <div class="content-wrapper">
     <div class="page-header">
-        <h3 class="page-title">
-            Informacion del producto
-        </h3>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-custom">
-                <li class="breadcrumb-item">
-                    <a href="{{ route('home') }}">Panel administrador</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('products.index') }}">
-                        producto</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Informacion del producto </li>
-            </ol>
-        </nav>
+        <ol class="breadcrumb breadcrumb-custom">
+            <li class="breadcrumb-item">
+                <a href="{{ route('home') }}">Panel administrador</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('products.index') }}">
+                    Productos</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Informacion del producto </li>
+        </ol>
     </div>
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
@@ -42,7 +37,7 @@
                                                 </p>
                                                 <p class="clearfix">
                                                     <span class="float-left">
-                                                        <b>Categoria</b>
+                                                        <b>Categoría</b>
                                                     </span>
                                                     <span class="float-right text-muted">
                                                         <a>
@@ -75,7 +70,7 @@
                                         </div>
                                         <div class="col-lg-7 pl-lg-6">
                                             <div class="d-flex justify-content-between">
-                                                <h4>Informacion del producto</h4>
+                                                <h4>Información del producto</h4>
                                                 <div>
                                                     <div class="d-flex align-items-center">
                                                     </div>
@@ -83,7 +78,7 @@
                                             </div>
                                             <div class="mt-2 py-2 border-top border-bottom">
                                                 <div class="mb-3">
-                                                    <label for="name"> <b>Descripcion</b></label>
+                                                    <label for="name"> <b>Descripción</b></label>
                                                     <textarea class="form-control" id="description" name="description" rows="35">{{ $product->description }}</textarea>
                                                 </div>
                                             </div>

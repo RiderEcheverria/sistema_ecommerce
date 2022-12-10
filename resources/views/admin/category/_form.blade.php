@@ -2,9 +2,9 @@
   <div class="col-md-6">
     <div class="form-group row">
       <div class="col-sm-9">
-          <h6>Nombre de categoria</h6>
+          <h6>Nombre de categoría</h6>
           <input type="text" name="name" id="name" class="form-control" 
-          placeholder="Escriba una categoria" required onkeypress="return soloLetras(event)" />
+          placeholder="Escriba una categoría" required onkeypress="return soloLetras(event)" />
       </div>
     </div>
   </div>

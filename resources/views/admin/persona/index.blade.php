@@ -14,48 +14,39 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
+              <div class="card">
+                <div class="card-body">
                 <div class="table-responsive">
                     <div id="order-listing_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">  
                         <div class="row">
                             <div class="col-sm-12 ">
                                 <div class="dataTables_length" id="order-listing_length">
-                                    <nav class="navbar navbar-light float-right">
-                                        <form class="form-inline">            
-                                            <div>
-                                              {{--  <h6>Busqueda por nombre</h6>  --}}
-                                              
-                                              <input name="buscar-nombre"  class="form-control mr-sm-2" type="search" 
-                                               placeholder="Busqueda por nombre" aria-label="Search"  onkeypress="return soloLetras(event)" />
-                                            {{--  </div> 
-                                            <div>
-                                               <h6>Busqueda por cedula</h6>
-                                              <input name="buscar-cedula" class="form-control mr-sm-2" type="search" placeholder="Busqueda por cedula" aria-label="Search">  --}}
-                                              <button class="btn btn-dark" type="submit">
-                                                <i class="fas fa-search"></i>
-                                              </button>                                           
-                                                <a href="{{ route('personas.index')}}" class="btn btn-dark">
-                                                    <i class="fas fa-undo-alt"></i>
-                                                </a>
-                                                <a href="{{ route('personas.create')}}"  class="btn btn-dark ">
-                                                    + Agregar nuevo
-                                                </a>
-                                            </div>                           
-                                        </form>
-                                    </nav> 
+                                    <form class="form-inline">            
+                                        <div>
+                                            <input class="form-control mr-sm-2 light-table-filter" data-table="order-table"
+                                            type="text" placeholder="Busqueda por nombre" onkeypress="return soloLetras(event)">                                        
+                                            <a href="{{ route('personas.index')}}" class="btn btn-dark">
+                                                <i class="fas fa-undo-alt"></i>
+                                            </a>
+                                            <a href="{{ route('personas.create')}}"  class="btn btn-dark ">
+                                                + Agregar nuevo
+                                            </a>
+                                        </div>                           
+                                    </form>   
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <table id="products_listing" class="table">  
+                            <table id="products_listing" class="table order-table ">  
                                 <thead>
                                     <tr>
                                         <th>Id</th>
                                         <th>Nombre</th>
                                         <th>Apellido</th>
-                                        <th>Cedula</th>
-                                        <th>Direccion</th>
+                                        <th>Cédula</th>
+                                        <th>Ubicación</th>
                                         <th>Email</th>
                                         <th>Celular</th>
                                         {{--  <th>Creado en</th>  --}}
@@ -129,6 +120,48 @@
       }
     }
    </script>
+   <script type="text/javascript">
+    (function(document) {
+      'use strict';
+
+      var LightTableFilter = (function(Arr) {
+
+        var _input;
+
+        function _onInputEvent(e) {
+          _input = e.target;
+          var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+          Arr.forEach.call(tables, function(table) {
+            Arr.forEach.call(table.tBodies, function(tbody) {
+              Arr.forEach.call(tbody.rows, _filter);
+            });
+          });
+        }
+
+        function _filter(row) {
+          var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+          row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+        }
+
+        return {
+          init: function() {
+            var inputs = document.getElementsByClassName('light-table-filter');
+            Arr.forEach.call(inputs, function(input) {
+              input.oninput = _onInputEvent;
+            });
+          }
+        };
+      })(Array.prototype);
+
+      document.addEventListener('readystatechange', function() {
+        if (document.readyState === 'complete') {
+          LightTableFilter.init();
+        }
+      });
+
+    })(document);
+    </script>  
+
 
 
 

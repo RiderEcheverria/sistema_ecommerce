@@ -6,7 +6,7 @@
             <ol class="breadcrumb breadcrumb-custom">
                 <li class="breadcrumb-item"> <a href="{{ route('home') }}">Panel administrador</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('products.index') }}"> Productos</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Edicion de productos</li>
+                <li class="breadcrumb-item active" aria-current="page"> Edicion de producto</li>
             </ol>
         </div>
         {!! Form::model($product, ['route' => ['products.update', $product], 'method' => 'PUT', 'files' => true]) !!}
@@ -20,7 +20,7 @@
                                 class="form-control" placeholder="" aria-describedby="helpId">
                         </div>
                         <div class="mb-3">
-                            <label for="name">Descripcion</label>
+                            <label for="name">Descripción</label>
                             <textarea class="form-control" id="description" name="description" rows="18">{{ $product->description }}</textarea>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="category_id">Categoria</label>
+                            <label for="category_id">Categoría</label>
                             <select class="form-control" name="category_id" id="category_id">
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>

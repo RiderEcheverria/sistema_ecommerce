@@ -13642,7 +13642,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #f2f2f2;
   background-clip: border-box;
   border: 1px solid #e0e0ef;
   border-radius: 0.375rem;
@@ -15379,7 +15379,7 @@ button.bg-dark:focus,
 }
 
 .bg-transparent {
-  background-color: transparent !important;
+  background-color:#eee !important;
 }
 
 .border, .loader-demo-box {
@@ -19854,7 +19854,7 @@ html {
 }
 
 .content-wrapper {
-  background: #f2f2f2;
+  background: #cacaca;
   padding: 0.5rem 0.5rem;
   width: 100%;
   -webkit-flex-grow: 1;
@@ -22044,8 +22044,8 @@ code {
 }
 
 .breadcrumb.breadcrumb-custom .breadcrumb-item {
-  font-size: 0.8125rem;
-  background: #dbe3e6;
+  font-size: 0.8925rem;
+  background: #f2f2f2;
   padding: 0.26rem 10px;
   color: #000;
   display: inline-block;
@@ -22063,7 +22063,7 @@ code {
 .breadcrumb.breadcrumb-custom .breadcrumb-item a {
   position: relative;
   color: inherit;
-  border: 1px solid #dbe3e6;
+  border: 1px solid #f2f2f2;
   display: inline-block;
   vertical-align: top;
 }
@@ -22081,9 +22081,9 @@ code {
 .breadcrumb.breadcrumb-custom .breadcrumb-item a:before {
   right: -22px;
   z-index: 3;
-  border-left-color: #dbe3e6;
+  border-left-color: #f2f2f2;
   border-left-style: solid;
-  border-left-width: 12px;
+  border-left-width: 11px;
 }
 
 .breadcrumb.breadcrumb-custom .breadcrumb-item a:after {
@@ -22454,7 +22454,7 @@ code {
 
 /* Cards */
 .card {
-  border: 1px solid #e0e0ef;
+  border: 1px solid #737373ad;
 }
 
 .card .card-body {
@@ -24929,7 +24929,7 @@ dl li {
 }
 
 .table td, .jsgrid .jsgrid-table td {
-  font-size: 0.7125rem;
+  font-size:  0.8925rem;
 }
 
 .table td img, .jsgrid .jsgrid-table td img {
@@ -29211,7 +29211,7 @@ div.tagsinput span.tag a {
   /* background: transparent; */
   border: 1px solid #e0e0ef;
   font-weight: 450;
-  font-size: 0.7299rem;
+  font-size: 0.8299rem;
 }
 
 .auth form .auth-form-btn {

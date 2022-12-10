@@ -3,19 +3,14 @@
 @section('contenido')
 <div class="content-wrapper">
     <div class="page-header">
-        <h3 class="page-title">
-            <i class="fa fa-user"></i> {{ $persona->name }}
-        </h3>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-custom">
-                <li class="breadcrumb-item">
-                    <a href="{{ route('home') }}">Panel administrador</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('personas.index') }}">
-                        Repartidores</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ $persona->name }} </li>
-            </ol>
-        </nav>
+        <ol class="breadcrumb breadcrumb-custom">
+            <li class="breadcrumb-item">
+                <a href="{{ route('home') }}">Panel administrador</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('personas.index') }}">
+                    Personas</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ $persona->name }} </li>
+        </ol>
     </div>
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
@@ -37,7 +32,7 @@
                                         </div>
                                         <div class="col-lg-7 pl-lg-6">
                                             <div class="d-flex justify-content-between">
-                                                <h4>Informacion de personas</h4>
+                                                <h4>Información de la persona</h4>
                                                 <div>
                                                     <div class="d-flex align-items-center">
                                                     </div>
@@ -60,21 +55,8 @@
                                                 <ul class="nav profile-navbar">
                                                     <li class="nav-item">
                                                         <a class="nav-link" href="#">
-                                                            <i class="fa fa-id-card" aria-hidden="true"></i>
-                                                            <b> Numero de NIT</b>
-                                                            <p class="text-muted">
-                                                                {{ $persona->nit }}
-                                                            </p>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="mt-2 py-2 border-top border-bottom">
-                                                <ul class="nav profile-navbar">
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="#">
                                                             <i class="fa fa-phone-square" aria-hidden="true"></i>
-                                                            <b> Numero de contacto</b>
+                                                            <b> Número de contacto</b>
                                                             <p class="text-muted">
                                                                 {{ $persona->celular }}
                                                             </p>
@@ -100,7 +82,7 @@
                                                     <li class="nav-item">
                                                         <a class="nav-link" href="#">
                                                             <i class="fa fa-map" aria-hidden="true"></i>
-                                                            <b> Direcion</b>
+                                                            <b> Ubicación</b>
                                                             <p class="text-muted">
                                                                 {{ $persona->address }}
                                                             </p>

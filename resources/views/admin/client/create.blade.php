@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="col-lg-12 ">
                                 <div class="card">
                                     <div class="card-body">                                    
                                         {!! Form::open(['route' => 'clients.store', 'method' => 'POST']) !!}
@@ -31,7 +31,7 @@
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                  <h6>Ubicacion</h6>
+                                                  <h6>Ubicación</h6>
                                                     <input type="text" class="form-control" name="address" id="address"
                                                     aria-describedby="helpId" placeholder="Escriba una direccion" required>
                                                 </div>
@@ -42,9 +42,9 @@
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                  <h6>Numero de CI</h6>
+                                                  <h6>Número de CI</h6>
                                                     <input type="number" name="ci" id="ci" class="form-control"
-                                                    placeholder="Escriba numero de cedula"  required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
+                                                    placeholder="Escriba número de cédula"  required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
                                                     onKeyPress="if(this.value.length==8) return false;"  min="10000000" max="99999999" />
                                                 </div>
                                               </div>
@@ -63,9 +63,9 @@
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                  <h6>Numero de contacto</h6>
+                                                  <h6>Número de contacto</h6>
                                                     <input type="number" name="phone" id="phone" class="form-control"
-                                                    placeholder="Escriba un numero de contacto" required 
+                                                    placeholder="Escriba un número de contacto" required 
                                                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
                                                     onKeyPress="if(this.value.length==8) return false;"  min="60000000" max="79999999"/>
                                                 </div>

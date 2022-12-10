@@ -173,18 +173,36 @@
               <li class="nav-item"> <a class="nav-link" href="melody/pages/tables/data-table.html">Roles</a></li>           
           </div>
         </li>  --}}
-            <li class="nav-item">
+      
+        <li class="nav-item">
+       
+          <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+            <i class="fa-solid fa-users menu-icon" ></i>
+          
+            <span class="menu-title">Gestión de personas</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="tables">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item" > <a class="nav-link" href="{{ route('personas.index') }}"><i class="fa fa-user-plus menu-icon"></i>Personas</a></li>
+              <li class="nav-item"> <a class="nav-link" href="{{ route('clients.index') }}"><i class="fa-solid fa-user-tag menu-icon"></i>Clientes</a></li>           
+              <li class="nav-item"> <a class="nav-link" href="{{ route('providers.index') }}"><i class="fa-solid fa-truck menu-icon"></i>Proveedores</a></li>           
+              <li class="nav-item"> <a class="nav-link" href="{{ route('dealers.index') }}"><i class="fa-solid fa-truck-fast menu-icon"></i>Repartidores</a></li>           
+          </div>
+        </li>
+            {{--  <li class="nav-item">
 
                 <a class="nav-link" href="{{ route('personas.index') }}">
                     <i class="fa fa-user-plus menu-icon"></i>
                     <span class="menu-title">Personas</span>
                 </a>
-            </li>
+            </li>  --}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('purchases.index') }}">
-                    <i class="fa-solid fa-tags menu-icon"></i>
+                  
+                    <i class="fa fa-shopping-bag menu-icon" ></i>
 
-                    <span class="menu-title">Compras</span>
+                    <span class="menu-title">Gestión de compras</span>
                 </a>
 
             </li>
@@ -205,42 +223,47 @@
                 <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="true"
                     aria-controls="page-layouts">
                     <i class="fa-solid fa-layer-group menu-icon"></i>
-                    <span class="menu-title">Inventario</span>
+                    <span class="menu-title">Gestión de inventario</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="page-layouts">
                     <ul class="nav flex-column sub-menu">
                         {{-- <li class="nav-item "> <a class="nav-link" href="#">Inventario</a></li> --}}
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('products.index') }}">Productos</a>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('products.index') }}">
+                            <i class="fa fa-tags menu-icon"></i>
+                            Productos</a>
                         </li>
                         <li class="nav-item"> <a class="nav-link"
-                                href="{{ route('categories.index') }}">Categorias</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('brands.index') }}">Marcas</a></li>
+                                href="{{ route('categories.index') }}"><i class="fa fa-tag menu-icon"></i>
+                                Categorias</a></li>
+                        <li class="nav-item"> <a class="nav-link" 
+                            href="{{ route('brands.index') }}"><i class="fa fa-tag menu-icon"></i>
+                            Marcas</a></li>
 
                     </ul>
                 </div>
             </li>
-            <li class="nav-item">
+            {{--  <li class="nav-item">
                 <a class="nav-link" href="{{ route('clients.index') }}">
                     <i class="fa-solid fa-user-tag menu-icon"></i>
                     <span class="menu-title">Clientes</span>
                 </a>
 
-            </li>
-            <li class="nav-item">
+            </li>  --}}
+            {{--  <li class="nav-item">
                 <a class="nav-link" href="{{ route('providers.index') }}">
                     <i class="fa-solid fa-truck menu-icon"></i>
                     <span class="menu-title">Proveedores</span>
                 </a>
-                {{-- <i class="fa-solid fa-truck"></i> --}}
-            </li>
-            <li class="nav-item">
+               
+            </li>  --}}
+            {{--  <li class="nav-item">
                 <a class="nav-link" href="{{ route('dealers.index') }}">
                     <i class="fa-solid fa-truck-fast menu-icon"></i>
                     <span class="menu-title">Repartidores</span>
                 </a>
-                {{-- <i class="fa-solid fa-truck-fast"></i> --}}
-            </li>
+                
+            </li>  --}}
 
             {{-- <li class="nav-item">
           <a class="nav-link" href="pages/documentation.html">

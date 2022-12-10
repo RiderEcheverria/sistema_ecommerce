@@ -3,19 +3,14 @@
 @section('contenido')
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title">
-                <i class="fa fa-user"></i> {{ $provider->name }}
-            </h3>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-custom">
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('home') }}">Panel administrador</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('providers.index') }}">
-                            Repartidores</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ $provider->name }} </li>
-                </ol>
-            </nav>
+            <ol class="breadcrumb breadcrumb-custom">
+                <li class="breadcrumb-item">
+                    <a href="{{ route('home') }}">Panel administrador</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('providers.index') }}">
+                    Proveedores</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $provider->name }} </li>
+            </ol>
         </div>
         <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
@@ -47,7 +42,7 @@
                                             </div>
                                             <div class="col-lg-7 pl-lg-6">
                                                 <div class="d-flex justify-content-between">
-                                                    <h4>Informacion de repartidor</h4>
+                                                    <h4>Información del proveedor</h4>
                                                     <div>
                                                         <div class="d-flex align-items-center">
                                                         </div>
@@ -71,7 +66,7 @@
                                                         <li class="nav-item">
                                                             <a class="nav-link" href="#">
                                                                 <i class="fa fa-id-card" aria-hidden="true"></i>
-                                                                <b> Numero de NIT</b>
+                                                                <b> Número de NIT</b>
                                                                 <p class="text-muted">
                                                                     {{ $provider->nit }}
                                                                 </p>
@@ -84,7 +79,7 @@
                                                         <li class="nav-item">
                                                             <a class="nav-link" href="#">
                                                                 <i class="fa fa-phone-square" aria-hidden="true"></i>
-                                                                <b> Numero de contacto</b>
+                                                                <b> Número de contacto</b>
                                                                 <p class="text-muted">
                                                                     {{ $provider->celular }}
                                                                 </p>
@@ -110,7 +105,7 @@
                                                         <li class="nav-item">
                                                             <a class="nav-link" href="#">
                                                                 <i class="fa fa-map" aria-hidden="true"></i>
-                                                                <b> Direcion</b>
+                                                                <b> Ubicación</b>
                                                                 <p class="text-muted">
                                                                     {{ $provider->address }}
                                                                 </p>
