@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Users;
+use App\User;
 use Illuminate\Http\Request;
 
 
@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         $nombre = $request->get('buscar-nombre');
        
-        $users = Users::nombres($nombre)->paginate(5);
+        $users = User::nombres($nombre)->paginate(5);
         
         return view('admin.user.index', compact('users'));
     }
@@ -21,16 +21,17 @@ class UserController extends Controller
  
     public function create()
     {
-        $user = new Users();
-        return view('admin.user.create', compact('user'));
+        $users = new User();
+        return view('admin.user.create', compact('users'));
     }
 
   
     public function store(Request $request)
     {
-        request()->validate(Users::$rules);
+        'Alert'::toast('Exito Se ha registrado un nuevo usuario', 'success');
+        request()->validate(User::$rules);
 
-        $user = Users::create($request->all());
+        $users = User::create($request->all());
 
         return redirect()->route('users.index')
             ->with('success', 'Users created successfully.');
@@ -39,28 +40,35 @@ class UserController extends Controller
    
     public function edit($id)
     {
-        $user = Users::find($id);
+        $user = User::find($id);
 
         return view('admin.user.edit', compact('user'));
     }
 
-   
-    public function update(Request $request, Users $user)
+    public function update(Request $request, User $user)
     {
-        request()->validate(Users::$rules);
+        'Alert'::toast('Exito Se ha actualizado el registro', 'success');
+        request()->validate(User::$rules);
 
         $user->update($request->all());
 
-        return redirect()->route('users.index')
-            ->with('success', 'Users updated successfully');
+        return redirect()->route('users.index');
     }
 
 
+    
+    public function show($id)
+    {
+        $user = User::find($id);
+
+        return view('admin.user.show', compact('user'));
+    }
+
     public function destroy($id)
     {
-        $user = Users::find($id)->delete();
+        'alert'()->success('Exito','Se ha eliminado el registro.');
+        $user = User::find($id)->delete();
+        return redirect()->route('users.index');
 
-        return redirect()->route('users.index')
-            ->with('success', 'Users deleted successfully');
     }
 }
