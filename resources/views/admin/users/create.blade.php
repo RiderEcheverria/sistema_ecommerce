@@ -19,7 +19,7 @@
                                 <div class="card">
                                     <div class="card-body"> 
                                         {!! Form::open(['route' => 'users.store','method' => 'POST']) !!}
-                                        @include('admin.user.form')
+                                        @include('admin.users.form')
                                         <button type="submit" class="btn btn-dark mr-2">Registrar</button>
                                         <a href="{{ route('users.index') }}" class="btn btn-dark mr-2"> Cancelar</a>
                                         {!! Form::close() !!}

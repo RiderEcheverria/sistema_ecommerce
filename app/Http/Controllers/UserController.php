@@ -2,73 +2,108 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserCreateRequest;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\UserEditRequest;
 use App\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Gate;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-   
-    public function index(Request $request)
+    public function index()
     {
-        $nombre = $request->get('buscar-nombre');
-       
-        $users = User::nombres($nombre)->paginate(5);
+        // abort_if(Gate::denies('user_index'), 403);
+        $users = User::paginate(5);
+      
+        return view('admin.users.index', compact('users'));
         
-        return view('admin.user.index', compact('users'));
     }
 
- 
     public function create()
     {
-        $users = new User();
-        return view('admin.user.create', compact('users'));
+        // abort_if(Gate::denies('user_create'), 403);
+        // $roles = Role::all()->pluck('name', 'id');
+        // return view('admin.users.create', compact('roles'));
+
+
+        $user = new User();
+        return view('admin.users.create', compact('user'));
     }
 
-  
+    // public function store(UserCreateRequest $request)
     public function store(Request $request)
     {
-        'Alert'::toast('Exito Se ha registrado un nuevo usuario', 'success');
-        request()->validate(User::$rules);
+        // $request->validate([
+            
+        //     'name' => 'required|min:7|max:8',
+        //     'username' => 'required',
+        //     'email' => 'required|email|unique:users',
+        //     'password' => 'required'
+        // ]);
+        $user = User::create($request->only('name', 'username', 'email')
+            + [
+                'password' => bcrypt($request->input('password')),
+            ]);
 
-        $users = User::create($request->all());
-
-        return redirect()->route('users.index')
-            ->with('success', 'Users created successfully.');
+        // $roles = $request->input('roles', []);
+        // $user->syncRoles($roles);
+        return redirect()->route('users.index', $user->id)->with('success', 'Usuario creado correctamente');
     }
 
-   
-    public function edit($id)
+    public function show(User $user)
     {
-        $user = User::find($id);
-
-        return view('admin.user.edit', compact('user'));
+        // abort_if(Gate::denies('user_show'), 403);
+        // $user = User::findOrFail($id);
+        // dd($user);
+        // $user->load('roles');
+        return view('admin.users.show', compact('user'));
     }
 
+    public function edit(User $user)
+    {
+        // abort_if(Gate::denies('user_edit'), 403);
+        
+        // $roles = Role::all()->pluck('name', 'id');
+        // $user->load('roles');
+        // return view('admin.users.edit', compact('user', 'roles'));
+        return view('admin.users.edit', compact('user'));
+    }
+
+    // public function update(UserEditRequest $request, User $user)
     public function update(Request $request, User $user)
     {
-        'Alert'::toast('Exito Se ha actualizado el registro', 'success');
-        request()->validate(User::$rules);
+        // $user=User::findOrFail($id);
+        $data = $request->only('name', 'username', 'email');
+        $password=$request->input('password');
+        if($password)
+            $data['password'] = bcrypt($password);
+        // if(trim($request->password)=='')
+        // {
+        //     $data=$request->except('password');
+        // }
+        // else{
+        //     $data=$request->all();
+        //     $data['password']=bcrypt($request->password);
+        // }
 
-        $user->update($request->all());
+        $user->update($data);
 
-        return redirect()->route('users.index');
+        // $roles = $request->input('roles', []);
+        // $user->syncRoles($roles);
+        return redirect()->route('users.index', $user->id)->with('success', 'Usuario actualizado correctamente');
     }
 
-
-    
-    public function show($id)
+    public function destroy(User $user)
     {
-        $user = User::find($id);
+        // abort_if(Gate::denies('user_destroy'), 403);
 
-        return view('admin.user.show', compact('user'));
-    }
+        if (auth()->user()->id == $user->id) {
+            return redirect()->route('users.index');
+        }
 
-    public function destroy($id)
-    {
-        'alert'()->success('Exito','Se ha eliminado el registro.');
-        $user = User::find($id)->delete();
-        return redirect()->route('users.index');
-
+        $user->delete();
+        return back()->with('succes', 'Usuario eliminado correctamente');
     }
 }

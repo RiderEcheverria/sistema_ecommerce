@@ -23,8 +23,10 @@
       <div class="form-group row">
         <div class="col-sm-9">
           <h6>Contraseña</h6>
-            <input type="password" name="password" id="password" class="form-control"
-             placeholder="Escriba una contraseña segura " required/>
+          <input type="password" class="form-control" name="password" placeholder="Contraseña">
+          @if ($errors->has('password'))
+            <span class="error text-danger" for="input-password">{{ $errors->first('password') }}</span>
+          @endif
         </div>
       </div>
     </div>

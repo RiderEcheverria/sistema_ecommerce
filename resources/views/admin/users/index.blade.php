@@ -67,6 +67,7 @@
                                                     title="Editar">
                                                     <i class="far fa-edit"></i>
                                                 </a>
+                                                
                                                 {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$user->id}}"><i class="far fa-trash-alt"></i></a>    --}}
                                                 {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$user->id}}"><i class="far fa-trash-alt"></i></a>    --}}
                                             </td>
@@ -81,9 +82,14 @@
                 <div class="row">  
             <div class="col-lg-12">
          {!! $users->links() !!}
+         
         </div>
     </div>               
 @endsection
+@section('scripts')
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>
+<script>
 {{--  validacion de letras  --}}
  <script>
     function soloLetras(e) {
