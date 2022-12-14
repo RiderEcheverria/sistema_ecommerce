@@ -14,7 +14,7 @@ class RoleController extends Controller
     {
         // abort_if(Gate::denies('role_index'), 403);
 
-        $roles = Role::paginate(10);
+        $roles = Role::paginate(5);
 
         return view('admin.roles.index', compact('roles'));
     }
@@ -32,6 +32,7 @@ class RoleController extends Controller
  
     public function store(Request $request)
     {
+        'Alert'::toast('Exito Se ha registrado un nuevo rol', 'success');
         $rol = Role::create($request->only('name'));
 
         // $role->permissions()->sync($request->input('permissions', []));
