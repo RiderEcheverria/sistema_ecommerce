@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Brand;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserCreateRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +24,17 @@ class UserCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:8|max:10',
-            'username' => 'required|unique:users',
-            'email' => 'required|email|unique:users',
-            'password' => 'required'
+            // 'name'=>'required|string|max:50',
+     
         ];
     }
-
     public function messages()
     {
-        return [
-            'name.required' => 'El nombre es requerido amigo'
+        return[
+            // 'name.required'=>'Este campo es requerido.',
+            // 'name.string'=>'El valor no es correcto.',
+            // 'name.max'=>'Solo se permite 50 caracteres.',
+         
         ];
     }
 }

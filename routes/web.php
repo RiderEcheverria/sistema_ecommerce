@@ -16,6 +16,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/users/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
+   
+//RUTAS DEREGISTRO DE PERMISOS Y ASIGNACION DE ROLES
+Route::resource('permissions','PermissionController')->names('permissions');
+Route::resource('roles','RoleController')->names('roles');
+//  Route::resource('permissions', App\Http\Controllers\PermissionController::class);
 //RUTA DE REGISTRO DE PESONAS 
 
 Route::resource('personas','PersonaController')->names('personas');

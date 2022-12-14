@@ -52,8 +52,8 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{route('users.index')}}"><i class="fa fa-user menu-icon"></i>
                     Usuarios</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-user-circle menu-icon"></i>Roles</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-unlock menu-icon"></i>Permisos</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('roles.index')}}"><i class="fa fa-user-circle menu-icon"></i>Roles</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('permissions.index')}}"><i class="fa fa-unlock menu-icon"></i>Permisos</a></li>
                 {{--  <li class="nav-item"> <a class="nav-link" href="pages/icons/themify.html">Themify icons</a></li>  --}}
               </ul>
             </div>
