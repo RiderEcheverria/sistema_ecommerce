@@ -20890,11 +20890,11 @@ code {
 /* Badges */
 .badge {
  
-  border-radius: 0.125rem;
-  font-size: 0.6125rem;
-  font-weight: 400;
-  line-height: 1;
-  padding: 0.3rem 0.35rem;
+  border-radius: 0.925rem;
+font-size: 0.6125rem;
+font-weight: 400;
+line-height: 1;
+padding: 0.2rem 0.25rem;
 }
 
 .badge.badge-pill {

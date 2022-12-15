@@ -37,39 +37,57 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="mt-2 py-2 border-top border-bottom">
-                                                <ul class="nav profile-navbar">
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="#">
-                                                            <i class="fa fa-user"></i>
-                                                            <b> Nombre</b>
-                                                            <p class="text-muted">
-                                                                {{ $user->name }}
-                                                            </p>
+                                           
+                                            <div class="col-md-8">
+                                                <div class="card card-user">
+                                                  <div class="card-body">
+                                                    <table class="table table-bordered table-striped">
+                                                      <tbody>
+                                                        <tr>
+                                                          <th>ID</th>
+                                                          <td>{{ $user->id }}
+                                                          </td>
+                                                        </tr>
+                                                        <tr>
+                                                          <th>Nombre:</th>
+                                                          <td>{{ $user->name }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                          <th>Email:</th>
+                                                          <td><span class="badge badge-primary">{{ $user->email }}</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                          {{--  <th>Username</th>  --}}
+                                                          {{--  <td>{!! $user->username !!}</td>  --}}
+                                                        </tr>
+                                                        <tr>
+                                                          <th>Creado en:</th>
+                                                          
+                                                          <td class="text-primary">{{ $user->created_at->toFormattedDateString() }}</td>   
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Roles:</th>
+                                                            <td>
+                                                                @forelse ($user->roles as $role)
+                                                                    <span class="badge rounded-pill bg-dark text-white">{{ $role->name }}</span>
+                                                                @empty
+                                                                    <span class="badge badge-danger bg-danger">No roles</span>
+                                                                @endforelse
+                                                            </td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                    <br />
+                                                    <div lass="card-footer text-mited">
+                                                        <a href="{{ route('users.index') }}"
+                                                            class="btn btn-dark mr-2
+                                                         float-right">
+                                                            Regresar
                                                         </a>
-                                                    </li>
-                                                </ul>
-                                            </div>   
-                                            <div class="mt-2 py-2 border-top border-bottom">
-                                                <ul class="nav profile-navbar">
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="#">
-                                                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                            <b> Correo electronico</b>
-                                                            <p class="text-muted">
-                                                                {{ $user->email }}
-                                                            </p>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <br />
-                                            <div lass="card-footer text-mited">
-                                                <a href="{{ route('users.index') }}"
-                                                    class="btn btn-dark mr-2
-                                                 float-right">
-                                                    Regresar
-                                                </a>
-                                            </div>
+                                                    </div>
+                                                  </div>
+                                                  
+                                          
                                         </div>
+                                      
                                     @endsection

@@ -54,7 +54,7 @@
                                         <tr>    
                                             <th scope="row">{{$permission->id}}</th>
                                           <td>{{$permission->name}}</td>
-                                        <td>{{$permission->created_at}}</td>
+                                          <td class="text-primary">{{ $permission->created_at->toFormattedDateString() }}</td>
                                             <td style="width: 20%;">
                                                 {{--  <a class="btn btn-outline-warning"
                                                     href="{{ route('permissions.show', $permission) }}">

@@ -28,26 +28,26 @@
   .m-medium .modal-dialog { max-width: 350px; }
   .m-large .modal-dialog { max-width: 320px; }
   </style>
-  {!! Form::model($user, ['route' => ['personas.update', $user], 'method' => 'PUT']) !!}
-                                                                                                                                    
-  <div class="modal fade m-medium" id="modal-delete-edit{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-delete-edit">
-    <div class="modal-dialog" role="document">
+  <div class="modal fade m-medium" id="modal-delete-user{{$user->id}}" tabindex="-1" user="dialog" aria-labelledby="modal-delete-user">
+    <div class="modal-dialog" user="document">
       <div class="modal-content">
         <div class="modal-body">
-          <center> <img id='gif' src=' https://cdn.dribbble.com/users/251873/screenshots/9288094/media/a1c2f89065f68e1b2b5dcb66bdb9beb1.gif' width="80%px"></center>
-          <center> <h4>Esta seguro de eliminar ?</h4></center>
-          <center> <h4>El registro N:<b>{{ $user->id}}</b></h4></center>
-        <center><p class="s-text">¡No podrás revertir esto! </p></center> 
-        <div>
-          <div class="modal-footer" style="text-align: center" >
-            <button type="submit" class="btn btn-dark"> ¡Sí, Eliminar!</button>
-            </button>
-            <div></div>
-            <button type="submit" class="btn btn-danger pull-right" data-dismiss="modal">¡No, Cancelar!</button>
+            <center> <img id='gif' src=' https://cdn.dribbble.com/users/251873/screenshots/9288094/media/a1c2f89065f68e1b2b5dcb66bdb9beb1.gif' width="80%px"></center>
+            <center> <h4>Esta seguro de eliminar ?</h4></center>
+            <center> <h4>El registro N:<b>{{ $user->id}}</b></h4></center>
+          <center><p class="s-text">¡No podrás revertir esto! </p></center>                                                  
+        </div>
+        <div class="modal-footer" style="text-align: center" >
+          <button type="submit" class="btn btn-dark  delete-confirm" title="Eliminar" > ¡Sí, Eliminar!</button>
+          </button>
+          <div></div>
+          <button type="submit" class="btn btn-danger pull-right" data-dismiss="modal">¡No, Cancelar!</button>
+         <div></div>
+         <div></div>
         </div>
       </div>
     </div>
   </div> 
-  {!! Form::close() !!}
+
   
   

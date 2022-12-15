@@ -51,6 +51,41 @@
                                                 </div>
                                             </div>
                                             </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="name" class="col-sm-2 col-form-label">Roles</label>
+                                                <div class="col-sm-7">
+                                                    <div class="form-group">
+                                                        <div class="card">
+                                                            <div class="card-body"> 
+                                                            <div class="tab-pane active" id="profile">
+                                                                <table class="table">
+                                                                    <tbody>
+                                                                        @foreach ($roles as $id => $role)
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="form-check">
+                                                                                    <label class="form-check-label">
+                                                                                        <input class="checkbox" type="checkbox"
+                                                                                            name="roles[]"
+                                                                                            value="{{ $id }}" {{ $user->roles->contains($id) ? 'checked' : ''}}
+                                                                                        >
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>
+                                                                                {{ $role }}
+                                                                            </td>
+                                                                        </tr>
+                                                                        @endforeach
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                </div>
                                             <br/> 
                                         <button type="submit" class="btn btn-dark mr-2">Actualizar</button>
                                         <a href="{{ route('users.index') }}" class="btn btn-dark mr-2"> Cancelar</a>

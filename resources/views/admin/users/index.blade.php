@@ -45,7 +45,8 @@
                                         <th>Id</th>
                                         <th>Nombre</th>
                                         <th>Email</th>
-         
+                                        <th>Roles</th>
+                                        <th>Creado en</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -57,6 +58,15 @@
                                         <a href="{{route('users.show',$user)}}">{{$user->name}}</a>
                                         </td>
                                         <td>{{$user->email}}</td>
+                                        <td>
+                                          @forelse ($user->roles as $role)
+                                            <span class="badge badge-info">{{ $role->name }}</span>
+                                          @empty
+                                            <span class="badge badge-danger">No roles</span>
+                                          @endforelse
+                                        </td> 
+                                        <td class="text-primary">{{ $user->created_at->toFormattedDateString() }}</td>  
+                                        {!! Form::open(['route' => ['users.delete', $user], 'method' => 'DELETE']) !!}             
                                             <td style="width: 20%;">
                                                 <a class="btn btn-outline-warning"
                                                     href="{{ route('users.show', $user) }}">
@@ -68,11 +78,13 @@
                                                     <i class="far fa-edit"></i>
                                                 </a>
                                                 
-                                                {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$user->id}}"><i class="far fa-trash-alt"></i></a>    --}}
+                                                <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$user->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                  {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$user->id}}"><i class="far fa-trash-alt"></i></a>    --}}
                                                 {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$user->id}}"><i class="far fa-trash-alt"></i></a>    --}}
                                             </td>
                                             {{--  @include('admin.user.modalEdit.edit')  --}}
-                                            {{--  @include('admin.user.modalDelete.delete')  --}}
+                                            @include('admin.users.modal.delete')
+                                            {!! Form::close() !!}
                                         </tr>  
                                     @endforeach      
                                 </tbody>

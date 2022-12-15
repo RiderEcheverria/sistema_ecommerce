@@ -5,7 +5,7 @@
         <div class="page-header">
             <ol class="breadcrumb breadcrumb-custom">
                 <li class="breadcrumb-item"> <a href="">Panel administrador</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('roles.index') }}"> Marcas</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('roles.index') }}"> Roles</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Editar roles</li>
             </ol>
         </div>
@@ -22,14 +22,46 @@
                                             <div class="col-md-6">
                                               <div class="form-group row">
                                                 <div class="col-sm-9">
-                                                    <h6>Nombre de marca</h6>
+                                                    <h6>Nombre de rol</h6>
                                                     <input type="text" value="{{ $role->name }}" name="name" id="name" class="form-control" 
-                                                    placeholder="Escriba una marca" required  />
+                                                    placeholder="Escriba un rol" required  />
                                                 </div>
                                               </div>
                                             </div>                                    
                                         </div>
                                         <br />
+                                        <div class="row">
+                                            <label for="name" class="col-sm-2 col-form-label">Permisos</label>
+                                            <div class="col-sm-7">
+                                              <div class="card">
+                                                <div class="card-body"> 
+                                                  <div class="tab-pane active" id="profile">
+                                                    <table class="table">
+                                                      <tbody>
+                                                        @foreach ($permissions as $id => $permission)
+                                                        <tr>
+                                                          <td>
+                                                            <div class="form-check">
+                                                              <label class="form-check-label">
+                                                                <input class="checkbox" type="checkbox" name="permissions[]"
+                                                                value="{{ $id }}"  {{ $role->permissions->contains($id) ? 'checked' : '' }}>
+                                                              </label>
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            {{ $permission }}
+                                                          </td>
+                                                        </tr>
+                                                        @endforeach
+                                                      </tbody>
+                                                    </table>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          </div>
+                                          </div>
                                         <br />
                                         <button type="submit" class="btn btn-dark mr-2">Actualizar</button>
                                         <a href="{{ route('roles.index') }}" class="btn btn-dark mr-2"> Cancelar</a>

@@ -9,57 +9,76 @@ use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
-  
+   
     public function index()
     {
         // abort_if(Gate::denies('role_index'), 403);
-
-        $roles = Role::paginate(5);
+        // $permissions = Permission::paginate(10);
+        $roles = Role::paginate(10);
 
         return view('admin.roles.index', compact('roles'));
     }
 
- 
+   
     public function create()
     {
         // abort_if(Gate::denies('role_create'), 403);
-
+        
+        
         $permissions = Permission::all()->pluck('name', 'id');
         // dd($permissions);
         return view('admin.roles.create', compact('permissions'));
     }
 
- 
+   
     public function store(Request $request)
     {
-        'Alert'::toast('Exito Se ha registrado un nuevo rol', 'success');
-        $rol = Role::create($request->only('name'));
+        $role = Role::create($request->only('name'));
 
         // $role->permissions()->sync($request->input('permissions', []));
-        $rol->syncPermissions($request->input('permissions', []));
+        $role->syncPermissions($request->input('permissions', []));
 
         return redirect()->route('roles.index');
     }
 
- 
-
-    public function edit(Role $role)
-    {
-        
-
-        return view('admin.roles.edit', compact('role'));
-    }
-
    
-   
-    public function update(Request $request, Role $role)
+    public function show(Role $role)
     {
-        'Alert'::toast('Exito Se ha actualizado el registro', 'success');
-        $role->update($request->only('name'));
+        // abort_if(Gate::denies('role_show'), 403);
 
-        return redirect()->route('roles.index');
+        $role->load('permissions');
+        return view('admin.roles.show', compact('role'));
     }
 
   
+    public function edit(Role $role)
+    {
+        // abort_if(Gate::denies('role_edit'), 403);
+      
+        $permissions = Permission::all()->pluck('name', 'id');
+        $role->load('permissions');
+        // dd($role);
+        return view('admin.roles.edit', compact('role', 'permissions'));
+    }
+
    
+    public function update(Request $request, Role $role)
+    {
+        $role->update($request->only('name'));
+
+        // $role->permissions()->sync($request->input('permissions', []));
+        $role->syncPermissions($request->input('permissions', []));
+
+        return redirect()->route('roles.index');
+    }
+
+   
+    public function destroy(Role $role)
+    {
+        // abort_if(Gate::denies('role_delete'), 403);
+
+        $role->delete();
+
+        return redirect()->route('roles.index');
+    }
 }

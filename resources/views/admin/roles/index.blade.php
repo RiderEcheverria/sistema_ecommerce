@@ -44,33 +44,46 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Nombre</th>
-                                        <th>Creado en </th>
-         
+                                        {{--  <th> Guard </th>  --}}
+                                        <th>Fecha_de_creacion</th>
+                                        <th>Permisos </th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody >
-                                    @foreach ($roles as $rol)
-                                        <tr>    
-                                            <th scope="row">{{$rol->id}}</th>
-                                          <td>{{$rol->name}}</td>
-                                        <td>{{$rol->created_at}}</td>
+                                    @foreach ($roles as $role)
+                                    <td>{{ $role->id }}</td>
+                                    <td>{{ $role->name }}</td>
+                                    {{--  <td>{{ $role->guard_name }}</td>  --}}
+                                    <td class="text-primary">{{ $role->created_at->toFormattedDateString() }}</td>
+                                    <td>
+                                      @forelse ($role->permissions as $permission)
+                                          <span class="badge badge-info">{{ $permission->name }}</span>
+                                      @empty
+                                          <span class="badge badge-danger">No permission added</span>
+                                      @endforelse
+                                    </td>
                                             <td style="width: 20%;">
+                                                {!! Form::open(['route' => ['roles.destroy', $role], 'method' => 'DELETE']) !!}
                                                 {{--  <a class="btn btn-outline-warning"
-                                                    href="{{ route('roles.show', $rol) }}">
+                                                    href="{{ route('roles.show', $role) }}">
                                                     <i class="fa fa-eye"
-                                                        aria-hidden="true"></i></a>  --}}
+                                                        aria-hidden="true"></i></a>  --}}      
+                                               <a href="{{ route('roles.show', $role->id) }}" class="btn btn-outline-warning"><i class="fa fa-eye" aria-hidden="true"></i>  </a>
                                                 <a class="btn btn-outline-info"
-                                                    href="{{ route('roles.edit', $rol) }}"
+                                                    href="{{ route('roles.edit', $role) }}"
                                                     title="Editar">
                                                     <i class="far fa-edit"></i>
                                                 </a>
-                                                
-                                                {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$rol->id}}"><i class="far fa-trash-alt"></i></a>    --}}
-                                                {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$rol->id}}"><i class="far fa-trash-alt"></i></a>    --}}
+                                                {{--  <form action="{{ route('roles.destroy', $role->id) }}" method="post"
+                                                  onsubmit="return confirm('areYouSure')" style="display: inline-block;">
+                                                </form>  --}}
+                                                <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$role->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$role->id}}"><i class="far fa-trash-alt"></i></a>    --}}
                                             </td>
-                                            {{--  @include('admin.rol.modalEdit.edit')  --}}
-                                            {{--  @include('admin.rol.modalDelete.delete')  --}}
+                                            {{--  @include('admin.role.modalEdit.edit')  --}}
+                                            @include('admin.roles.modal.delete')
+                                             {!! Form::close() !!}
                                         </tr>  
                                     @endforeach      
                                 </tbody>
@@ -84,73 +97,68 @@
         </div>
     </div>               
 @endsection
-@section('scripts')
-<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>
-<script>
 {{--  validacion de letras  --}}
- <script>
-    function soloLetras(e) {
+<script>
+  function soloLetras(e) {
       var key = e.keyCode || e.which,
-        tecla = String.fromCharCode(key).toLowerCase(),
-        letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-        especiales = [0],
-        tecla_especial = false;
-  
+          tecla = String.fromCharCode(key).toLowerCase(),
+          letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+          especiales = [0],
+          tecla_especial = false;
+
       for (var i in especiales) {
-        if (key == especiales[i]) {
-          tecla_especial = true;
-          break;
-        }
+          if (key == especiales[i]) {
+              tecla_especial = true;
+              break;
+          }
       }
-  
+
       if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-        return false;
+          return false;
       }
-    }
-   </script>
-   <script type="text/javascript">
-    (function(document) {
-      'use strict';
+  }
+</script>
+<script type="text/javascript">
+  (function(document) {
+    'use strict';
 
-      var LightTableFilter = (function(Arr) {
+    var LightTableFilter = (function(Arr) {
 
-        var _input;
+      var _input;
 
-        function _onInputEvent(e) {
-          _input = e.target;
-          var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
-          Arr.forEach.call(tables, function(table) {
-            Arr.forEach.call(table.tBodies, function(tbody) {
-              Arr.forEach.call(tbody.rows, _filter);
-            });
+      function _onInputEvent(e) {
+        _input = e.target;
+        var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+        Arr.forEach.call(tables, function(table) {
+          Arr.forEach.call(table.tBodies, function(tbody) {
+            Arr.forEach.call(tbody.rows, _filter);
+          });
+        });
+      }
+
+      function _filter(row) {
+        var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+        row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+      }
+
+      return {
+        init: function() {
+          var inputs = document.getElementsByClassName('light-table-filter');
+          Arr.forEach.call(inputs, function(input) {
+            input.oninput = _onInputEvent;
           });
         }
+      };
+    })(Array.prototype);
 
-        function _filter(row) {
-          var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
-          row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
-        }
+    document.addEventListener('readystatechange', function() {
+      if (document.readyState === 'complete') {
+        LightTableFilter.init();
+      }
+    });
 
-        return {
-          init: function() {
-            var inputs = document.getElementsByClassName('light-table-filter');
-            Arr.forEach.call(inputs, function(input) {
-              input.oninput = _onInputEvent;
-            });
-          }
-        };
-      })(Array.prototype);
-
-      document.addEventListener('readystatechange', function() {
-        if (document.readyState === 'complete') {
-          LightTableFilter.init();
-        }
-      });
-
-    })(document);
-    </script>  
-
+  })(document);
+  </script>  
 
 
 
