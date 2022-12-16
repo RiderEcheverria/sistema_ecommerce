@@ -28,9 +28,11 @@
                                         <a href="{{ route('dealers.index')}}" class="btn btn-dark">
                                             <i class="fas fa-undo-alt"></i>
                                         </a>
+                                        @can('dealer_create')
                                         <a href="{{ route('dealers.create')}}"  class="btn btn-dark ">
                                             + Agregar nuevo
                                         </a>
+                                        @endcan
                                     </div>                           
                                 </form>          
                                 </div>
@@ -69,11 +71,17 @@
                                               @endif
                                         </td>
                                             <td style="width: 20%;">
+                                              @can('dealer_show')
                                               <a class="btn btn-outline-warning" href="{{route('dealers.show',$dealer)}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                  <a class="btn btn-outline-info" href="{{route('dealers.edit',$dealer)}}" title="Editar">
+                                              @endcan
+                                              @can('dealer_edit')
+                                              <a class="btn btn-outline-info" href="{{route('dealers.edit',$dealer)}}" title="Editar">
                                                       <i class="far fa-edit"></i>
                                                   </a>
+                                                  @endcan
+                                                  @can('dealer_destroy')
                                                   <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$dealer->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                  @endcan
                                                 </td>
                                             @include('admin.dealer.modalDelete.delete')
                                         </tr>

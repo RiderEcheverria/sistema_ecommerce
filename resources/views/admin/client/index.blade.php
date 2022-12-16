@@ -28,9 +28,11 @@
                                             <a href="{{ route('clients.index')}}" class="btn btn-dark">
                                                 <i class="fas fa-undo-alt"></i>
                                             </a>
+                                            @can('cliente_create')
                                             <a href="{{ route('clients.create')}}"  class="btn btn-dark ">
                                                 + Agregar nuevo
                                             </a>
+                                            @endcan
                                         </div>                           
                                     </form>      
                                 </div>
@@ -69,17 +71,23 @@
                                                 @endif
                                           </td>
                                             <td style="width: 20%;">
+                                              @can('cliente_show')
                                                 <a class="btn btn-outline-warning"
                                                     href="{{ route('clients.show', $client) }}">
                                                     <i class="fa fa-eye"
                                                         aria-hidden="true"></i></a>
+                                                @endcan
+                                                @can('cliente_edit')
                                                 <a class="btn btn-outline-info"
                                                     href="{{ route('clients.edit', $client) }}"
                                                     title="Editar">
                                                     <i class="far fa-edit"></i>
                                                 </a>
+                                                @endcan
+                                                @can('cliente_destroy')
                                                 <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$client->id}}"><i class="far fa-trash-alt"></i></a>                                  
-                                            </td>
+                                                @endcan
+                                              </td>
                                             @include('admin.client.modalDelete.delete')
                                         </tr>  
                                     @endforeach      

@@ -1267,16 +1267,16 @@
         },
         {
             "name": "laravel/fortify",
-            "version": "v1.14.0",
+            "version": "v1.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/fortify.git",
-                "reference": "20aeaf31edbf01e21348954088641cdb3d48ebe8"
+                "reference": "04b4b9c20e421c415d0427904a72e08a21bdec27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/fortify/zipball/20aeaf31edbf01e21348954088641cdb3d48ebe8",
-                "reference": "20aeaf31edbf01e21348954088641cdb3d48ebe8",
+                "url": "https://api.github.com/repos/laravel/fortify/zipball/04b4b9c20e421c415d0427904a72e08a21bdec27",
+                "reference": "04b4b9c20e421c415d0427904a72e08a21bdec27",
                 "shasum": ""
             },
             "require": {
@@ -1326,7 +1326,7 @@
                 "issues": "https://github.com/laravel/fortify/issues",
                 "source": "https://github.com/laravel/fortify"
             },
-            "time": "2022-11-23T09:03:43+00:00"
+            "time": "2022-12-09T16:51:26+00:00"
         },
         {
             "name": "laravel/framework",
@@ -7527,16 +7527,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.20",
+            "version": "9.2.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "af7463c955007de36db0c5e26d03e2f933c2e980"
+                "reference": "3f893e19712bb0c8bc86665d1562e9fd509c4ef0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/af7463c955007de36db0c5e26d03e2f933c2e980",
-                "reference": "af7463c955007de36db0c5e26d03e2f933c2e980",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/3f893e19712bb0c8bc86665d1562e9fd509c4ef0",
+                "reference": "3f893e19712bb0c8bc86665d1562e9fd509c4ef0",
                 "shasum": ""
             },
             "require": {
@@ -7592,7 +7592,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.20"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.21"
             },
             "funding": [
                 {
@@ -7600,7 +7600,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-13T07:49:28+00:00"
+            "time": "2022-12-14T13:26:54+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",

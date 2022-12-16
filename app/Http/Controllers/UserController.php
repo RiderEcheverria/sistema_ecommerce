@@ -16,7 +16,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        // abort_if(Gate::denies('user_index'), 403);
+        abort_if(Gate::denies('user_index'), 403);
         $users = User::paginate(5);
       
         return view('admin.users.index', compact('users'));
@@ -25,9 +25,8 @@ class UserController extends Controller
 
     public function create()
     {
-        // $roles = Role::all()->pluck('name', 'id');
-        // return view('users.create', compact('roles'));
-
+     
+        abort_if(Gate::denies('user_create'), 403);
         $roles = Role::all()->pluck('name', 'id');
         $user = new User();
         return view('admin.users.create', compact('user','roles'));
@@ -55,7 +54,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        // abort_if(Gate::denies('user_show'), 403);
+        abort_if(Gate::denies('user_show'), 403);
         // $user = User::findOrFail($id);
         // dd($user);
         // $user->load('roles');
@@ -64,7 +63,7 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        // abort_if(Gate::denies('user_edit'), 403);
+        abort_if(Gate::denies('user_edit'), 403);
         
         $roles = Role::all()->pluck('name', 'id');
         $user->load('roles');
@@ -98,7 +97,7 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
-        // abort_if(Gate::denies('user_destroy'), 403);
+        abort_if(Gate::denies('user_destroy'), 403);
         if (auth()->user()->id == $user->id) {
             return redirect()->route('users.index');
         }

@@ -28,9 +28,11 @@
                                             <a href="{{ route('permissions.index')}}" class="btn btn-dark">
                                                 <i class="fas fa-undo-alt"></i>
                                             </a>
+                                            @can('permission_create')
                                             <a href="{{ route('permissions.create')}}"  class="btn btn-dark ">
                                                 + Agregar nuevo
                                             </a>
+                                            @endcan
                                         </div>                           
                                     </form>   
                                 </div>
@@ -60,12 +62,13 @@
                                                     href="{{ route('permissions.show', $permission) }}">
                                                     <i class="fa fa-eye"
                                                         aria-hidden="true"></i></a>  --}}
+                                                @can('permission_edit')
                                                 <a class="btn btn-outline-info"
                                                     href="{{ route('permissions.edit', $permission) }}"
                                                     title="Editar">
                                                     <i class="far fa-edit"></i>
                                                 </a>
-                                                
+                                                @endcan
                                                 {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$permission->id}}"><i class="far fa-trash-alt"></i></a>    --}}
                                                 {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$permission->id}}"><i class="far fa-trash-alt"></i></a>    --}}
                                             </td>
@@ -85,8 +88,6 @@
     </div>               
 @endsection
 @section('scripts')
-<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>
 <script>
 {{--  validacion de letras  --}}
  <script>

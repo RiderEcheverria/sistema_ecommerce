@@ -41,25 +41,32 @@
           </a>
         </li>  --}}
          {{--  <i class="fa-solid fa-badge-check"></i>  --}}
-   
+         @can('user_index')
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
                 <i class="fa fa-users menu-icon" ></i>
               <span class="menu-title">Gestión de usuarios</span>
               <i class="menu-arrow"></i>
             </a>
+           
             <div class="collapse" id="icons">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{route('users.index')}}"><i class="fa fa-user menu-icon"></i>
                     Usuarios</a></li>
+                  @endcan
+                  @can('role_index')
                 <li class="nav-item"> <a class="nav-link" href="{{route('roles.index')}}"><i class="fa fa-user-circle menu-icon"></i>Roles</a></li>
+                @endcan
+                @can('permission_index')
                 <li class="nav-item"> <a class="nav-link" href="{{route('permissions.index')}}"><i class="fa fa-unlock menu-icon"></i>Permisos</a></li>
+                
                 {{--  <li class="nav-item"> <a class="nav-link" href="pages/icons/themify.html">Themify icons</a></li>  --}}
               </ul>
             </div>
-          </li>          
+          </li> 
+          @endcan   
+          @can('persona_index')      
         <li class="nav-item">
-       
           <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
             <i class="fa-solid fa-users menu-icon" ></i>
           
@@ -69,11 +76,18 @@
           <div class="collapse" id="tables">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item" > <a class="nav-link" href="{{ route('personas.index') }}"><i class="fa fa-user-plus menu-icon"></i>Personas</a></li>
+              @endcan   
+              @can('cliente_index')  
               <li class="nav-item"> <a class="nav-link" href="{{ route('clients.index') }}"><i class="fa-solid fa-user-tag menu-icon"></i>Clientes</a></li>           
+              @endcan   
+              @can('provider_index') 
               <li class="nav-item"> <a class="nav-link" href="{{ route('providers.index') }}"><i class="fa-solid fa-truck menu-icon"></i>Proveedores</a></li>           
+              @endcan   
+              @can('dealer_index') 
               <li class="nav-item"> <a class="nav-link" href="{{ route('dealers.index') }}"><i class="fa-solid fa-truck-fast menu-icon"></i>Repartidores</a></li>           
           </div>
         </li>
+        @endcan  
             {{--  <li class="nav-item">
 
                 <a class="nav-link" href="{{ route('personas.index') }}">
@@ -81,15 +95,14 @@
                     <span class="menu-title">Personas</span>
                 </a>
             </li>  --}}
+            @can('purchase_index') 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('purchases.index') }}">
-                  
                     <i class="fa fa-shopping-bag menu-icon" ></i>
-
                     <span class="menu-title">Gestión de compras</span>
                 </a>
-
             </li>
+            @endcan
             {{-- <li class="nav-item">
           
           <a class="nav-link" href="pages/widgets.html">
@@ -103,6 +116,7 @@
             <span class="menu-title">Promociones</span>
           </a>
         </li>  --}}
+        @can('product_index')
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="true"
                     aria-controls="page-layouts">
@@ -117,16 +131,20 @@
                             <i class="fa fa-tags menu-icon"></i>
                             Productos</a>
                         </li>
+                        @endcan   
+                        @can('category_index') 
                         <li class="nav-item"> <a class="nav-link"
                                 href="{{ route('categories.index') }}"><i class="fa fa-tag menu-icon"></i>
                                 Categorias</a></li>
+                        @endcan   
+                        @can('brand_index') 
                         <li class="nav-item"> <a class="nav-link" 
                             href="{{ route('brands.index') }}"><i class="fa fa-tag menu-icon"></i>
                             Marcas</a></li>
-
                     </ul>
                 </div>
             </li>
+            @endcan 
             {{-- <li class="nav-item">
           <a class="nav-link" href="pages/documentation.html">
             <i class="far fa-file-alt menu-icon"></i>

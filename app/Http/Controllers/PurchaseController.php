@@ -10,6 +10,7 @@ use App\Product;
 use App\Purchase;
 use Carbon\Carbon;
 use App\PurchaseDetails;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 
 class PurchaseController extends Controller
@@ -20,7 +21,7 @@ class PurchaseController extends Controller
     
     public function index(Request $request)
     {    
-        
+        abort_if(Gate::denies('purchase_index'), 403);
         $nombre = $request->get('buscar-nombre');
         $purchases = Purchase::nombres($nombre)->paginate(5);
         return view('admin.purchase.index', compact('purchases'));
@@ -29,6 +30,7 @@ class PurchaseController extends Controller
    
     public function create()
     {
+        abort_if(Gate::denies('purchase_create'), 403);
         $providers = Provider::get();
         $products = Product::get();
         return view('admin.purchase.create', compact('providers','products'));
@@ -64,6 +66,7 @@ class PurchaseController extends Controller
     public function show(Purchase $purchase)
     {
 
+        abort_if(Gate::denies('purchase_show'), 403);
         $subtotal= 0;
         $purchaseDetails = $purchase->purchaseDetails;
         foreach($purchaseDetails as $purchaseDetail) {
@@ -92,6 +95,7 @@ class PurchaseController extends Controller
     
     public function destroy(Purchase $Purchase)
     {
+        abort_if(Gate::denies('purchase_destroy'), 403);
         'alert'()->success('Exito','Se ha eliminado el registro.');
         $Purchase->delete();
         return redirect()->route('purchases.index');

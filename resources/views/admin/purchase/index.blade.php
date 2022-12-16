@@ -29,9 +29,12 @@
                                                        <a href="{{ route('purchases.index') }}" class="btn btn-dark">
                                                            <i class="fas fa-undo-alt"></i>
                                                        </a>
+                                                       
+                                                      @can('purchase_create')
                                                        <a href="{{ route('purchases.create') }}" class="btn btn-dark ">
                                                         + Agregar nuevo
                                                        </a>
+                                                       @endcan
                                                      </div>
                                                    </form>
                                             </div>
@@ -63,9 +66,11 @@
                                                         {{--  <td>{{$purchase->status}}</td>  --}}
                                                         <td style="width: 20%;">
                                                             {!! Form::open(['route' => ['purchases.destroy', $purchase], 'method' => 'DELETE']) !!}
+                                                            @can('purchase_show')
                                                             <a class="btn btn-outline-dark"
                                                                 href="{{ route('purchases.show', $purchase) }}">
                                                                 <i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                                @endcan
                                                             {{--  <button class="btn btn-outline-danger delete-confirm"
                                                                 type="submit" title="Eliminar">
                                                                 <i class="far fa-trash-alt"></i>

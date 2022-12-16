@@ -27,10 +27,13 @@
                                             type="text" placeholder="Busqueda por nombre" onkeypress="return soloLetras(event)">                                        
                                             <a href="{{ route('users.index')}}" class="btn btn-dark">
                                                 <i class="fas fa-undo-alt"></i>
+                                           
                                             </a>
+                                            @can('user_create')
                                             <a href="{{ route('users.create')}}"  class="btn btn-dark ">
                                                 + Agregar nuevo
                                             </a>
+                                            @endcan
                                         </div>                           
                                     </form>   
                                 </div>
@@ -68,23 +71,29 @@
                                         <td class="text-primary">{{ $user->created_at->toFormattedDateString() }}</td>  
                                         {!! Form::open(['route' => ['users.delete', $user], 'method' => 'DELETE']) !!}             
                                             <td style="width: 20%;">
+                                              @can('user_show')
                                                 <a class="btn btn-outline-warning"
                                                     href="{{ route('users.show', $user) }}">
                                                     <i class="fa fa-eye"
                                                         aria-hidden="true"></i></a>
+                                              @endcan
+                                              @can('user_edit')
                                                 <a class="btn btn-outline-info"
                                                     href="{{ route('users.edit', $user) }}"
                                                     title="Editar">
                                                     <i class="far fa-edit"></i>
                                                 </a>
-                                                
+                                                @endcan
+                                                @can('user_destroy')
                                                 <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$user->id}}"><i class="far fa-trash-alt"></i></a>  
-                                                  {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$user->id}}"><i class="far fa-trash-alt"></i></a>    --}}
+                                                @endcan
+                                                {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$user->id}}"><i class="far fa-trash-alt"></i></a>    --}}
                                                 {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$user->id}}"><i class="far fa-trash-alt"></i></a>    --}}
                                             </td>
                                             {{--  @include('admin.user.modalEdit.edit')  --}}
                                             @include('admin.users.modal.delete')
                                             {!! Form::close() !!}
+                                            
                                         </tr>  
                                     @endforeach      
                                 </tbody>

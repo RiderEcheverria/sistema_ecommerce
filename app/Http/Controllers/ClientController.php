@@ -6,11 +6,13 @@ use App\Client;
 use Illuminate\Http\Request;
 use App\Http\Requests\Client\StoreRequest;
 use App\Http\Requests\Client\UpdateRequest;
+use Illuminate\Support\Facades\Gate;
 
 class ClientController extends Controller
 {
     public function index(Request $request)
     {
+        abort_if(Gate::denies('cliente_index'), 403);
         $nombre = $request->get('buscar-nombre');
         
         $cedula = $request->get('buscar-cedula');
@@ -24,6 +26,7 @@ class ClientController extends Controller
    
     public function create()
     {
+        abort_if(Gate::denies('cliente_create'), 403);
         $client = new Client();
         return view('admin.client.create', compact('client'));       
     }
@@ -40,12 +43,14 @@ class ClientController extends Controller
     
     public function show(Client $client)
     {
+        abort_if(Gate::denies('cliente_show'), 403);
         return view('admin.client.show', compact('client'));
     }
 
    
     public function edit(Client $client)
     {
+        abort_if(Gate::denies('cliente_edit'), 403);
         return view('admin.client.edit', compact('client'));
     }
 
@@ -60,6 +65,7 @@ class ClientController extends Controller
     
     public function destroy(Client $client)
     {
+        abort_if(Gate::denies('cliente_destroy'), 403);
         'alert'()->success('Exito','Se ha eliminado el registro.');
         $client->delete();
         return redirect()->route('clients.index');

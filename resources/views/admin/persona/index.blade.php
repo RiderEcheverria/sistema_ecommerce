@@ -28,9 +28,11 @@
                                             <a href="{{ route('personas.index')}}" class="btn btn-dark">
                                                 <i class="fas fa-undo-alt"></i>
                                             </a>
+                                            @can('persona_create')
                                             <a href="{{ route('personas.create')}}"  class="btn btn-dark ">
                                                 + Agregar nuevo
                                             </a>
+                                            @endcan
                                         </div>                           
                                     </form>   
                                 </div>
@@ -73,18 +75,25 @@
                                                   @endif
                                             </td>
                                             <td style="width: 20%;">
+                                              
+                                              @can('persona_show')
                                                 <a class="btn btn-outline-warning"
                                                     href="{{ route('personas.show', $persona) }}">
                                                     <i class="fa fa-eye"
                                                         aria-hidden="true"></i></a>
+                                                  @endcan
+                                                  @can('persona_edit')
                                                 <a class="btn btn-outline-info"
                                                     href="{{ route('personas.edit', $persona) }}"
                                                     title="Editar">
                                                     <i class="far fa-edit"></i>
                                                 </a>
+                                                @endcan
+                                                @can('persona_destroy')
                                                 <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$persona->id}}"><i class="far fa-trash-alt"></i></a>  
                                                 {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$persona->id}}"><i class="far fa-trash-alt"></i></a>    --}}
-                                            </td>
+                                                @endcan
+                                              </td>
                                             {{--  @include('admin.persona.modalEdit.edit')  --}}
                                             @include('admin.persona.modalDelete.delete')
                                         </tr>  

@@ -30,9 +30,11 @@
                                                     <a href="{{ route('brands.index') }}" class="btn btn-dark">
                                                         <i class="fas fa-undo-alt"></i>
                                                     </a>
+                                                    @can('brand_create')
                                                     <a href="{{ route('brands.create') }}" class="btn btn-dark ">
                                                         + Agregar nuevo
                                                     </a>
+                                                    @endcan
                                                 </div>
                                             </form>   
                                         </div>
@@ -63,12 +65,16 @@
                                                         @endif
                                                   </td>
                                                     <td style="width: 20%;">
+                                                        @can('brand_edit')
                                                         {{--  {!! Form::open(['route' => ['brands.destroy', $brand], 'method' => 'DELETE']) !!}  --}}
                                                         <a class="btn btn-outline-info"
                                                             href="{{ route('brands.edit', $brand) }}" title="Editar">
                                                             <i class="far fa-edit"></i>
                                                         </a>
+                                                        @endcan
+                                                        @can('brand_destroy')
                                                         <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$brand->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                        @endcan
                                                     </td>
                                                     @include('admin.brand.modalDelete.delete')
                                                     {{--  {!! Form::close() !!}  --}}

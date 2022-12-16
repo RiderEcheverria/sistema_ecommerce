@@ -28,9 +28,11 @@
                                         <a href="{{ route('providers.index')}}" class="btn btn-dark">
                                             <i class="fas fa-undo-alt"></i>
                                         </a>
+                                        @can('provider_create')
                                         <a href="{{ route('providers.create')}}"  class="btn btn-dark ">
                                             + Agregar nuevo
                                         </a>
+                                        @endcan
                                     </div>                           
                                 </form>
                                 </div>
@@ -69,12 +71,18 @@
                                               @endif
                                         </td>
                                             <td style="width: 20%;">           
-                                                  <a class="btn btn-outline-warning" href="{{route('providers.show',$provider)}}">
+                                              @can('provider_show')
+                                              <a class="btn btn-outline-warning" href="{{route('providers.show',$provider)}}">
                                                   <i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                  @endcan
+                                                  @can('provider_edit')
                                                   <a class="btn btn-outline-info" href="{{route('providers.edit',$provider)}}"
                                                    title="Editar">
                                                   <i class="far fa-edit"></i></a>
+                                                  @endcan
+                                                  @can('provider_destroy')
                                                   <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$provider->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                  @endcan
                                             </td>
                                             @include('admin.provider.modalDelete.delete')
                                         </tr>

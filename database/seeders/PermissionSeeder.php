@@ -15,7 +15,7 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         // spatie documentation
-        app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
+        // app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
 
         $permissions = [
             'permission_index',
@@ -65,10 +65,26 @@ class PermissionSeeder extends Seeder
             'persona_show',
             'persona_edit',
             'persona_destroy',
-            'persona_estatus',
+            
+            'dealer_index',
+            'dealer_create',
+            'dealer_show',
+            'dealer_edit',
+            'dealer_destroy',
+            
+            'product_index',
+            'product_create',
+            'product_show',
+            'product_edit',
+            'product_destroy',
+            
+            'purchase_index',
+            'purchase_create',
+            'purchase_show',
+            'purchase_edit',
+            'purchase_destroy',
 
         ];
-
         foreach ($permissions as $permission) {
             Permission::create([
                 'name' => $permission

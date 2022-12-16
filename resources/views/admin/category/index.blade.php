@@ -31,10 +31,12 @@
                                                     <a href="{{ route('categories.index') }}" class="btn btn-dark">
                                                         <i class="fas fa-undo-alt"></i>
                                                     </a>
+                                                    @can('category_create')
                                                     <a href="{{ route('categories.create') }}"
                                                         class="btn btn-dark ">
                                                         + Agregar nuevo
                                                     </a>
+                                                    @endcan
                                                 </div>
                                             </form>     
                                         </div>
@@ -66,13 +68,17 @@
                                                   </td>
                                                     <td style="width: 20%;">
                                                         {{--  {!! Form::open(['route' => ['categories.destroy', $category], 'method' => 'DELETE']) !!}  --}}
+                                                        @can('category_edit')
                                                         <a class="btn btn-outline-info"
                                                             href="{{ route('categories.edit', $category) }}"
                                                             title="Editar">
                                                             <i class="far fa-edit"></i>
                                                         </a>
+                                                        @endcan
+                                                        @can('brand_destroy')
                                                         <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$category->id}}"><i class="far fa-trash-alt"></i></a>  
-                                                       </td>
+                                                        @endcan
+                                                    </td>
                                                        @include('admin.category.modalDelete.delete')
                                                         {{--  {!! Form::close() !!}  --}}
                                                     </tr>

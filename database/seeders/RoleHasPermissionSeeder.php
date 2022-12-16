@@ -15,7 +15,7 @@ class RoleHasPermissionSeeder extends Seeder
      */
     public function run()
     {
-        app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
+        // app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
 
         // Admin
         $admin_permissions = Permission::all();
@@ -25,7 +25,15 @@ class RoleHasPermissionSeeder extends Seeder
         $user_permissions = $admin_permissions->filter(function ($permission) {
             return substr($permission->name, 0, 5) != 'user_' &&
                 substr($permission->name, 0, 5) != 'role_' &&
-                substr($permission->name, 0, 11) != 'permission_';
+                substr($permission->name, 0, 11) != 'permission_'&&
+                substr($permission->name, 0, 9) != 'category_'&&
+                substr($permission->name, 0, 6) != 'brand_'&&
+                substr($permission->name, 0, 9) != 'provider_'&&
+                substr($permission->name, 0, 8) != 'persona_'&&
+                substr($permission->name, 0, 7) != 'dealer_'&&
+                substr($permission->name, 0, 8) != 'cliente_'&&
+                substr($permission->name, 0, 8) != 'product_'&&
+                substr($permission->name, 0, 9) != 'purchase_';
         });
         Role::findOrFail(2)->permissions()->sync($user_permissions);
     }

@@ -64,26 +64,34 @@
                                       @endforelse
                                     </td>
                                             <td style="width: 20%;">
+                                              @can('role_destroy')
                                                 {!! Form::open(['route' => ['roles.destroy', $role], 'method' => 'DELETE']) !!}
                                                 {{--  <a class="btn btn-outline-warning"
                                                     href="{{ route('roles.show', $role) }}">
                                                     <i class="fa fa-eye"
-                                                        aria-hidden="true"></i></a>  --}}      
+                                                        aria-hidden="true"></i></a>  --}}
+                                              @can('role_show')              
                                                <a href="{{ route('roles.show', $role->id) }}" class="btn btn-outline-warning"><i class="fa fa-eye" aria-hidden="true"></i>  </a>
-                                                <a class="btn btn-outline-info"
+                                               @endcan
+                                               @can('role_edit')
+                                               <a class="btn btn-outline-info"
                                                     href="{{ route('roles.edit', $role) }}"
                                                     title="Editar">
                                                     <i class="far fa-edit"></i>
                                                 </a>
+                                                @endcan
+                                               
                                                 {{--  <form action="{{ route('roles.destroy', $role->id) }}" method="post"
                                                   onsubmit="return confirm('areYouSure')" style="display: inline-block;">
                                                 </form>  --}}
                                                 <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$role->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                
                                                 {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$role->id}}"><i class="far fa-trash-alt"></i></a>    --}}
                                             </td>
                                             {{--  @include('admin.role.modalEdit.edit')  --}}
                                             @include('admin.roles.modal.delete')
                                              {!! Form::close() !!}
+                                             @endcan
                                         </tr>  
                                     @endforeach      
                                 </tbody>

@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
 use App\Brand;
+use Illuminate\Support\Facades\Gate;
 
 class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        
+        abort_if(Gate::denies('product_index'), 403);
         $nombre = $request->get('buscar-nombre');
         $products = Product::nombres($nombre)->paginate(5);
         return view('admin.product.index', compact('products'));
@@ -24,6 +25,7 @@ class ProductController extends Controller
     public function create()
 
     {
+        abort_if(Gate::denies('product_create'), 403);
         $categories = Category::get();
 
         $brands = Brand::get();
@@ -55,12 +57,14 @@ class ProductController extends Controller
     
     public function show(Product $product)
     {
+        abort_if(Gate::denies('product_show'), 403);
         return view('admin.product.show', compact('product'));
     }
 
    
     public function edit(Product $product)
     {
+        abort_if(Gate::denies('product_edit'), 403);
         $categories = Category::get();
         $brands = Brand::get();
         return view('admin.product.edit', compact('product','brands','categories'));
@@ -84,6 +88,7 @@ class ProductController extends Controller
     
     public function destroy(Product $product)
     {
+        abort_if(Gate::denies('product_destroy'), 403);
         'alert'()->success('Exito','Se ha eliminado el registro.');
         $product->delete();
         return redirect()->route('products.index');

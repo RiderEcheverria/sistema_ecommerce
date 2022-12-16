@@ -1,14 +1,13 @@
 <?php
 
 namespace Database\Seeders;
-
 use App\User;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
 {
     /**
-     * Run the database Seeders.
+     * Run the database seeds.
      *
      * @return void
      */
@@ -16,9 +15,9 @@ class UserSeeder extends Seeder
     {
         $user = User::create([
             'name' => 'Admin',
-            'email' => 'admin@gma.com',
-            'username' => 'admin',
-            'password' => bcrypt('password'),
+            'email' => 'Admin@gmail.com',
+            
+            'password' => bcrypt('123456789'),
         ]);
 
         $user->assignRole('Admin');

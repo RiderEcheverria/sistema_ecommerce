@@ -32,9 +32,12 @@
                                                         <a href="{{ route('products.index') }}" class="btn btn-dark">
                                                             <i class="fas fa-undo-alt"></i>
                                                         </a>
+                                                        
+                                                        @can('product_create')
                                                         <a href="{{ route('products.create') }}" class="btn btn-dark ">
                                                             + Agregar nuevo
                                                         </a>
+                                                        @endcan
                                                     </div>
                                                 </form>
                                            
@@ -77,14 +80,20 @@
                                                     </td>  --}}
                                                     <td style="width: 20%;">
                                                         {{--  {!! Form::open(['route' => ['products.destroy', $product], 'method' => 'DELETE']) !!}  --}}
+                                                        
+                                                        @can('product_show')
                                                         <a class="btn btn-outline-warning"
                                                             href="{{ route('products.show', $product) }}">
                                                             <i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                        <a class="btn btn-outline-info"
+                                                            @endcan
+                                                            @can('product_edit')
+                                                            <a class="btn btn-outline-info"
                                                             href="{{ route('products.edit', $product) }}" title="Editar">
                                                             <i class="far fa-edit"></i>
                                                         </a>
+                                                        @can('product_destroy')
                                                         <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$product->id}}"><i class="far fa-trash-alt"></i></a>  
+                                                        @endcan
                                                     </td>
                                                     @include('admin.product.modal.delete')
                                                     {{--  {!! Form::close() !!}  --}}
