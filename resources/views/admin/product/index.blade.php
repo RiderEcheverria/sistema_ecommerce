@@ -40,7 +40,6 @@
                                                         @endcan
                                                     </div>
                                                 </form>
-                                           
                                         </div>
                                     </div>
                                 </div>
@@ -91,12 +90,14 @@
                                                             href="{{ route('products.edit', $product) }}" title="Editar">
                                                             <i class="far fa-edit"></i>
                                                         </a>
+                                                        @endcan
                                                         @can('product_destroy')
                                                         <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$product->id}}"><i class="far fa-trash-alt"></i></a>  
-                                                        @endcan
+                                                        
                                                     </td>
                                                     @include('admin.product.modal.delete')
                                                     {{--  {!! Form::close() !!}  --}}
+                                                    @endcan
                                                 </tr>
                                             @endforeach
                                         </tbody>
