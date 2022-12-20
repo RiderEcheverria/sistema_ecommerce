@@ -29,17 +29,29 @@
                                               </div>
                                             </div>                                    
                                         </div>
-                                        <br />
+                                        <br>
                                         <div class="row">
-                                            <label for="name" class="col-sm-2 col-form-label">Permisos</label>
+                                          <div class="col-md-6">
+                                            <div class="form-group row">
+                                              <div class="col-sm-9">
+                                                <h6>Buscar permisos</h6>
+                                                <input class="form-control mr-sm-2 light-table-filter" data-table="order-table"
+                                                type="text" placeholder="Busqueda por nombre" onkeypress="return soloLetras(event)">
+                                              </div>
+                                            </div>
+                                          </div>  
+                                        </div>
+                                        <br/>
+                                        <div class="row">
                                             <div class="col-sm-7">
                                               <div class="card">
                                                 <div class="card-body"> 
                                                   <div class="tab-pane active" id="profile">
-                                                    <table class="table">
+                                                    <table  class="table order-table ">
                                                       <tbody>
                                                         @foreach ($permissions as $id => $permission)
                                                         <tr>
+                                                          <td>{{ $id }}</td> 
                                                           <td>
                                                             <div class="form-check">
                                                               <label class="form-check-label">
@@ -75,6 +87,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 {{--  validacion de letras  --}}
 <script>
@@ -96,4 +109,47 @@
             return false;
         }
     }
-</script>    
+</script>  
+<script type="text/javascript">
+  (function(document) {
+    'use strict';
+
+    var LightTableFilter = (function(Arr) {
+
+      var _input;
+
+      function _onInputEvent(e) {
+        _input = e.target;
+        var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+        Arr.forEach.call(tables, function(table) {
+          Arr.forEach.call(table.tBodies, function(tbody) {
+            Arr.forEach.call(tbody.rows, _filter);
+          });
+        });
+      }
+
+      function _filter(row) {
+        var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+        row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+      }
+
+      return {
+        init: function() {
+          var inputs = document.getElementsByClassName('light-table-filter');
+          Arr.forEach.call(inputs, function(input) {
+            input.oninput = _onInputEvent;
+          });
+        }
+      };
+    })(Array.prototype);
+
+    document.addEventListener('readystatechange', function() {
+      if (document.readyState === 'complete') {
+        LightTableFilter.init();
+      }
+    });
+
+  })(document);
+  </script>  
+
+

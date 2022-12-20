@@ -28,9 +28,11 @@
                                             <a href="{{ route('roles.index')}}" class="btn btn-dark">
                                                 <i class="fas fa-undo-alt"></i>
                                             </a>
+                                            @can('role_create')
                                             <a href="{{ route('roles.create')}}"  class="btn btn-dark ">
                                                 + Agregar nuevo
                                             </a>
+                                            @endcan
                                         </div>                           
                                     </form>   
                                 </div>
@@ -64,7 +66,7 @@
                                       @endforelse
                                     </td>
                                             <td style="width: 20%;">
-                                              @can('role_destroy')
+                                              
                                                 {!! Form::open(['route' => ['roles.destroy', $role], 'method' => 'DELETE']) !!}
                                                 {{--  <a class="btn btn-outline-warning"
                                                     href="{{ route('roles.show', $role) }}">
@@ -84,6 +86,7 @@
                                                 {{--  <form action="{{ route('roles.destroy', $role->id) }}" method="post"
                                                   onsubmit="return confirm('areYouSure')" style="display: inline-block;">
                                                 </form>  --}}
+                                                @can('role_destroy')
                                                 <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-user{{$role->id}}"><i class="far fa-trash-alt"></i></a>  
                                                 
                                                 {{--  <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-delete-edit{{$role->id}}"><i class="far fa-trash-alt"></i></a>    --}}

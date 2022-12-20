@@ -41,16 +41,17 @@
           </a>
         </li>  --}}
          {{--  <i class="fa-solid fa-badge-check"></i>  --}}
-         @can('user_index')
+        @can('gestion_de_usuarios') 
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
                 <i class="fa fa-users menu-icon" ></i>
               <span class="menu-title">Gestión de usuarios</span>
               <i class="menu-arrow"></i>
             </a>
-           
             <div class="collapse" id="icons">
               <ul class="nav flex-column sub-menu">
+                @endcan
+                @can('user_index')
                 <li class="nav-item"> <a class="nav-link" href="{{route('users.index')}}"><i class="fa fa-user menu-icon"></i>
                     Usuarios</a></li>
                   @endcan
@@ -59,13 +60,14 @@
                 @endcan
                 @can('permission_index')
                 <li class="nav-item"> <a class="nav-link" href="{{route('permissions.index')}}"><i class="fa fa-unlock menu-icon"></i>Permisos</a></li>
-                
+                @endcan
                 {{--  <li class="nav-item"> <a class="nav-link" href="pages/icons/themify.html">Themify icons</a></li>  --}}
+                @can('gestion_de_usuarios') 
               </ul>
             </div>
           </li> 
-          @endcan   
-          @can('persona_index')      
+          @endcan
+       @can('gestion_de_personas')      
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
             <i class="fa-solid fa-users menu-icon" ></i>
@@ -75,6 +77,8 @@
           </a>
           <div class="collapse" id="tables">
             <ul class="nav flex-column sub-menu">
+              @endcan
+              @can('persona_index')  
               <li class="nav-item" > <a class="nav-link" href="{{ route('personas.index') }}"><i class="fa fa-user-plus menu-icon"></i>Personas</a></li>
               @endcan   
               @can('cliente_index')  
@@ -85,9 +89,11 @@
               @endcan   
               @can('dealer_index') 
               <li class="nav-item"> <a class="nav-link" href="{{ route('dealers.index') }}"><i class="fa-solid fa-truck-fast menu-icon"></i>Repartidores</a></li>           
-          </div>
+              @endcan 
+              @can('gestion_de_personas') 
+            </div>
         </li>
-        @endcan  
+        @endcan 
             {{--  <li class="nav-item">
 
                 <a class="nav-link" href="{{ route('personas.index') }}">
@@ -116,7 +122,8 @@
             <span class="menu-title">Promociones</span>
           </a>
         </li>  --}}
-        @can('product_index')
+      
+        @can('gestion_de_inventario')
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="true"
                     aria-controls="page-layouts">
@@ -127,6 +134,8 @@
                 <div class="collapse" id="page-layouts">
                     <ul class="nav flex-column sub-menu">
                         {{-- <li class="nav-item "> <a class="nav-link" href="#">Inventario</a></li> --}}
+                        @endcan 
+                        @can('product_index')
                         <li class="nav-item"> <a class="nav-link" href="{{ route('products.index') }}">
                             <i class="fa fa-tags menu-icon"></i>
                             Productos</a>
@@ -141,6 +150,9 @@
                         <li class="nav-item"> <a class="nav-link" 
                             href="{{ route('brands.index') }}"><i class="fa fa-tag menu-icon"></i>
                             Marcas</a></li>
+                            @endcan 
+                           
+                        @can('gestion_de_inventario')
                     </ul>
                 </div>
             </li>
