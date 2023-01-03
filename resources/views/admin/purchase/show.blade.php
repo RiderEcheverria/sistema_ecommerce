@@ -40,7 +40,7 @@
                                     <thead>
                                         <tr>
                                             <th>Producto</th>
-                                            <th>Precio (Bs)</th>
+                                            <th>Precio de compra(Bs)</th>
                                             <th>Cantidad</th>
                                             <th>SubTotal (Bs)</th>
                                         </tr>

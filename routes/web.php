@@ -28,7 +28,8 @@ Route::resource('personas','PersonaController')->names('personas');
 //RUTA DE REGISTRO DE CILENTES
 Route::resource('clients','ClientController')->names('clients');
 
-//RUTAS DE REGISTRO DE PRODUCTO,CATEGORIAS Y MARCAS
+//RUTAS DE REGISTRO DE INVENTARIO,PRODUCTO,CATEGORIAS Y MARCAS
+Route::resource('inventarios','InventarioController')->names('inventarios');
 Route::resource('products','ProductController')->names('products');
 Route::resource('categories','CategoryController')->names('categories');
 Route::resource('brands','BrandController')->names('brands');

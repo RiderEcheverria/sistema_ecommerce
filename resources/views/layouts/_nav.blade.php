@@ -109,13 +109,13 @@
                 </a>
             </li>
             @endcan
-            {{-- <li class="nav-item">
+            <li class="nav-item">
           
-          <a class="nav-link" href="pages/widgets.html">
+          <a class="nav-link" href="#">
             <i class="fa fa-shopping-cart  menu-icon"></i>
-            <span class="menu-title">Ventas</span>
+            <span class="menu-title">Gestión de ventas</span>
           </a>
-        </li> --}}
+        </li>
             {{--  <li class="nav-item">
           <a class="nav-link" href="pages/widgets.html">
             <i class="fa fa-gift  menu-icon"></i>
@@ -128,13 +128,19 @@
                 <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="true"
                     aria-controls="page-layouts">
                     <i class="fa-solid fa-layer-group menu-icon"></i>
-                    <span class="menu-title">Gestión de inventario</span>
+                    <span class="menu-title">Gestión de inventarios</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="page-layouts">
                     <ul class="nav flex-column sub-menu">
                         {{-- <li class="nav-item "> <a class="nav-link" href="#">Inventario</a></li> --}}
                         @endcan 
+                        @can('inventario_index')
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('inventarios.index') }}">
+                            <i class="fa fa-tags menu-icon"></i>
+                            Inventario</a>
+                        </li>
+                        @endcan   
                         @can('product_index')
                         <li class="nav-item"> <a class="nav-link" href="{{ route('products.index') }}">
                             <i class="fa fa-tags menu-icon"></i>

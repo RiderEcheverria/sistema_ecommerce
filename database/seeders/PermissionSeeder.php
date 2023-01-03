@@ -75,6 +75,12 @@ class PermissionSeeder extends Seeder
             'dealer_show',
             'dealer_edit',
             'dealer_destroy',
+
+            'inventario_index',
+            'inventario_create',
+            'inventario_show',
+            'pinventario_edit',
+            'inventario_destroy',
             
             'product_index',
             'product_create',
