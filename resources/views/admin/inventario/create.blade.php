@@ -20,7 +20,7 @@
                                     <div class="card-body">                                
                                         <div class="card-body">
                                             <div class="form-row">
-                                                <div class="form-group col-md-8">
+                                                {{--  <div class="form-group col-md-8">
                                                     <div class="form-group">
                                                         <label for="category_id">Productos</label>
                                                         <select class="form-control" name="product_id" id="product_id">
@@ -29,26 +29,58 @@
                                                         @endforeach
                                                     </select>
                                                     </div>
-                                                </div>
-                                                <div class="form-group col-md-4">
+                                                </div>  --}}
+                                                <div class="form-group col-md-8">
                                                     <div class="form-group">
-                                                        <label for="codigo">Codigo</label>
-                                                        <input type="number" class="form-control" name="codigo" id="codigo" aria-describedby="helpId"
-                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
-                                                        onKeyPress="if(this.value.length==8) return false;"  min="1" max="99999999" />
+                                                        <label for="category_id">Productos</label>
+                                                        <select class="form-control" name="product_id" id="product_id">
+                                                        @foreach ($purchaseDetails as $purchaseDetail)
+                                                            <option value="{{ $purchaseDetail->id }}">Nombre: {{ $purchaseDetail->product->name }} Precio de compra: {{ $purchaseDetail->price }} Cantidad: {{ $purchaseDetail->quantity }}</option>
+                                                        @endforeach
+                                                    </select>
                                                     </div>
-                                                </div> 
+                                                </div>
+                                                
+                                                {{--  <div class="form-group row ">
+                                                    <h6>Detalles de compra</h6>
+                                                    <div class="table-responsive col-md-12">
+                                                        <table id="detalles" class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Producto</th>
+                                                                    <th>Precio de compra(Bs)</th>
+                                                                    <th>Cantidad</th>
+                                                                    <th>SubTotal (Bs)</th>
+                                                                </tr>
+                                                            </thead>
+                                                           
+                                                            <tbody>
+                                                                @foreach ($purchaseDetails as $purchaseDetail)
+                                                                    <tr>
+                                                                        <td>{{ $purchaseDetail->product->name }}</td>
+                                                                        <td>Bs {{ $purchaseDetail->price }}</td>
+                                                                        <td>{{ $purchaseDetail->quantity }}</td>
+                                                                        <td>Bs
+                                                                            {{ number_format($purchaseDetail->quantity * $purchaseDetail->price, 2) }}
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>  --}}
+                                               
                                             </div>
                                             <br>
                                             <div class="form-row">               
-                                                <div class="form-group col-md-4">
+                                                {{--  <div class="form-group col-md-4">
                                                     <div class="form-group">
                                                         <label for="precio_compra">Precio compra</label>
                                                         <input type="number" class="form-control" name="precio_compra" id="precio_compra" aria-describedby="helpId"
                                                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
                                                         onKeyPress="if(this.value.length==8) return false;"  min="1" max="99999999" />
                                                     </div>
-                                                </div>
+                                                </div>  --}}
                                                 <div class="form-group col-md-4">
                                                     <div class="form-group">
                                                         <label for="precio_venta">Precio venta</label>
@@ -59,17 +91,28 @@
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <div class="form-group">
+                                                        <label for="codigo">Codigo</label>
+                                                        <input type="number" class="form-control" name="codigo" id="codigo" aria-describedby="helpId"
+                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
+                                                        onKeyPress="if(this.value.length==8) return false;"  min="1" max="99999999" />
+                                                    </div>
+                                                </div> 
+                                                {{--  <div class="form-group col-md-4">
+                                                    <div class="form-group">
                                                         <label for="stock">Stock</label>
                                                         <input type="number" class="form-control" name="stock" id="stock" aria-describedby="helpId"
                                                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
                                                         onKeyPress="if(this.value.length==8) return false;" min="1" max="99999999" />
                                                     </div>
-                                                </div>
+                                                </div>  --}}
                                             </div>
                                             {{--  @include('admin.purchase._form1')  --}}
+                                            <br>
+
+                                            <button type="submit" class="btn btn-dark mr-2">Registrar</button>
+                                            <a href="{{ route('inventarios.index') }}" class="btn btn-dark mr-2"> Cancelar</a>
                                         </div>
-                                        <button type="submit" class="btn btn-dark mr-2">Registrar</button>
-                                        <a href="{{ route('inventarios.index') }}" class="btn btn-dark mr-2"> Cancelar</a>
+                                       
                                     </div>
                                 </div>
                                 {!! Form::close() !!}

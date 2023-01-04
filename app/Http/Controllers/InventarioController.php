@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Product;
 use App\Inventario;
+use App\Client;
 use Illuminate\Http\Request;
+use App\PurchaseDetails;
 use Illuminate\Support\Facades\Gate;
 class InventarioController extends Controller
 {
@@ -20,18 +22,24 @@ class InventarioController extends Controller
         abort_if(Gate::denies('inventario_create'), 403);
       
 
-        $products= Product::get();
+        // $products= Product::get();
+        $purchaseDetails= PurchaseDetails::get();
+        // $clientes= Client::get();
         // $inventario = new Inventario();
-        return view('admin.inventario.create', compact('products'));
+        $purchase_details= PurchaseDetails::get();
+        return view('admin.inventario.create', compact('purchaseDetails'));
 
       
     }
 
     
-    // public function store(Request $request)
-    // {
+    public function store(Request $request)
+    {
+        'Alert'::toast('Exito Se ha registrado un nuevo inventario', 'success');
         
-    // }
+        Inventario::create($request->all());
+        return redirect()->route('inventario.index');
+    }
 
    
     // public function show($id)

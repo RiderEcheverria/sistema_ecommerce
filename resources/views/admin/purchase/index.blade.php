@@ -75,6 +75,9 @@
                                                                 type="submit" title="Eliminar">
                                                                 <i class="far fa-trash-alt"></i>
                                                             </button>  --}}
+                                                            <a href="{{route('purchases.pdf', $purchase)}}" class="btn btn-outline-danger"
+                                                            title="Generar PDF"
+                                                            ><i class="far fa-file-pdf"></i></a>
                                                             {!! Form::close() !!}
                                                         </td>
                                                     </tr>

@@ -128,7 +128,7 @@
                 <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="true"
                     aria-controls="page-layouts">
                     <i class="fa-solid fa-layer-group menu-icon"></i>
-                    <span class="menu-title">Gestión de inventarios</span>
+                    <span class="menu-title">Gestión de inventarios </span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="page-layouts">

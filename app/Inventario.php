@@ -13,8 +13,11 @@ class Inventario extends Model
     protected $fillable = [
         
         'product_id',
+        'quantity',
+        'quantity',
+        'price',
         'codigo',
-        'precio_compra',
+        // 'precio_compra',
         'precio_venta',
         'stock',
        
