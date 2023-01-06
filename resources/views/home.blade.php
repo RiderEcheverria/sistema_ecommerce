@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 grid-margin stretch-card">
+                    {{--  <div class="col-md-6 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="">
@@ -70,8 +70,33 @@
                                 <canvas id="compras"></canvas>
                             </div>
                         </div>
+                    </div>  --}}
+                 
+                    <div class="col-md-6 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body"><div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                            <h4 class="">
+                                <i class="fas fa-chart-area"></i>
+                                Ventas - Meses
+                            </h4>
+                          <h2 class="mb-5"><font style="vertical-align: inherit;">56 </font><span class="text-muted h4 font-weight-normal"><font style="vertical-align: inherit;"> Ventas </font></span></h2>
+                          <canvas id="sales-chart" style="display: block; width: 403px; height: 201px;" class="chartjs-render-monitor" width="403" height="201"></canvas>
+                        </div>
+                        </div>
                     </div>
                     <div class="col-md-6 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body"><div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                            <h4 class="">
+                                <i class="fas fa-chart-area"></i>
+                                Compras - Meses
+                            </h4>
+                          <h2 class="mb-5"><font style="vertical-align: inherit;">100 </font><span class="text-muted h4 font-weight-normal"><font style="vertical-align: inherit;"> Compras </font></span></h2>
+                          <canvas id="sales-chart" style="display: block; width: 403px; height: 201px;" class="chartjs-render-monitor" width="403" height="201"></canvas>
+                        </div>
+                        </div>
+                    </div>
+                    {{--  <div class="col-md-6 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="">
@@ -81,7 +106,7 @@
                                 <canvas id="ventas"></canvas>
                             </div>
                         </div>
-                    </div>
+                    </div>  --}}
                 </div>
                 <div class="row">
                     <div class="col-12 grid-margin">
