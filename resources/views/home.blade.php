@@ -60,50 +60,6 @@
                     </div>
                 </div>
                 <div class="row">
-                  {{--  <div class="col-md-4 grid-margin stretch-card">
-                      <div class="card">
-                        <div class="card-body d-flex flex-column">
-                          <h4 >
-                            <i class="fas fa-chart-pie"></i>
-                            Estado de pedidos
-                          </h4>
-                          <div class="flex-grow-1 d-flex flex-column justify-content-between">
-                            <canvas id="sales-status-chart" class="mt-3"></canvas>
-                            <div class="pt-4">
-                              <div id="sales-status-chart-legend" class="sales-status-chart-legend"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>  --}}
-                  </div>
-                  <div class="col-md-8 grid-margin stretch-card">
-                      {{--  <div class="card">
-                          <div class="card-body">
-                              <h4 >
-                                  <i class="fas fa-chart-bar"></i>
-            
-                                  Productos más pedidos
-                              </h4>
-                              <canvas id="productos_pedidos"></canvas>
-                          </div>
-                      </div>  --}}
-                  </div>
-              </div>
-                {{--  <div class="row">
-                    <div class="col-md-12 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="">
-                                    <i class="fas fa-chart-line"></i>
-                                    Ventas diarias
-                                </h4>
-                                <canvas id="ventas_diarias" height="100"></canvas>
-                                <div id="orders-chart-legend" class="orders-chart-legend"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>  --}}
-                <div class="row">
                     <div class="col-md-6 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
@@ -127,58 +83,6 @@
                         </div>
                     </div>
                 </div>
-                {{--  <div class="row">
-                    <div class="col-md-8 grid-margin stretch-card">
-                      <div class="card">
-                        <div class="card-body">
-                          <h4 class="">
-                            <i class="fas fa-table"></i>
-                            Pedidos del día
-                          </h4>
-                          <div class="table-responsive">
-                            <table class="table">
-                              <thead>
-                                <tr>
-                                  <th>Cliente</th>
-                                  <th>Fecha</th>
-                                  <th>Monto</th>
-                                  <th>Estado</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                    <td class="font-weight-bold"> 
-                                    </td>
-                                    <td class="text-muted"> 
-                                    </td>
-                                    <td>    
-                                    </td>
-                                    <td>
-                                      <label class="badge badge- badge-pill"></label>
-                                    </td>
-                                  </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body d-flex flex-column">
-                            <h4 class="">
-                              <i class="fas fa-tachometer-alt"></i>
-                              Estado de pedios
-                            </h4>
-                            <p class="card-description">Estado de pedidos del día</p>
-                            <div class="flex-grow-1 d-flex flex-column justify-content-between">
-                              <canvas id="daily-sales-chart" class="mt-3 mb-3 mb-md-0"></canvas>
-                              <div id="daily-sales-chart-legend" class="daily-sales-chart-legend pt-4 border-top"></div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                  </div>  --}}
                 <div class="row">
                     <div class="col-12 grid-margin">
                         <div class="card">
@@ -214,7 +118,8 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
+    </div>
          <div class="card">
             <div class="card-body">
                 <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
