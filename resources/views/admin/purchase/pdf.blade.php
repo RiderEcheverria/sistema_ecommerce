@@ -122,6 +122,7 @@
                         <h5 align="center" id="proveedor">
                             <br>Nombre:{{$purchase->provider->name}}
                             <br>Dirección:{{$purchase->provider->address}}
+                            <br>NIT:{{$purchase->provider->nit}}
                             <br>Teléfono:{{$purchase->provider->celular}}
                             <br>Email:{{$purchase->provider->email}}
                         </h5>
