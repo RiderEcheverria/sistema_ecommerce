@@ -47,7 +47,7 @@
                                                     <p class="description">
                                                       {{--  {{ _('Ceo/Co-Founder') }} <br>  --}}
                                                       {{ $role->guard_name }} <br>
-                                                      <td class="text-primary">{{ $role->created_at->toFormattedDateString() }}</td>
+                                                      <td class="text-primary">{{ $role->created_at}}</td>
                                                     </p>
                                                   </div>
                                                 </p>

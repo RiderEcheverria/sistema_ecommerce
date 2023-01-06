@@ -63,7 +63,7 @@
                                                         <tr>
                                                           <th>Creado en:</th>
                                                           
-                                                          <td class="text-primary">{{ $user->created_at->toFormattedDateString() }}</td>   
+                                                          <td class="text-primary">{{ $user->created_at}}</td>   
                                                         </tr>
                                                         <tr>
                                                             <th>Roles:</th>
