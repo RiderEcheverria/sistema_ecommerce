@@ -12,7 +12,7 @@ use Carbon\Carbon;
 use App\PurchaseDetails;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
-use Barryvdh\DomPDF\Facade as PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PurchaseController extends Controller
 {   public function __construct()
@@ -91,6 +91,7 @@ class PurchaseController extends Controller
         'Alert'::toast('Exito Se ha actualizado el registro', 'success');
         $purchase->update($request->all());
         return redirect()->route('purchases.index');
+        
     }
 
     
@@ -101,15 +102,21 @@ class PurchaseController extends Controller
         $Purchase->delete();
         return redirect()->route('purchases.index');
     }
-//     public function pdf(Purchase $purchase)
-//     {
-//         abort_if(Gate::denies('purchase_show'), 403);
-//         $subtotal = 0 ;
-//         $purchaseDetails = $purchase->purchaseDetails;
-//         foreach ($purchaseDetails as $purchaseDetail){
-//             $subtotal += $purchaseDetail->quantity * $purchaseDetail->price;
-//         }
-//         $pdf = PDF::loadView('admin.purchase.pdf', compact('purchase', 'subtotal', 'purchaseDetails'));
-//         return $pdf->download('Reporte_de_compra_'.$purchase->id.'.pdf');
-//     }
+    
+    public function pdf(Purchase $purchase)
+    {
+        // dd($purchase);
+        $subtotal= 0;
+        $purchaseDetails = $purchase->purchaseDetails;
+        foreach($purchaseDetails as $purchaseDetail) {
+       
+            $subtotal += $purchaseDetail->quantity * $purchaseDetail->price;
+        }
+        
+        $pdf = PDF::loadView('admin.purchase.pdf', compact('purchase', 'subtotal', 'purchaseDetails'));
+        return $pdf->download('Reporte_de_compra_'.$purchase->id.'.pdf');
+      
+        
+    }
+
 }

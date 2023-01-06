@@ -37,6 +37,7 @@ class RoleHasPermissionSeeder extends Seeder
                 substr($permission->name, 0, 19) != 'gestion_de_usuarios'&&
                 substr($permission->name, 0, 19) != 'gestion_de_personas'&&
                 substr($permission->name, 0, 21) != 'gestion_de_inventario'&&
+                substr($permission->name, 0, 5) != 'sale_'&&
                 substr($permission->name, 0, 9) != 'purchase_';
          
         });

@@ -73,17 +73,17 @@
                                             </div>
                                             <br>
                                             <div class="form-row">               
-                                                {{--  <div class="form-group col-md-4">
+                                                <div class="form-group col-md-4">
                                                     <div class="form-group">
-                                                        <label for="precio_compra">Precio compra</label>
+                                                        <label for="precio_compra">Precio de compra</label>
                                                         <input type="number" class="form-control" name="precio_compra" id="precio_compra" aria-describedby="helpId"
                                                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
                                                         onKeyPress="if(this.value.length==8) return false;"  min="1" max="99999999" />
                                                     </div>
-                                                </div>  --}}
+                                                </div>
                                                 <div class="form-group col-md-4">
                                                     <div class="form-group">
-                                                        <label for="precio_venta">Precio venta</label>
+                                                        <label for="precio_venta">Precio de venta</label>
                                                         <input type="number" class="form-control" name="precio_venta" id="precio_venta" aria-describedby="helpId"
                                                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ng-model="number" 
                                                         onKeyPress="if(this.value.length==8) return false;"  min="1" max="99999999" />

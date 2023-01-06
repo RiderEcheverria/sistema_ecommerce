@@ -40,7 +40,7 @@ Route::resource('providers','ProviderController')->names('providers');
 Route::resource('dealers','DealerController')->names('dealers');
 //RUTA DE REGISTRO DE COMPRAS
 Route::resource('purchases','PurchaseController')->names('purchases');
-Route::get('purchases/pdf/{purchase}', [PurchaseController::class, 'pdf'])->name('purchases.pdf');
+Route::get('purchases/pdf/{purchase}', 'PurchaseController@pdf')->name('purchases.pdf');
 //RUTA DE REGISTRO DE VENTAS
 Route::resource('sales','SaleController')->names('sales');
 });

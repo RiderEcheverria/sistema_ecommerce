@@ -79,7 +79,7 @@ class PermissionSeeder extends Seeder
             'inventario_index',
             'inventario_create',
             'inventario_show',
-            'pinventario_edit',
+            'inventario_edit',
             'inventario_destroy',
             
             'product_index',
@@ -93,6 +93,12 @@ class PermissionSeeder extends Seeder
             'purchase_show',
             'purchase_edit',
             'purchase_destroy',
+            
+            'sale_index',
+            'sale_create',
+            'sale_show',
+            'sale_edit',
+            'sale_destroy',
 
         ];
         foreach ($permissions as $permission) {

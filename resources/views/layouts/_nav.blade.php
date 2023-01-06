@@ -102,6 +102,7 @@
                 </a>
             </li>  --}}
             @can('purchase_index') 
+            
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('purchases.index') }}">
                     <i class="fa fa-shopping-bag menu-icon" ></i>
@@ -109,13 +110,14 @@
                 </a>
             </li>
             @endcan
+            @can('sale_index') 
             <li class="nav-item">
-          
-          <a class="nav-link" href="#">
+           <a class="nav-link" href="#">
             <i class="fa fa-shopping-cart  menu-icon"></i>
             <span class="menu-title">Gestión de ventas</span>
           </a>
         </li>
+        @endcan
             {{--  <li class="nav-item">
           <a class="nav-link" href="pages/widgets.html">
             <i class="fa fa-gift  menu-icon"></i>

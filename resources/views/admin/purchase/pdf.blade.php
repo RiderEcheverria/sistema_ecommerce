@@ -38,9 +38,10 @@
         float: right;
         margin-top: 2%;
         margin-left: 2%;
-        margin-right: 2%;
-        font-size: 20px;
-        background: #33AFFF;
+        margin-right: 4%;
+        font-size: 12px;
+        border: 4px
+        background: #006be9;
     }
 
     section {
@@ -67,7 +68,7 @@
 
     #faproveedor thead {
         padding: 20px;
-        background: #33AFFF;
+        background: #006be9;
         text-align: left;
         border-bottom: 1px solid #FFFFFF;
     }
@@ -81,7 +82,7 @@
 
     #faccomprador thead {
         padding: 20px;
-        background: #33AFFF;
+        background: #006be9;
         text-align: center;
         border-bottom: 1px solid #FFFFFF;
     }
@@ -95,7 +96,7 @@
 
     #facproducto thead {
         padding: 20px;
-        background: #33AFFF;
+        background: #006be9;
         text-align: center;
         border-bottom: 1px solid #FFFFFF;
     }
@@ -118,26 +119,31 @@
                 <tbody>
                     <tr>
                         <th>
-                            <p id="proveedor">Nombre: {{$purchase->provider->name}}<br>
-                                {{--  {{$purchase->provider->document_type}}-COMPRA: {{$purchase->provider->document_number}}<br>  --}}
-                                Dirección: {{$purchase->provider->address}}<br>
-                                Teléfono: {{$purchase->provider->phone}}<br>
-                                Email: {{$purchase->provider->email}}</p>
+                        <h5 align="center" id="proveedor">
+                            <br>Nombre:{{$purchase->provider->name}}
+                            <br>Dirección:{{$purchase->provider->address}}
+                            <br>Teléfono:{{$purchase->provider->celular}}
+                            <br>Email:{{$purchase->provider->email}}
+                        </h5>
                         </th>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div id="fact">
-            {{--  <p>{{$purchase->provider->document_type}} COMPRA<br />
-                {{$purchase->provider->document_number}}</p>  --}}
-                <p>NUMERO DE COMPRA<br />
-                    {{$purchase->id}}</p>
+               <center><img src="melody/images/1.png" alt="image" style="width: 65px"></center> 
+                <p>NUMERO DE COMPRA 
+                   <center>{{$purchase->id}}</p></center> 
         </div>
+        <br>
+        <br>
+        <br>
     </header>
     <br>
-
-   
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <section>
         <div>
@@ -150,8 +156,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{$purchase->user->name}}</td>
-                        <td>{{$purchase->created_at}}</td>
+                      <td> <center>{{$purchase->user->name}}</center> </td>
+                     <td> <center>{{$purchase->created_at}}</center> </td>  
                     </tr>
                 </tbody>
             </table>
@@ -174,8 +180,8 @@
                     <tr>
                         <td>{{$purchaseDetail->quantity}}</td>
                         <td>{{$purchaseDetail->product->name}}</td>
-                        <td>s/ {{$purchaseDetail->price}}</td>
-                        <td>s/ {{number_format($purchaseDetail->quantity*$purchaseDetail->price,2)}}</td>
+                        <td>Bs {{$purchaseDetail->price}}</td>
+                        <td>Bs {{number_format($purchaseDetail->quantity*$purchaseDetail->price,2)}}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -186,7 +192,7 @@
                             <p align="right">SUBTOTAL:</p>
                         </th>
                         <td>
-                            <p align="right">s/ {{number_format($subtotal,2)}}<p>
+                            <p align="right">Bs {{number_format($subtotal,2)}}<p>
                         </td>
                     </tr>
                   
@@ -195,7 +201,7 @@
                             <p align="right">TOTAL IMPUESTO ({{$purchase->tax}}%):</p>
                         </th>
                         <td>
-                            <p align="right">s/ {{number_format($subtotal*$purchase->tax/100,2)}}</p>
+                            <p align="right">Bs {{number_format($subtotal*$purchase->tax/100,2)}}</p>
                         </td>
                     </tr>
                     <tr>
@@ -203,7 +209,7 @@
                             <p align="right">TOTAL PAGAR:</p>
                         </th>
                         <td>
-                            <p align="right">s/ {{number_format($purchase->total,2)}}<p>
+                            <p align="right">Bs {{number_format($purchase->total,2)}}<p>
                         </td>
                     </tr>
                   
