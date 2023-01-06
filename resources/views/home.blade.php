@@ -21,13 +21,13 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-inline-block pt-3">
                                         <div class="d-md-flex">
-                                            <h2 class="mb-0"></h2>
+                                            <h2 class="mb-0">40</h2>
                                             <div class="d-flex align-items-center ml-md-2 mt-2 mt-md-0">
                                                 <i class="far fa-clock text-muted"></i>
                                                 <small class=" ml-1 mb-0">Mes actual</small>
                                             </div>
                                         </div>
-                                        <small class="text-gray">Compras del sistema.</small>
+                                        <small class="text-gray">Vetas del sistema.</small>
                                     </div>
                                     <div class="d-inline-block">
                                         <i class="fas fa-chart-pie text-info icon-lg"></i>                                    
@@ -43,13 +43,13 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-inline-block pt-3">
                                         <div class="d-md-flex">
-                                            <h2 class="mb-0"></h2>
+                                            <h2 class="mb-0">50</h2>
                                             <div class="d-flex align-items-center ml-md-2 mt-2 mt-md-0">
                                                 <i class="far fa-clock text-muted"></i>
                                                 <small class="ml-1 mb-0">Mes actual</small>
                                             </div>
                                         </div>
-                                        <small class="text-gray">Ventas del sistema.</small>
+                                        <small class="text-gray">Compras del sistema.</small>
                                     </div>
                                     <div class="d-inline-block">
                                         <i class="fas fa-shopping-cart text-danger icon-lg"></i>                                    
@@ -130,4 +130,7 @@
         </div>               
     </div>               
 @endsection
-
+@section('scripts')
+{!! Html::script('melody/js/data-table.js') !!}
+{!! Html::script('melody/js/chart.js') !!}
+@endsection
