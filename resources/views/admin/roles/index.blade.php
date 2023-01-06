@@ -57,7 +57,7 @@
                                     <td>{{ $role->id }}</td>
                                     <td>{{ $role->name }}</td>
                                     {{--  <td>{{ $role->guard_name }}</td>  --}}
-                                    <td class="text-primary">{{ $role->created_at->toFormattedDateString() }}</td>
+                                    <td class="text-primary">{{ $role->created_at}}</td>
                                     <td>
                                       @forelse ($role->permissions as $permission)
                                           <span class="badge badge-info">{{ $permission->name }}</span>

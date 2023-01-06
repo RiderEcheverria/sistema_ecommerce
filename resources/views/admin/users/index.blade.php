@@ -68,8 +68,8 @@
                                             <span class="badge badge-danger">No roles</span>
                                           @endforelse
                                         </td> 
-                                        <td class="text-primary">{{ $user->created_at->toFormattedDateString() }}</td>  
-                                        {!! Form::open(['route' => ['users.delete', $user], 'method' => 'DELETE']) !!}             
+                                        <td class="text-primary">{{ $user->created_at}}</td>  
+                                        {!! Form::open(['route' => ['users.delete', $user], 'method' => 'DELETE'])!!}             
                                             <td style="width: 20%;">
                                               @can('user_show')
                                                 <a class="btn btn-outline-warning"
