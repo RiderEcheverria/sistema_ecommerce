@@ -43,7 +43,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-inline-block pt-3">
                                         <div class="d-md-flex">
-                                            <h2 class="mb-0">50</h2>
+                                            <h2 class="mb-0">100</h2>
                                             <div class="d-flex align-items-center ml-md-2 mt-2 mt-md-0">
                                                 <i class="far fa-clock text-muted"></i>
                                                 <small class="ml-1 mb-0">Mes actual</small>
@@ -79,7 +79,7 @@
                                 <i class="fas fa-chart-area"></i>
                                 Ventas - Meses
                             </h4>
-                          <h2 class="mb-5"><font style="vertical-align: inherit;">56 </font><span class="text-muted h4 font-weight-normal"><font style="vertical-align: inherit;"> Ventas </font></span></h2>
+                          <h2 class="mb-5"><font style="vertical-align: inherit;">40 </font><span class="text-muted h4 font-weight-normal"><font style="vertical-align: inherit;"> Ventas </font></span></h2>
                           <canvas id="sales-chart" style="display: block; width: 403px; height: 201px;" class="chartjs-render-monitor" width="403" height="201"></canvas>
                         </div>
                         </div>
